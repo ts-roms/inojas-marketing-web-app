@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
+
 
 type PageHeroProps = {
   eyebrow: string;
@@ -21,6 +23,7 @@ export function PageHero({ eyebrow, title, description, actions, aside }: PageHe
         className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.16),transparent_65%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
+      <LogoWatermark className="-z-10 -right-20 -top-10 size-[26rem] lg:right-[-4rem] lg:size-[32rem]" />
 
       <Container className="py-16 sm:py-20 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">

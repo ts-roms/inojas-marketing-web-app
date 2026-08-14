@@ -166,10 +166,11 @@
    ========================================================================== */
 
 /* Scroll-reveal, used by <Reveal />.
-   The hidden starting state is gated on `html.js`, a class set by a tiny inline
-   script in the root layout. If scripting is disabled — or the bundle fails to
-   run at all — the class is never added and every element simply renders
-   visible. Content is never hidden by an animation that cannot finish. */
+   The hidden starting state applies only when the browser reports that
+   scripting is available to undo it. With JavaScript disabled — or in a browser
+   that does not support the `scripting` media feature — the rule never applies
+   and content simply renders visible. Content is never hidden by an animation
+   that cannot finish, and nothing has to mutate <html> before hydration. */
 @layer utilities {
   .reveal {
     transition:
@@ -178,11 +179,28 @@
     transition-delay: var(--reveal-delay, 0ms);
   }
 
-  html.js .reveal:not(.reveal-visible) {
-    opacity: 0;
-    transform: translate3d(0, 1.5rem, 0);
-    will-change: opacity, transform;
+  @media (scripting: enabled) {
+    .reveal:not(.reveal-visible) {
+      opacity: 0;
+      transform: translate3d(0, 1.5rem, 0);
+      will-change: opacity, transform;
+    }
   }
+}
+
+/* Logo watermark.
+   The mask carries the logo's ink coverage as alpha, so the watermark takes its
+   colour from `background-color` — one asset that can sit on a dark or a light
+   section. Purely decorative: always render it aria-hidden. */
+@utility logo-watermark {
+  -webkit-mask-image: url("/images/brand/inojas-logo-mask.webp");
+  mask-image: url("/images/brand/inojas-logo-mask.webp");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 /* Fine hairline grid used behind dark feature sections. */
@@ -211,7 +229,7 @@
     scroll-behavior: auto !important;
   }
 
-  html.js .reveal:not(.reveal-visible) {
+  .reveal:not(.reveal-visible) {
     opacity: 1 !important;
     transform: none !important;
   }

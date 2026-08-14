@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { fill, t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
@@ -19,6 +20,7 @@ export function TrustSection() {
   return (
     <Section tone="brand" ariaLabelledby="trust-heading" className="overflow-hidden">
       <div aria-hidden="true" className="grid-lines absolute inset-0 opacity-30" />
+      <LogoWatermark className="-left-24 top-1/2 size-[30rem] -translate-y-1/2" />
 
       <Container className="relative">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">

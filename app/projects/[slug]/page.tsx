@@ -12,6 +12,7 @@ import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import {
   clients,
   getVendorProject,
@@ -80,6 +81,7 @@ export default async function ProjectDetailPage({ params }: Params) {
           className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.18),transparent_65%)]"
         />
         <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
+        <LogoWatermark className="-z-10 -right-20 -top-12 size-[26rem] lg:right-[-4rem] lg:size-[32rem]" />
 
         <Container className="py-10 sm:py-12 lg:py-16">
           <Breadcrumbs

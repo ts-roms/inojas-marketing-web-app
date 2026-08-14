@@ -120,15 +120,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <body className="min-h-dvh antialiased">
-        {/* Marks the document as scripted before first paint. Scroll-reveal
-            elements only take their hidden starting state when this has run, so
-            a disabled or failed bundle can never leave content invisible. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js")`,
-          }}
-        />
-
         <a
           href="#main"
           className="sr-only rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"

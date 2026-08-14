@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
@@ -11,6 +12,7 @@ export function ProcessSection() {
   return (
     <Section tone="dark" ariaLabelledby="process-heading" className="overflow-hidden">
       <div aria-hidden="true" className="grid-lines absolute inset-0 opacity-25" />
+      <LogoWatermark className="-right-24 top-1/2 size-[28rem] -translate-y-1/2" />
       <Container className="relative">
         <SectionHeading
           id="process-heading"

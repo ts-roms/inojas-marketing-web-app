@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/icons";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { fill, t } from "@/lib/i18n";
 import { sectors } from "@/data/company";
 import { textVars } from "@/data/site";
@@ -20,6 +21,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,rgba(15,95,209,0.22),transparent_60%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-40" />
+      <LogoWatermark className="-z-10 -right-24 -top-16 size-[34rem] sm:-right-16 lg:right-[-6rem] lg:size-[42rem]" />
 
       <Container className="py-20 sm:py-24 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">

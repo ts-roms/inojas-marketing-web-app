@@ -16,8 +16,9 @@ type RevealProps = {
  * Deliberately small: one IntersectionObserver per element, disconnected after
  * the first intersection, no animation library, no layout thrash. Users who ask
  * their OS to reduce motion get the content immediately (checked here as well
- * as in CSS), and the hidden starting state only applies once the root layout's
- * inline script has confirmed scripting works — see `html.js` in globals.css.
+ * as in CSS), and the hidden starting state only applies where the browser
+ * reports scripting is available — see `@media (scripting: enabled)` in
+ * globals.css, which keeps content visible when JavaScript is not running.
  */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
