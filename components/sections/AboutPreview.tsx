@@ -42,7 +42,7 @@ export function AboutPreview() {
 
           <div className="lg:col-span-6">
             <Reveal>
-              <StatsBand />
+              <StatsBand columns={2} />
             </Reveal>
 
             <Reveal delay={120}>

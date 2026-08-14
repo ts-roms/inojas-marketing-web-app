@@ -5,7 +5,14 @@ import { stats, statsSource } from "@/data/company";
  * Headline figures, counted from the company profile rather than estimated.
  * The source line is rendered so a reader can see where the numbers come from.
  */
-export function StatsBand({ tone = "light" }: { tone?: "light" | "dark" }) {
+export function StatsBand({
+  tone = "light",
+  columns = 4,
+}: {
+  tone?: "light" | "dark";
+  /** Use 2 inside a half-width column — four cells there wrap to four lines. */
+  columns?: 2 | 4;
+}) {
   const dark = tone === "dark";
 
   return (
@@ -14,7 +21,7 @@ export function StatsBand({ tone = "light" }: { tone?: "light" | "dark" }) {
         className={cn(
           "grid gap-px overflow-hidden rounded-xl",
           dark ? "bg-white/10 ring-1 ring-white/10" : "bg-hairline ring-1 ring-hairline",
-          "sm:grid-cols-2 lg:grid-cols-4",
+          columns === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-2",
         )}
       >
         {stats.map((stat) => (

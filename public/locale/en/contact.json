@@ -20,7 +20,7 @@
     },
     "clientNote": {
       "label": "Note for the client:",
-      "body": "Everything else on this page comes from your company profile — update any of it in data/site.ts, and all wording in public/locale/en.json."
+      "body": "Everything else on this page comes from your company profile and tarpaulin. All of it — contact details, hours and wording — lives in public/locale/en/."
     }
   },
   "form": {

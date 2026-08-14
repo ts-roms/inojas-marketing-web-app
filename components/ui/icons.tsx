@@ -51,10 +51,12 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" />
     </>
   ),
+  /* A toothed cog. An earlier version used radial spokes, which read as a sun
+     rather than a gear at icon sizes. */
   gear: (
     <>
-      <circle cx="12" cy="12" r="3.2" />
-      <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1" />
+      <path d="M9.64 1.77 L14.36 1.77 L14.92 4.77 L15.05 4.82 L17.56 3.1 L20.9 6.44 L19.18 8.95 L19.23 9.08 L22.23 9.64 L22.23 14.36 L19.23 14.92 L19.18 15.05 L20.9 17.56 L17.56 20.9 L15.05 19.18 L14.92 19.23 L14.36 22.23 L9.64 22.23 L9.08 19.23 L8.95 19.18 L6.44 20.9 L3.1 17.56 L4.82 15.05 L4.77 14.92 L1.77 14.36 L1.77 9.64 L4.77 9.08 L4.82 8.95 L3.1 6.44 L6.44 3.1 L8.95 4.82 L9.08 4.77 Z" />
+      <circle cx="12" cy="12" r="3.4" />
     </>
   ),
   bolt: <path d="M13.5 2.5 5 13.5h5.5L10 21.5 19 10.5h-5.5l0-8Z" />,
