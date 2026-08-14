@@ -1,11 +1,13 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
+import { fill, t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { legalDocuments } from "@/data/company";
+import { textVars } from "@/data/site";
 
 /**
  * Credibility section, built from the registrations listed on the Legal
@@ -24,14 +26,14 @@ export function TrustSection() {
             <SectionHeading
               id="trust-heading"
               tone="dark"
-              eyebrow="Registered and permitted"
-              title="A properly registered shop, not a backyard operation"
-              description="Inojas Hydraulic Repair Shop holds the national and local registrations required to work on client sites. Copies of any of these documents can be provided with a quotation on request."
+              eyebrow={t.trust.eyebrow}
+              title={t.trust.title}
+              description={fill(t.trust.description, textVars)}
             />
 
             <div className="mt-9">
               <Button href="/about" variant="outline" icon="arrowRight">
-                More about the company
+                {t.actions.moreAboutCompany}
               </Button>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
@@ -14,9 +15,9 @@ export function ValueProps() {
         <SectionHeading
           id="value-props-heading"
           align="center"
-          eyebrow="Why work with us"
-          title="Repair first, replace only when it is the honest answer"
-          description="Four things that shape how every job is quoted, carried out and turned over."
+          eyebrow={t.home.valueProps.eyebrow}
+          title={t.home.valueProps.title}
+          description={t.home.valueProps.description}
         />
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2">

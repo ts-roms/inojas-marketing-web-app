@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { fill, t } from "@/lib/i18n";
 import { Icon, SocialIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/navigation/Logo";
 import { legalNav, mainNav } from "@/data/navigation";
@@ -33,7 +34,12 @@ export function Footer() {
                       className="inline-flex size-10 items-center justify-center rounded-md text-brand-300 ring-1 ring-inset ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
                     >
                       <SocialIcon name={social.icon} className="size-4" />
-                      <span className="sr-only">{`${site.shortName} on ${social.label}`}</span>
+                      <span className="sr-only">
+                        {fill(t.footer.socialLabel, {
+                          company: site.shortName,
+                          network: social.label,
+                        })}
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -42,10 +48,10 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
+          <nav aria-label={t.nav.footerLabel} className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
             <div>
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-                Company
+                {t.footer.companyHeading}
               </h2>
               <ul className="mt-4 space-y-1 text-sm">
                 {mainNav.map((item) => (
@@ -58,7 +64,7 @@ export function Footer() {
 
             <div>
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-                Services
+                {t.footer.servicesHeading}
               </h2>
               <ul className="mt-4 space-y-1 text-sm">
                 {services.slice(0, 5).map((service) => (
@@ -67,14 +73,14 @@ export function Footer() {
                   </li>
                 ))}
                 <li>
-                  <FooterLink href="/services">All services</FooterLink>
+                  <FooterLink href="/services">{t.footer.allServices}</FooterLink>
                 </li>
               </ul>
             </div>
 
             <div>
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-                Equipment
+                {t.footer.equipmentHeading}
               </h2>
               <ul className="mt-4 space-y-1 text-sm">
                 {productCategories.map((category) => (
@@ -85,7 +91,7 @@ export function Footer() {
                   </li>
                 ))}
                 <li>
-                  <FooterLink href="/equipment">All equipment</FooterLink>
+                  <FooterLink href="/equipment">{t.footer.allEquipment}</FooterLink>
                 </li>
               </ul>
             </div>
@@ -94,7 +100,7 @@ export function Footer() {
           {/* Contact block */}
           <div className="lg:col-span-3">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
-              Get in touch
+              {t.footer.contactHeading}
             </h2>
             <ul className="mt-5 space-y-4 text-sm">
               <li className="flex gap-3">

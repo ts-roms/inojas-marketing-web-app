@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
 import type { Service } from "@/data/services";
@@ -43,7 +44,7 @@ export function ServiceCard({ service, variant = "compact" }: ServiceCardProps) 
       ) : null}
 
       <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-800 transition-colors group-hover:text-accent-700">
-        Learn more
+        {t.actions.learnMore}
         <Icon
           name="arrowRight"
           className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"

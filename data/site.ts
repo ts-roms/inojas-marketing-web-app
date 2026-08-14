@@ -1,12 +1,18 @@
+import { t } from "@/lib/i18n";
+
 /**
  * ---------------------------------------------------------------------------
  * SITE CONFIGURATION
  * ---------------------------------------------------------------------------
- * Sourced from the Inojas Hydraulic Repair Shop company profile (Nov 2024).
- * Contact details, address and phone numbers are the company's own published
- * details from that document.
+ * This file holds the values that do NOT change between languages: phone
+ * numbers, email addresses, the street address, links and the founding year.
  *
- * Items still to confirm with the client before launch are marked TO CONFIRM.
+ * All wording — including the tagline, description, opening hours labels and
+ * every other sentence on the website — lives in `public/locale/en.json`.
+ * Change words there; change numbers and links here.
+ *
+ * Sourced from the Inojas Hydraulic Repair Shop company profile (Nov 2024).
+ * Items still to confirm before launch are marked TO CONFIRM.
  */
 
 export type SocialLink = {
@@ -16,17 +22,6 @@ export type SocialLink = {
   icon: "facebook" | "linkedin" | "youtube";
 };
 
-/**
- * Resolves the absolute base URL used for canonical tags, Open Graph URLs,
- * sitemap.xml and robots.txt.
- *
- * Order of preference:
- *   1. NEXT_PUBLIC_SITE_URL — set this once a custom domain is live.
- *   2. VERCEL_PROJECT_PRODUCTION_URL — supplied automatically by Vercel and
- *      set to the project's production domain, so a deployment is never
- *      advertising a domain that does not exist.
- *   3. The placeholder below, used only for local development.
- */
 function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (explicit) return explicit.replace(/\/+$/, "");
@@ -43,48 +38,39 @@ export const site = {
   name: "Inojas Hydraulic Repair Shop",
   /** Short form used in the logo lockup and tight layouts. */
   shortName: "Inojas",
-  /** Full registered name. TO CONFIRM: exact registered entity name. */
+  /** TO CONFIRM: exact registered entity name. */
   legalName: "Inojas Hydraulic Repair Shop",
-  /** Sits beside the logo in the footer and in Open Graph titles. */
-  tagline: "Hydraulic, material handling and refrigeration repair",
-  /** Default meta description; ~155 characters. */
-  description:
-    "Inojas Hydraulic Repair Shop repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems across the Philippines.",
-  /** Absolute base URL — see resolveSiteUrl() above. */
+  /** Wording lives in the locale file. */
+  tagline: t.site.tagline,
+  description: t.site.description,
+  /**
+   * Absolute base URL. Prefers NEXT_PUBLIC_SITE_URL, then Vercel's production
+   * domain, then the placeholder below. TO CONFIRM: the production domain.
+   */
   url: resolveSiteUrl(),
   /** Year the company was established, per the company profile. */
   foundedYear: 2022,
 
   contact: {
-    /** Primary shop enquiry address. */
     email: "inojas.hydraulic.repair@gmail.com",
-    /** Owner / management contact listed on the company profile. */
     managementEmail: "rodelperegrina1@gmail.com",
-    /** Mobile number from the company profile. */
-    mobileDisplay: "0946 5566 185",
+    /* Number and address below are taken from the company tarpaulin, which is
+       more recent and more complete than the 2024 company profile. */
+    mobileDisplay: "0946-556-6185",
     mobileHref: "tel:+639465566185",
-    /** Landline (Laguna area code 049). */
     landlineDisplay: "(049) 548 3164",
     landlineHref: "tel:+63495483164",
     address: {
-      line1: "0291 Brgy. Sirang Lupa",
+      line1: "#217 Purok 2, Barangay Sirang Lupa",
       city: "Calamba City",
       region: "Laguna",
+      postalCode: "4027",
       country: "Philippines",
     },
-    /**
-     * TO CONFIRM: opening hours are not stated in the company profile.
-     * Replace with the shop's actual schedule before launch.
-     */
-    hours: [
-      { days: "Monday – Friday", time: "8:00 AM – 5:00 PM" },
-      { days: "Saturday", time: "8:00 AM – 12:00 NN" },
-      { days: "Sunday", time: "Closed" },
-    ],
-    hoursNote: "Opening hours to be confirmed by the client before launch.",
-    /** Emergency/after-hours note. TO CONFIRM with the client. */
-    emergencyNote:
-      "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule.",
+    /** Opening hours text lives in public/locale/en.json. TO CONFIRM. */
+    hours: t.contact.hours,
+    hoursNote: t.contact.hoursNote,
+    emergencyNote: t.contact.emergencyNote,
   },
 
   /**
@@ -97,6 +83,22 @@ export const site = {
 
 /** Formats the company address as a single line. */
 export function formattedAddress(): string {
-  const { line1, city, region, country } = site.contact.address;
-  return [line1, city, region, country].join(", ");
+  const { line1, city, region, postalCode, country } = site.contact.address;
+  return [line1, `${city}, ${region} ${postalCode}`, country].join(", ");
 }
+
+/**
+ * Values interpolated into locale strings, e.g. "Est. {year}".
+ * Pass this to `fill()` alongside any page-specific values.
+ */
+export const textVars: Record<string, string | number> = {
+  company: site.name,
+  shortName: site.shortName,
+  legalName: site.legalName,
+  year: site.foundedYear,
+  city: site.contact.address.city,
+  region: site.contact.address.region,
+  country: site.contact.address.country,
+  email: site.contact.email,
+  phone: site.contact.mobileDisplay,
+};

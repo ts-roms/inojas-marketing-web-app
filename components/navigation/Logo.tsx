@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { t } from "@/lib/i18n";
 import { site } from "@/data/site";
 
 type LogoProps = {
@@ -26,17 +27,19 @@ export function Logo({ tone = "light", className, compact = false, href = "/" }:
       className={cn("group inline-flex items-center gap-3 rounded-md", className)}
       aria-label={`${site.name} — home`}
     >
+      {/* The badge is drawn on white, so on dark surfaces it sits on a white
+          disc rather than being recoloured — the navy and blue stay true. */}
       <span
         className={cn(
-          "flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-lg",
-          tone === "dark" ? "bg-white p-1" : "bg-transparent",
+          "flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full",
+          tone === "dark" ? "bg-white p-0.5" : "bg-transparent",
         )}
       >
         <Image
-          src="/images/brand/ihrs-logo.png"
+          src="/images/brand/inojas-logo.webp"
           alt=""
-          width={420}
-          height={383}
+          width={512}
+          height={512}
           priority
           className="h-full w-full object-contain"
         />
@@ -58,7 +61,7 @@ export function Logo({ tone = "light", className, compact = false, href = "/" }:
               tone === "light" ? "text-brand-500" : "text-brand-300",
             )}
           >
-            Hydraulic Repair Shop
+            {t.site.logoDescriptor}
           </span>
         ) : null}
       </span>

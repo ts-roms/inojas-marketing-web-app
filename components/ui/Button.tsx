@@ -17,7 +17,7 @@ const variants: Record<ButtonVariant, string> = {
     "bg-brand-900 text-white shadow-subtle hover:bg-brand-800 hover:shadow-lift active:translate-y-px",
   /** Default action on dark surfaces. */
   accent:
-    "bg-accent-500 text-brand-950 shadow-subtle hover:bg-accent-400 hover:shadow-lift active:translate-y-px",
+    "bg-accent-600 text-white shadow-subtle hover:bg-accent-500 hover:shadow-lift active:translate-y-px",
   /** Companion action on light surfaces. */
   secondary:
     "bg-white text-brand-900 ring-1 ring-inset ring-brand-200 hover:bg-brand-50 hover:ring-brand-300",

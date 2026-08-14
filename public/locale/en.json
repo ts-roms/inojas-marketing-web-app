@@ -1,0 +1,1124 @@
+{
+  "_readme": "Every piece of user-facing copy on the website lives in this file. Edit the text here and the site updates — no code changes. Structure (ids, icons, image paths, links, phone numbers) stays in data/*.ts because it does not change between languages. To add a language, copy this file to e.g. fil.json, translate the values, and register it in lib/i18n.ts. Missing keys fall back to English, so a partial translation is safe to ship.",
+
+  "site": {
+    "tagline": "Hydraulic repair • Fabrication • Maintenance • Supply",
+    "description": "Inojas Hydraulic Repair Shop repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems across the Philippines.",
+    "logoDescriptor": "Hydraulic"
+  },
+
+  "nav": {
+    "mainLabel": "Main",
+    "mobileLabel": "Mobile",
+    "footerLabel": "Footer",
+    "breadcrumbLabel": "Breadcrumb",
+    "siteMenuLabel": "Site menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content",
+    "items": {
+      "home": { "label": "Home", "description": "What we repair and where" },
+      "about": { "label": "About Us", "description": "The shop, our philosophy and permits" },
+      "services": { "label": "Services", "description": "Hydraulics, cooling, motors, fabrication" },
+      "equipment": { "label": "Equipment", "description": "Forklifts, pallet trucks, HVAC and more" },
+      "projects": { "label": "Projects", "description": "Completed work and clients served" },
+      "contact": { "label": "Contact Us", "description": "Request a quotation" },
+      "privacy": { "label": "Privacy Policy", "description": "" },
+      "terms": { "label": "Terms of Service", "description": "" }
+    }
+  },
+
+  "actions": {
+    "requestQuotation": "Request a quotation",
+    "requestSimilarWork": "Request similar work",
+    "arrangeCheckUp": "Arrange a check-up",
+    "viewDetails": "View details",
+    "viewProject": "View project",
+    "learnMore": "Learn more",
+    "allServices": "All services",
+    "allEquipment": "All equipment",
+    "allProjects": "All projects",
+    "browseEquipment": "Browse equipment",
+    "seeOurServices": "See our services",
+    "seeWhatWeRepair": "See what we repair",
+    "whatWeRepair": "What we repair",
+    "viewEquipment": "View equipment",
+    "viewAllWork": "View all work",
+    "fullGallery": "Full gallery",
+    "seeCompletedWork": "See completed work",
+    "seeHowWeWork": "See how we work",
+    "moreAboutCompany": "More about the company",
+    "aboutTheShop": "About the shop",
+    "readOurStory": "Read our story",
+    "talkToOurTeam": "Talk to our team",
+    "contactTheShop": "Contact the shop",
+    "backToHome": "Back to home",
+    "contactUs": "Contact us",
+    "howAJobRuns": "How a job runs"
+  },
+
+  "labels": {
+    "atAGlance": "At a glance",
+    "whatYouGet": "What you get",
+    "whatWeOffer": "What we offer",
+    "relatedServices": "Related services",
+    "servicesInvolved": "Services involved",
+    "equipmentInvolved": "Equipment involved",
+    "equipmentWeApplyItTo": "Equipment we apply it to",
+    "projectSummary": "Project summary",
+    "client": "Client",
+    "disciplines": "Disciplines",
+    "deliveredBy": "Delivered by",
+    "family": "Family",
+    "availableAs": "Available as",
+    "whereWeWork": "Where we work",
+    "onSiteOrWorkshop": "On your site, or in the {city} workshop",
+    "sectorsWeServe": "Sectors we serve",
+    "sectorsServed": "Sectors served",
+    "companyDetails": "Shop details",
+    "getInTouch": "Get in touch",
+    "company": "Company",
+    "services": "Services",
+    "equipment": "Equipment",
+    "workshop": "Workshop",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "landline": "Landline",
+    "email": "Email",
+    "enquiries": "Enquiries",
+    "management": "Management",
+    "businessHours": "Business hours",
+    "whatHappensNext": "What happens next",
+    "whatTheWorkInvolves": "What the work usually involves",
+    "service": "Service",
+    "vendorProject": "Vendor project"
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "{city}, {region} · Est. {year}",
+      "title": "We repair the equipment your operation runs on.",
+      "lead": "{company} repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems — on your site or in our shop, by technicians and engineers who have been doing this since {year}.",
+      "assurances": [
+        "Forklifts, hand pallet trucks, stackers and jacks",
+        "Refrigeration, chillers and air-conditioning systems",
+        "Motor rewinding, fabrication and roll-up doors"
+      ]
+    },
+    "introduction": {
+      "eyebrow": "About the company",
+      "title": "A repair shop built by technicians, not by salesmen",
+      "lead": "{company} was established in {year} by skilled and trained technicians and engineers. We advocate environmentally friendly repairs through the brands we carry and distribute across the Philippines — because a motor that can be rewound or a cylinder that can be resealed should not become scrap.",
+      "body": "The shop provides a diverse array of products and services: repair, supply and installation of various forklift and hand pallet truck brands, air-conditioning and refrigeration repairs, motor rewinding, fabrication and more. That range is deliberate. A dock leveller that will not lift can turn out to be a hydraulic fault, an electrical fault or a worn structure, and our customers should not have to hire three different contractors to find out which."
+    },
+    "servicesOverview": {
+      "eyebrow": "Services offered",
+      "title": "Hydraulics, cooling, motors and fabrication — one shop",
+      "description": "Everything we do sits within reach of the same team, so a job that turns out to span two trades does not turn into two contractors."
+    },
+    "valueProps": {
+      "eyebrow": "Why work with us",
+      "title": "Repair first, replace only when it is the honest answer",
+      "description": "Four things that shape how every job is quoted, carried out and turned over."
+    },
+    "equipmentShowcase": {
+      "eyebrow": "Equipment we handle",
+      "title": "Brand new, repaired, reconditioned or rebuilt",
+      "description": "Each line below can be supplied new, repaired in place, or rehabilitated and returned to service — whichever makes sense for the unit in front of us.",
+      "categoriesLabel": "Equipment categories"
+    },
+    "projectsPreview": {
+      "eyebrow": "Finished projects",
+      "title": "Work we have turned over",
+      "description": "Photographs from our own jobs — forklifts and pallet trucks back in service, cooling systems commissioned, motors rewound, doors installed."
+    },
+    "aboutPreview": {
+      "eyebrow": "Who we are",
+      "title": "Based in {city}, working across the Philippines",
+      "description": "{company} started in {year} with a simple proposition: give plants and warehouses one team that can actually fix the equipment, instead of quoting to replace it.",
+      "missionLabel": "Our mission",
+      "commitments": [
+        "Technicians and engineers, trained on this equipment",
+        "Work carried out on site or in the {city} shop",
+        "Assessment before the scope is fixed",
+        "Payment based on the terms in your quotation"
+      ]
+    }
+  },
+
+  "clients": {
+    "eyebrow": "Our valued clients",
+    "title": "Trusted by manufacturers, logistics hubs and facilities teams",
+    "description": "A selection of the companies whose forklifts, pallet trucks, cooling systems and dock equipment we keep running.",
+    "alsoServing": "Also serving {names}."
+  },
+
+  "process": {
+    "eyebrow": "Our process",
+    "title": "Four steps, from your first message to turnover",
+    "description": "The same sequence on every job, whether it is a single pallet truck or a plant-wide maintenance schedule.",
+    "steps": {
+      "enquiry": {
+        "title": "Contact us / request for quotation",
+        "description": "Call, message or send the enquiry form with the unit or system you need looked at. We come back with a quotation."
+      },
+      "assessment": {
+        "title": "Check-up and assessment",
+        "description": "Our technicians inspect the equipment — on your site or at the shop — and confirm the actual scope before any work starts."
+      },
+      "delivery": {
+        "title": "Rendering of services",
+        "description": "The repair, installation or maintenance is carried out, with payment based on the terms agreed in the quotation."
+      },
+      "completion": {
+        "title": "Project completion",
+        "description": "The unit is turned over in working condition and the balance is settled based on the agreed terms."
+      }
+    }
+  },
+
+  "trust": {
+    "eyebrow": "Registered and permitted",
+    "title": "A properly registered shop, not a backyard operation",
+    "description": "{company} holds the national and local registrations required to work on client sites. Copies of any of these documents can be provided with a quotation on request.",
+    "documents": {
+      "dti": { "title": "DTI permit", "description": "Registered with the Department of Trade and Industry." },
+      "mayors": { "title": "Mayor's permit", "description": "Business permit issued by the local government unit." },
+      "dole": { "title": "DOLE permit", "description": "Registered with the Department of Labor and Employment." },
+      "registration": {
+        "title": "Certificate of registration",
+        "description": "Business registration certificate and registration plate on file."
+      }
+    }
+  },
+
+  "valueProps": {
+    "skilled-technicians": {
+      "title": "Skilled, trained technicians",
+      "description": "The shop was established in {year} by technicians and engineers who had already spent years on this equipment. The people who quote your job are the people who work on it."
+    },
+    "environmentally-friendly": {
+      "title": "Environmentally friendly repairs",
+      "description": "We advocate repair over replacement — rewinding a motor, resealing a cylinder, rebounding a wheel — through the brands we carry and distribute across the Philippines."
+    },
+    "one-shop": {
+      "title": "One shop for the whole plant",
+      "description": "Hydraulics, material handling, refrigeration, motors, fabrication and roll-up doors under one roof, so a mixed job does not need three separate contractors."
+    },
+    "on-site-or-shop": {
+      "title": "On site or in the shop",
+      "description": "Work is carried out wherever it costs you least downtime — at your facility, or brought into the {city} shop and returned when it is running."
+    }
+  },
+
+  "company": {
+    "philosophy": "Inojas Hydraulic Repair Shop strives to attain enduring contentment for both our clients and employees by establishing a resilient organisational framework that fosters significant global competitiveness and embraces new challenges while promoting teamwork to fulfil all expectations.",
+    "mission": "Our goal is to ensure total customer satisfaction and deliver steady and enduring returns to our investors. To accomplish this mission, we consistently uphold the fundamental values that define our professional philosophy.",
+    "vision": "To become acknowledged authorities in the industry and surpass the expectations of all our clients and investors.",
+    "statsSource": "Figures counted from the Inojas Hydraulic Repair Shop company profile, November 2024.",
+    "sectors": [
+      "Food & beverage manufacturing",
+      "Logistics & warehousing",
+      "Pharmaceutical",
+      "Electronics",
+      "Hospitality & clubs",
+      "Education"
+    ],
+    "coreValues": {
+      "customer-satisfaction": {
+        "title": "Total customer satisfaction",
+        "description": "The measure of a job is a client who is satisfied with the outcome — not simply an invoice that has been issued."
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "description": "We promote teamwork to fulfil all expectations, between our own technicians and with the client's maintenance staff."
+      },
+      "resilient-organisation": {
+        "title": "A resilient organisation",
+        "description": "A stable organisational framework is what lets a small shop take on demanding work and still be here for the next repair."
+      },
+      "global-competitiveness": {
+        "title": "Global competitiveness",
+        "description": "We hold our workmanship to standards that stand comparison beyond our own region, not only within it."
+      },
+      "new-challenges": {
+        "title": "Embracing new challenges",
+        "description": "Unfamiliar equipment and awkward site conditions are part of the trade. We take the work on and learn it properly."
+      },
+      "care": {
+        "title": "Care for clients and employees",
+        "description": "Enduring contentment for both our clients and our employees is written into our philosophy, and it shapes how we schedule and staff work."
+      }
+    },
+    "milestones": {
+      "founded": {
+        "year": "2022",
+        "title": "The shop is established",
+        "description": "Founded in Calamba City, Laguna by skilled and trained technicians and engineers."
+      },
+      "hydraulics": {
+        "year": "Hydraulics",
+        "title": "Forklifts and pallet trucks",
+        "description": "Repair, supply and installation of various forklift and hand pallet truck brands becomes the core of the business."
+      },
+      "cooling": {
+        "year": "Cooling",
+        "title": "Refrigeration and air-conditioning",
+        "description": "Walk-in freezers, condensing units, chillers and vehicle air-conditioning are added to the service list."
+      },
+      "today": {
+        "year": "Today",
+        "title": "A full plant maintenance partner",
+        "description": "Motor rewinding, fabrication, roll-up doors and preventive maintenance contracts for clients across the Philippines."
+      }
+    },
+    "stats": {
+      "established": {
+        "value": "2022",
+        "label": "Established",
+        "description": "By skilled technicians and engineers"
+      },
+      "clients": {
+        "value": "16",
+        "label": "Client companies",
+        "description": "Documented in our project record"
+      },
+      "equipmentLines": {
+        "value": "11",
+        "label": "Equipment lines",
+        "description": "Serviced, supplied or rehabilitated"
+      },
+      "registrations": {
+        "value": "4",
+        "label": "Registrations",
+        "description": "DTI, Mayor's, DOLE and business permits"
+      }
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "About us",
+      "description": "{company} was established in {year} by skilled and trained technicians and engineers, repairing hydraulic, material handling and refrigeration equipment across the Philippines."
+    },
+    "hero": {
+      "eyebrow": "About us",
+      "title": "Skilled technicians, environmentally friendly repairs"
+    },
+    "profile": {
+      "eyebrow": "Company profile",
+      "title": "A shop set up to fix things properly",
+      "lead": "{company} was established in {year} by skilled and trained technicians and engineers. The company advocates for environmentally friendly repairs through the brands it carries and distributes across the Philippines.",
+      "body1": "We provide a diverse array of products and services, including the repair, supply and installation of various forklift and hand pallet truck brands, air-conditioning and refrigeration repairs, motor rewinding and reconditioning, fabrication, and the supply and installation of roll-up doors.",
+      "body2": "That breadth is the point. Warehouses and plants rarely fail in neat categories — a dock leveller that will not lift, a chiller that will not hold temperature, a forklift down on a Monday morning. Having hydraulics, cooling, electrical and fabrication skills in the same team means one call, one assessment and one team accountable for the outcome.",
+      "philosophyLabel": "Our philosophy",
+      "facts": {
+        "established": { "label": "Established", "value": "{year}" },
+        "foundedBy": { "label": "Founded by", "value": "Skilled and trained technicians and engineers" },
+        "basedIn": { "label": "Based in", "value": "{city}, {region}" },
+        "coverage": { "label": "Coverage", "value": "Client sites across the Philippines" },
+        "workCarriedOut": { "label": "Work carried out", "value": "On site or in the {city} workshop" },
+        "workshop": { "label": "Workshop", "value": "" }
+      }
+    },
+    "missionVision": {
+      "eyebrow": "Mission & vision",
+      "title": "What we are working towards",
+      "missionLabel": "Our mission",
+      "visionLabel": "Our vision"
+    },
+    "story": {
+      "eyebrow": "Our story",
+      "title": "From hydraulic repairs to full plant maintenance",
+      "description": "How the scope of the shop widened as customers kept asking for the next thing."
+    },
+    "values": {
+      "eyebrow": "Core values",
+      "title": "The values behind our professional philosophy",
+      "description": "These are the fundamental values our mission refers to — the ones we fall back on when a job gets difficult."
+    },
+    "figures": {
+      "eyebrow": "By the numbers",
+      "title": "The shop, in figures"
+    },
+    "cta": {
+      "eyebrow": "Work with us",
+      "title": "Bring us the unit everyone else wants to replace",
+      "description": "We will assess it honestly and tell you whether it is worth repairing. If it is not, we will say so — and quote the replacement instead."
+    }
+  },
+
+  "services": {
+    "meta": {
+      "title": "Services",
+      "description": "Hydraulic equipment repair, refrigeration and air-conditioning, preventive maintenance, motor rewinding, cooling tower servicing, fabrication and roll-up doors — from one shop in {city}."
+    },
+    "hero": {
+      "eyebrow": "Services offered",
+      "title": "Repair, installation and maintenance under one roof"
+    },
+    "list": {
+      "eyebrow": "What we do",
+      "title": "{count} service lines, one accountable team",
+      "description": "Open any service for what it covers, the equipment it applies to, and the clients we have delivered it for."
+    },
+    "approach": {
+      "eyebrow": "How we work",
+      "title": "The same approach on every job",
+      "items": {
+        "assessed": {
+          "title": "Assessed before it is quoted",
+          "description": "A check-up confirms the actual fault first, so the quotation covers what the unit needs rather than a standard package."
+        },
+        "location": {
+          "title": "On your site or in our shop",
+          "description": "Whichever costs you less downtime. Equipment that cannot be moved is worked on where it stands."
+        },
+        "repairFirst": {
+          "title": "Repair before replacement",
+          "description": "Rewinding, resealing and rebounding keep serviceable equipment out of the scrap bin — and off your capital budget."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Start here",
+      "title": "Describe the fault — we will tell you what it needs",
+      "description": "Send the equipment, the symptom and the site. If we need to inspect it before quoting, we will arrange a check-up rather than guess at a price."
+    },
+    "detail": {
+      "coverage": {
+        "eyebrow": "How we approach it",
+        "title": "What this service covers",
+        "body": "Work is carried out at your site where the equipment cannot easily be moved, and in the {city} workshop where a strip-down is the safer option. In either case the scope is confirmed by a check-up before anything is committed to a quotation."
+      },
+      "photos": {
+        "eyebrow": "On the job",
+        "title": "This work, in our hands",
+        "description": "Photographs from our own projects — not stock imagery."
+      },
+      "projects": {
+        "eyebrow": "Where we have done it",
+        "title": "Clients this service has been delivered for",
+        "description": "Taken from the vendor project record in our company profile."
+      },
+      "others": {
+        "eyebrow": "Also from the shop",
+        "title": "Other services"
+      },
+      "cta": {
+        "eyebrow": "Next step",
+        "title": "Need {service}?",
+        "description": "Tell us the equipment, the fault and the site. We will arrange a check-up and quote what the job actually needs."
+      }
+    },
+    "items": {
+      "hydraulic-equipment-repair": {
+        "title": "Hydraulic Equipment Repair",
+        "summary": "Forklifts, hand pallet trucks, stackers, jacks and presses put back to work.",
+        "description": "The core of the shop. Our technicians repair, supply and install various forklift and hand pallet truck brands — from a leaking cylinder to a full mechanical rehabilitation. Units can be worked on at your site or brought into the shop, whichever keeps your operation moving.",
+        "benefits": [
+          "Electric, diesel and gas forklift repair",
+          "Hand pallet truck, stacker and crocodile jack repair",
+          "Hydraulic cylinder reseal and rebuild",
+          "General rehabilitation and parts supply"
+        ]
+      },
+      "refrigeration-airconditioning": {
+        "title": "Refrigeration & Air-Conditioning",
+        "summary": "Low temperature, industrial, domestic, transport and vehicle cooling systems.",
+        "description": "We cover the full range of cooling work, from a walk-in freezer to a package-type air-conditioning unit or a refrigerated van. Repairs, transfers and complete installations are all handled by the same team.",
+        "benefits": [
+          "Low temperature refrigeration",
+          "Industrial refrigeration — centralised and package-type ACU",
+          "Domestic refrigeration — fridges, freezers and others",
+          "Transport refrigeration — refrigerated vans and reefer units",
+          "Vehicle air-conditioning units"
+        ]
+      },
+      "installation-maintenance": {
+        "title": "Installation & Preventive Maintenance",
+        "summary": "Scheduled upkeep for cooling systems, motors, pumps and dock equipment.",
+        "description": "Planned maintenance keeps small faults from becoming shutdowns. We install refrigeration and air-conditioning systems, induction and DC motors and submersible pumps, then keep them on a maintenance schedule agreed with your team.",
+        "benefits": [
+          "Refrigeration and air-conditioning system installation",
+          "Induction motor, DC motor and submersible pump servicing",
+          "Quarterly and scheduled preventive maintenance",
+          "Dock leveller and roll-up door maintenance"
+        ]
+      },
+      "motor-rewinding": {
+        "title": "Motor Rewinding & Reconditioning",
+        "summary": "Rewinding and reconditioning rather than replacing a failed motor.",
+        "description": "A rewound motor is usually back in service for a fraction of the cost of a new unit, which is part of how the shop keeps repairs environmentally friendly. We handle induction motors, DC motors, submersible pump motors and compressor motors.",
+        "benefits": [
+          "Motor rewinding",
+          "Motor reconditioning",
+          "Induction and DC motors",
+          "Submersible pump and compressor motors"
+        ]
+      },
+      "cooling-tower-servicing": {
+        "title": "Cooling Tower Servicing",
+        "summary": "General servicing through to complete cooling tower rehabilitation.",
+        "description": "Scale, rust and algae quietly cost you cooling capacity. We service cooling tower units end to end, and where a tower is too far gone for cleaning alone we carry out a complete rehabilitation.",
+        "benefits": [
+          "De-scaling",
+          "De-rusting",
+          "Removal of algae",
+          "Complete cooling tower rehabilitation"
+        ]
+      },
+      "fabrication-doors": {
+        "title": "Fabrication & Roll-Up Doors",
+        "summary": "Aluminium and stainless fabrication, plus motorised and manual roll-up doors.",
+        "description": "In-house fabrication in aluminium, stainless steel and other materials — from replacement parts and company logo signage to minor construction repairs. We also supply and install motorised and manual roll-up doors.",
+        "benefits": [
+          "Aluminium, stainless steel and other fabrication",
+          "Supply and installation of motorised roll-up doors",
+          "Manual roll-up doors",
+          "Minor construction repairs and logo fabrication"
+        ]
+      },
+      "parts-supply": {
+        "title": "Spare Parts & Consumables",
+        "summary": "Refrigerants, wheels, batteries and replacement parts, supplied on request.",
+        "description": "We supply the consumables and spare parts that go with the work — refrigerants, hydraulic components, polyurethane wheels, industrial batteries and chargers — so a repair is not held up waiting on a separate supplier.",
+        "benefits": [
+          "Refrigerants and other consumables",
+          "Forklift and hand pallet truck parts",
+          "Polyurethane wheel supply and rebounding",
+          "Industrial batteries and battery chargers"
+        ]
+      }
+    }
+  },
+
+  "equipment": {
+    "meta": {
+      "title": "Equipment",
+      "description": "Forklifts, hand pallet trucks, stackers, jacks, hydraulic presses, HVAC and chiller units, industrial batteries and more — supplied brand new, repaired, reconditioned or rehabilitated."
+    },
+    "hero": {
+      "eyebrow": "Equipment",
+      "title": "The equipment we repair, supply and rebuild"
+    },
+    "catalogue": {
+      "eyebrow": "What we handle",
+      "title": "{count} equipment lines across four families",
+      "description": "Filter by family to see what we work on and what we can offer for each line. If your equipment is not listed, ask — hydraulic, mechanical and refrigeration equipment is our trade regardless of badge."
+    },
+    "filters": {
+      "groupLabel": "Filter equipment by family",
+      "all": "All equipment",
+      "showing": "Showing {visible} of {total} equipment lines",
+      "emptyMessage": "Nothing listed in this category yet. Try another category, or get in touch — if it is hydraulic, mechanical or refrigeration equipment, we will look at it."
+    },
+    "supply": {
+      "eyebrow": "How we supply",
+      "title": "New is not always the right answer",
+      "description": "Every line above can be quoted more than one way. We will tell you which option we would choose if the unit were ours.",
+      "items": {
+        "inPlace": {
+          "title": "Repaired in place or in the shop",
+          "description": "Most units can be worked on at your facility. Where a strip-down is needed, we collect, rebuild and return the unit running."
+        },
+        "reconditioned": {
+          "title": "Reconditioned as an option",
+          "description": "For several lines we can supply a reconditioned unit instead of new — the same capability at a lower cost, and less equipment scrapped."
+        },
+        "parts": {
+          "title": "Parts and consumables supplied",
+          "description": "Seal kits, wheels, batteries, chargers and refrigerants are supplied with the work, so a repair is not held up waiting on a third party."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Quotations",
+      "title": "Need pricing, availability or a site visit?",
+      "description": "Tell us the equipment, the fault and how soon you need it back. We will quote the repair, the reconditioned option and the brand new one where all three apply."
+    },
+    "detail": {
+      "metaTitle": "{name} — repair, parts and supply",
+      "work": {
+        "eyebrow": "What we do with it",
+        "title": "Bringing a {name} back into service"
+      },
+      "quoteNote": "Scope, price and lead time are confirmed after a check-up — we quote what the unit in front of us needs rather than a standard package.",
+      "gallery": {
+        "eyebrow": "From our jobs",
+        "title": "This equipment, in our hands",
+        "description": "Photographs taken on our own projects — not stock imagery."
+      },
+      "related": {
+        "eyebrow": "Also in this family",
+        "title": "More {category} equipment",
+        "titleFallback": "Related equipment"
+      },
+      "cta": {
+        "eyebrow": "Quotations",
+        "title": "Need a {name} looked at?",
+        "description": "Send us the unit, the fault and where it is. We will tell you whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
+      }
+    },
+    "categories": {
+      "material-handling": {
+        "name": "Material Handling",
+        "description": "Forklifts, pallet trucks, stackers and jacks."
+      },
+      "cooling": {
+        "name": "Cooling & HVAC",
+        "description": "Air-conditioning, refrigeration and chiller units."
+      },
+      "power": {
+        "name": "Power & Batteries",
+        "description": "Industrial batteries and charging equipment."
+      },
+      "workshop": {
+        "name": "Workshop Equipment",
+        "description": "Presses, grinders and shop machinery."
+      }
+    },
+    "items": {
+      "hvac-refrigeration-chiller": {
+        "name": "HVAC, AC Refrigeration & Chiller",
+        "description": "Package-type and centralised units, chillers and refrigeration systems — supplied brand new, repaired in place, or offered as a reconditioned unit.",
+        "detail": "Cooling work covers everything from a split-type unit in an office to a walk-in freezer or a centralised plant. We repair units on site where we can, and take on transfers, replacements and complete installations where a repair is no longer the sensible option.",
+        "workScope": [
+          "Fault diagnosis on the unit rather than a parts-swap guess",
+          "Leak testing, evacuation and refrigerant charging",
+          "Compressor and condenser repair, transfer or replacement",
+          "Commissioning and handover once temperatures hold"
+        ],
+        "offerings": ["Brand new", "Repair services", "Reconditioned unit"],
+        "imageAlt": "Two outdoor condensing units installed on a concrete plinth during an Inojas air-conditioning project"
+      },
+      "hand-pallet-truck": {
+        "name": "Hand Pallet Truck",
+        "description": "The workhorse of any warehouse. We rebuild the hydraulic unit, replace worn wheels and seals, or supply a brand new or reconditioned truck.",
+        "detail": "Most hand pallet truck faults trace back to the hydraulic unit — seals that no longer hold pressure, a pump that will not reach full lift, or a lowering valve that has stopped metering. We strip the unit, replace what has failed, and put the truck back on the floor rather than writing it off.",
+        "workScope": [
+          "Hydraulic unit strip-down and seal kit replacement",
+          "Pump and lowering valve repair",
+          "Load and steer wheel replacement",
+          "Fork and frame straightening where the geometry allows"
+        ],
+        "offerings": ["Brand new", "Repair services", "Reconditioned unit"],
+        "imageAlt": "Hydraulic seal kit and components laid out on a workbench during a pallet truck rebuild"
+      },
+      "electric-forklift": {
+        "name": "Electric Forklift",
+        "description": "Repairs, parts supply and general rehabilitation for electric forklifts, carried out at your site or in the shop.",
+        "detail": "Electric forklifts bring together three systems that have to be diagnosed as one: the hydraulics that lift, the traction and control gear that drives, and the battery and charger that feed both. We work across all three rather than handing the electrical side to someone else.",
+        "workScope": [
+          "Lift, tilt and steering hydraulic repair",
+          "Mast, chain and carriage inspection and adjustment",
+          "Traction and control fault diagnosis",
+          "Battery and charging system checks"
+        ],
+        "offerings": ["Repair services", "Parts", "General rehabilitation"],
+        "imageAlt": "Forklift with its mast raised undergoing repair in the service yard"
+      },
+      "diesel-gas-forklift": {
+        "name": "Diesel / Gas Forklift",
+        "description": "Engine-driven forklifts serviced end to end — hydraulics, mast, transmission and running gear — with parts supplied as part of the job.",
+        "detail": "Engine-driven units earn their keep outdoors and on rougher ground, and they show it. A general rehabilitation takes the machine back through its hydraulics, mast, transmission and running gear so it holds a load properly again instead of limping between breakdowns.",
+        "workScope": [
+          "Lift and tilt cylinder reseal or replacement",
+          "Mast, chain and roller inspection",
+          "Transmission and running gear repair",
+          "General rehabilitation with parts supplied"
+        ],
+        "offerings": ["Repair services", "Parts", "General rehabilitation"],
+        "imageAlt": "Yellow diesel forklift undergoing general rehabilitation outdoors"
+      },
+      "electrical-manual-stacker": {
+        "name": "Electrical / Manual Stacker",
+        "description": "Walk-behind stackers supplied brand new, or restored — including general re-plating of the frame and mast.",
+        "detail": "Stackers take a beating around racking and doorways, and corrosion usually arrives before mechanical failure does. Alongside the hydraulic and mast work, we can strip a unit back and re-plate it so the frame is protected rather than painted over.",
+        "workScope": [
+          "Lift cylinder and hydraulic unit repair",
+          "Mast and carriage alignment",
+          "General re-plating of frame and mast",
+          "Wheel and castor replacement"
+        ],
+        "offerings": ["Brand new", "General re-plating"],
+        "imageAlt": "Manual stacker with a red mast being repaired inside a client's facility"
+      },
+      "jack-crocodile-jack": {
+        "name": "Jack / Crocodile Jack",
+        "description": "Bottle jacks, trolley jacks and crocodile jacks resealed and returned to full lifting capacity, or replaced with a new unit.",
+        "detail": "A jack that creeps down under load is a safety problem before it is a productivity one. We strip the ram, replace the seals and check the body for scoring — and if the cylinder is past saving, we say so rather than returning a jack that will fail again.",
+        "workScope": [
+          "Ram strip-down and reseal",
+          "Cylinder inspection for scoring and wear",
+          "Pump and release valve repair",
+          "Load test before release"
+        ],
+        "offerings": ["Repair services", "Brand new"],
+        "imageAlt": "Hydraulic cylinder assembly removed for reseal and inspection"
+      },
+      "hydraulic-press": {
+        "name": "Hydraulic Press",
+        "description": "Shop presses repaired and, where a part is no longer available, fabricated in-house to match the original.",
+        "detail": "Presses tend to outlive their parts supply. When a component is no longer available we fabricate a replacement to match the original rather than condemning the machine, which is usually the difference between a repair and buying new.",
+        "workScope": [
+          "Cylinder reseal and pump repair",
+          "Frame and bolster inspection",
+          "Fabrication of obsolete components",
+          "Hose and fitting replacement"
+        ],
+        "offerings": ["Repair services", "Fabrication"],
+        "imageAlt": "Large hydraulic cylinder on the workshop floor awaiting repair"
+      },
+      "grinding-machine": {
+        "name": "Grinding Machine",
+        "description": "Bench and pedestal grinding machines repaired and calibrated so they cut true and run safely.",
+        "detail": "A grinder that runs out of true wastes material and puts the operator at risk. We repair the drive and mountings and calibrate the machine so it returns to service running straight and guarded properly.",
+        "workScope": [
+          "Motor and bearing repair",
+          "Spindle and mounting inspection",
+          "Calibration after repair",
+          "Guard and safety fitting checks"
+        ],
+        "offerings": ["Repair services", "Calibration"],
+        "imageAlt": ""
+      },
+      "industrial-battery": {
+        "name": "Industrial Battery",
+        "description": "Traction batteries for electric material handling equipment — supplied new or repaired to extend service life.",
+        "detail": "A traction battery is often the single most expensive part of an electric forklift, and it rarely fails all at once. Where cells and connections can be repaired we do that first, and supply new only when the pack genuinely will not hold a shift.",
+        "workScope": [
+          "Capacity and condition assessment",
+          "Cell and connector repair",
+          "Terminal and cable replacement",
+          "Supply of new traction batteries"
+        ],
+        "offerings": ["Brand new", "Repair services"],
+        "imageAlt": ""
+      },
+      "battery-charger": {
+        "name": "Battery Charger",
+        "description": "Charger repairs, with fabrication of enclosures and mounts where the original hardware is beyond saving.",
+        "detail": "Chargers live in the dustiest corner of the warehouse and are usually the last thing anyone inspects. We repair the electronics and, where the enclosure or mounting has corroded away, fabricate a replacement so the unit is safe to leave running overnight.",
+        "workScope": [
+          "Charging fault diagnosis",
+          "Component-level electronic repair",
+          "Enclosure and mount fabrication",
+          "Cable and connector replacement"
+        ],
+        "offerings": ["Repair services", "Fabrication"],
+        "imageAlt": ""
+      },
+      "polyurethane-wheel": {
+        "name": "Polyurethane Wheel",
+        "description": "Worn load and steer wheels rebounded with fresh polyurethane onto the original hub, or replaced with new wheels.",
+        "detail": "Rebounding re-bonds fresh polyurethane onto the hub you already own. It costs less than a new wheel set, keeps a serviceable hub out of the scrap bin, and is usually the quickest way to stop a pallet truck marking your floor.",
+        "workScope": [
+          "Wheel and hub condition assessment",
+          "Rebounding onto the original hub",
+          "Bearing replacement",
+          "Supply of new wheels where the hub is beyond use"
+        ],
+        "offerings": ["Brand new", "Rebounding"],
+        "imageAlt": ""
+      }
+    }
+  },
+
+  "projects": {
+    "meta": {
+      "title": "Projects",
+      "description": "Completed hydraulic, material handling, refrigeration and fabrication work by {company} — with the clients and scopes we have delivered to date."
+    },
+    "hero": {
+      "eyebrow": "Finished projects",
+      "title": "Equipment we have put back into service"
+    },
+    "gallery": {
+      "eyebrow": "On the job",
+      "title": "Photographs from our own workshop and client sites",
+      "description": "Filter by discipline to see the kind of work we take on. Every photograph here is our own — no stock imagery.",
+      "groupLabel": "Filter work by discipline",
+      "all": "All work",
+      "count": "{visible} of {total} photos"
+    },
+    "record": {
+      "eyebrow": "Vendor projects to date",
+      "title": "What we delivered, and for whom",
+      "description": "The record of vendor work from our company profile — the scope in each case is described as it was carried out."
+    },
+    "cta": {
+      "eyebrow": "Your equipment next",
+      "title": "Have something that needs the same treatment?",
+      "description": "Tell us the unit, the fault and where it sits. We will advise whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
+    },
+    "disciplines": {
+      "hydraulics": "Hydraulics & material handling",
+      "cooling": "Refrigeration & air-conditioning",
+      "motors": "Motors",
+      "fabrication": "Fabrication & doors"
+    },
+    "detail": {
+      "metaTitle": "{client} — project",
+      "metaDescription": "{scope} Completed by {company} for {client}.",
+      "scope": {
+        "eyebrow": "Scope of work",
+        "title": "What we were asked to do",
+        "body": "Work of this type is quoted after a check-up rather than from a catalogue, because the same symptom can have very different causes on two units of the same age. The services and equipment listed here are the disciplines this job drew on."
+      },
+      "photos": {
+        "eyebrow": "Work of this type",
+        "title": "What this kind of job looks like",
+        "description": "Photographs of comparable work from our gallery. They are our own photos, but they are not necessarily from this client's site."
+      },
+      "related": {
+        "eyebrow": "Similar projects",
+        "title": "Other work in the same disciplines"
+      },
+      "cta": {
+        "eyebrow": "Your site next",
+        "title": "Have work like this that needs doing?",
+        "description": "Tell us the equipment, the fault and the location. We will arrange a check-up and quote what it actually needs."
+      }
+    },
+    "photos": {
+      "vehicle-lift-installation": {
+        "alt": "Two-post vehicle lift installed in a car service bay",
+        "caption": "Two-post vehicle lift installation"
+      },
+      "vehicle-lift-service": {
+        "alt": "Technician's view of a two-post vehicle lift column during servicing",
+        "caption": "Vehicle lift servicing"
+      },
+      "dock-leveler-platform": {
+        "alt": "Dock leveller platform raised in a loading bay",
+        "caption": "Dock leveller platform repair"
+      },
+      "dock-leveler-cylinder": {
+        "alt": "Hydraulic cylinder mounted beneath a dock leveller platform",
+        "caption": "Dock leveller cylinder replacement"
+      },
+      "dock-leveler-welding": {
+        "alt": "Technician in protective gear welding underneath a dock leveller",
+        "caption": "Dock leveller structural repair"
+      },
+      "hydraulic-cylinder-workshop": {
+        "alt": "Large hydraulic cylinder standing on the workshop floor",
+        "caption": "Hydraulic cylinder overhaul"
+      },
+      "hydraulic-cylinder-assembly": {
+        "alt": "Hydraulic cylinder assembly removed from a machine for inspection",
+        "caption": "Cylinder strip-down and reseal"
+      },
+      "hydraulic-seal-kit": {
+        "alt": "Hydraulic seal kit and components laid out on a workbench",
+        "caption": "Seal kit replacement"
+      },
+      "forklift-service-yard": {
+        "alt": "Forklift with its mast raised parked in a service yard",
+        "caption": "Forklift repair and maintenance"
+      },
+      "diesel-forklift-overhaul": {
+        "alt": "Yellow diesel forklift undergoing general rehabilitation outdoors",
+        "caption": "Diesel forklift rehabilitation"
+      },
+      "manual-stacker-repair": {
+        "alt": "Manual stacker with a red mast being repaired inside a facility",
+        "caption": "Manual stacker repair"
+      },
+      "pallet-stacker-rebuild": {
+        "alt": "Pallet stacker outside the workshop after rebuilding",
+        "caption": "Pallet stacker rebuild"
+      },
+      "condensing-unit-installation": {
+        "alt": "Outdoor condensing unit and control panel installed against a wall",
+        "caption": "Condensing unit installation"
+      },
+      "condenser-units-outdoor": {
+        "alt": "Two outdoor condenser units installed on a concrete plinth",
+        "caption": "Condenser installation"
+      },
+      "split-type-acu-installation": {
+        "alt": "Two technicians mounting a split-type air-conditioning unit indoors",
+        "caption": "Split-type ACU installation"
+      },
+      "refrigerant-charging": {
+        "alt": "Technicians charging refrigerant at an outdoor condenser bank",
+        "caption": "Refrigerant charging and commissioning"
+      },
+      "refrigeration-pipework": {
+        "alt": "Technicians brazing refrigeration pipework on site",
+        "caption": "Refrigeration pipework"
+      },
+      "motor-rewinding-bench": {
+        "alt": "Motor stator and compressor components laid out for rewinding",
+        "caption": "Motor rewinding"
+      },
+      "compressor-motor-repair": {
+        "alt": "Technician working on a compressor motor stator",
+        "caption": "Compressor motor repair"
+      },
+      "roll-up-door-installation": {
+        "alt": "Metal roll-up door installed at a warehouse entrance",
+        "caption": "Roll-up door installation"
+      }
+    },
+    "items": {
+      "canlubang-golf-and-country-club": {
+        "client": "Canlubang Golf and Country Club",
+        "scope": "Walk-in freezer repair and installation."
+      },
+      "atkins-import-export": {
+        "client": "ATKINS Import Export",
+        "scope": "Various hydraulic repairs for forklift, hand pallet truck and dock leveller, plus storage facility fan repair."
+      },
+      "varex-imaging": {
+        "client": "VAREX Imaging",
+        "scope": "Transfer of cooling system — condenser and compressor — as subcontractor."
+      },
+      "acbel-philippines": {
+        "client": "AcBel Philippines",
+        "scope": "Forklift and hand pallet truck repairs as subcontractor; company logo fabrication."
+      },
+      "universal-robina": {
+        "client": "Universal Robina Corporation",
+        "scope": "Compressor conversion and technical support as subcontractor."
+      },
+      "ninja-van-philippines": {
+        "client": "Ninja Van Philippines",
+        "scope": "Quarterly preventive maintenance for dock leveller and mechanical roll-up doors."
+      },
+      "san-miguel-corporation": {
+        "client": "San Miguel Corporation",
+        "scope": "Various repairs and maintenance for forklifts and hand pallet trucks."
+      },
+      "interphil-laboratories": {
+        "client": "Interphil Laboratories Inc.",
+        "scope": "ACU installations and preventive maintenance."
+      },
+      "blue-macay-food-corporation": {
+        "client": "Blue Macay Food Corporation",
+        "scope": "Hand pallet truck repairs."
+      },
+      "the-country-club": {
+        "client": "The Country Club",
+        "scope": "ACU maintenance and installations."
+      },
+      "crestec-philippines": {
+        "client": "Crestec Philippines Inc.",
+        "scope": "Various fabrication and minor construction repairs, including hand pallet truck and forklift repair and maintenance."
+      },
+      "samsof-technologies": {
+        "client": "Samsof Technologies Inc.",
+        "scope": "Overall fix and rehabilitation of mechanical parts of hand pallet trucks."
+      },
+      "kerry-logistikus-philippines": {
+        "client": "Kerry Logistikus Philippines",
+        "scope": "Repair of ACU and freezers."
+      },
+      "pioneer-adhesive": {
+        "client": "Pioneer Adhesive Incorporated",
+        "scope": "Hand pallet truck repair and maintenance."
+      },
+      "san-sebastian-college-recoletos": {
+        "client": "San Sebastian College – Recoletos, Canlubang",
+        "scope": "ACU supply and installation."
+      },
+      "vl-dj-metal-fabrication": {
+        "client": "VL&DJ Metal Fabrication and Construction Corporation",
+        "scope": "Forklift repair including maintenance."
+      }
+    }
+  },
+
+  "contact": {
+    "meta": {
+      "title": "Contact us",
+      "description": "Request a quotation from {company} in {city}, {region} — forklift and hand pallet truck repair, hydraulics, refrigeration, air-conditioning, motor rewinding and fabrication."
+    },
+    "hero": {
+      "eyebrow": "Contact us",
+      "title": "Tell us what needs fixing"
+    },
+    "sectionLabel": "Contact details and enquiry form",
+    "hours": [
+      { "days": "Monday – Friday", "time": "8:00 AM – 5:00 PM" },
+      { "days": "Saturday", "time": "8:00 AM – 12:00 NN" },
+      { "days": "Sunday", "time": "Closed" }
+    ],
+    "hoursNote": "Opening hours to be confirmed by the client before launch.",
+    "emergencyNote": "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule.",
+    "form": {
+      "eyebrow": "Request for quotation",
+      "title": "Send us the details",
+      "description": "The more you can tell us — equipment, brand, fault and location — the more useful our first reply will be."
+    },
+    "map": {
+      "note": "Add a Google Maps embed here once the exact pin is confirmed."
+    },
+    "clientNote": {
+      "label": "Note for the client:",
+      "body": "Everything else on this page comes from your company profile — update any of it in data/site.ts, and all wording in public/locale/en.json."
+    }
+  },
+
+  "form": {
+    "requiredNote": "Fields marked * are required.",
+    "requiredSuffix": "(required)",
+    "asteriskNote": "with an asterisk",
+    "optional": "Optional",
+    "fields": {
+      "name": { "label": "Full name", "placeholder": "Juan dela Cruz" },
+      "email": { "label": "Email address", "placeholder": "juan@company.com.ph" },
+      "phone": { "label": "Phone number" },
+      "subject": { "label": "Subject", "placeholder": "Forklift hydraulic leak — Calamba warehouse" },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us the equipment and brand, what it is doing (or not doing), and where it is located."
+      },
+      "honeypot": "Website (leave this field empty)"
+    },
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "orCall": "Or call",
+    "errors": {
+      "nameRequired": "Enter your full name.",
+      "emailRequired": "Enter your email address so we can reply.",
+      "emailInvalid": "Enter a valid email address, e.g. name@company.com.",
+      "phoneInvalid": "Enter a valid phone number, or leave this field empty.",
+      "subjectRequired": "Add a subject so we can route your message.",
+      "subjectShort": "Add a slightly longer subject.",
+      "messageRequired": "Tell us what you need help with.",
+      "messageShort": "Please add a little more detail (at least {min} characters).",
+      "messageLong": "Please keep the message under {max} characters.",
+      "correctFields": "Please correct the highlighted fields.",
+      "genericTitle": "Something went wrong",
+      "generic": "Something went wrong. Please try again or call us.",
+      "network": "We could not reach the server. Check your connection, or contact us by phone or email."
+    },
+    "success": {
+      "title": "Message sent",
+      "message": "Salamat — your enquiry has been received. Our team will get back to you with a quotation or to arrange a check-up.",
+      "again": "Send another message"
+    },
+    "unconfigured": {
+      "title": "Message not sent",
+      "message": "This website is not yet connected to a message delivery service, so your message was not sent.",
+      "fallback": "Please email {email} or call {phone} instead."
+    }
+  },
+
+  "footer": {
+    "companyHeading": "Company",
+    "servicesHeading": "Services",
+    "equipmentHeading": "Equipment",
+    "contactHeading": "Get in touch",
+    "allServices": "All services",
+    "allEquipment": "All equipment",
+    "copyright": "© {from}–{to} {legalName}. All rights reserved.",
+    "socialLabel": "{company} on {network}"
+  },
+
+  "legal": {
+    "notice": {
+      "label": "Placeholder document.",
+      "body": "This page provides the structure only. {legalName} must replace it with wording reviewed by its own legal advisers before the site goes live."
+    },
+    "questions": "Questions about this document? Email {email}.",
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "description": "A structural placeholder describing how information submitted through this site is handled.",
+      "metaDescription": "How {company} handles personal information submitted through this website. Placeholder document pending legal review.",
+      "sections": [
+        {
+          "heading": "What this policy covers",
+          "paragraphs": [
+            "This policy is intended to explain what personal information is collected through this website, why it is collected, how long it is kept and who it is shared with.",
+            "The final wording must comply with the Philippine Data Privacy Act of 2012 (Republic Act No. 10173) and should be reviewed by the company's legal adviser before launch."
+          ]
+        },
+        {
+          "heading": "Information collected through this site",
+          "paragraphs": [
+            "The only personal information this website asks for is what a visitor enters into the contact form: name, email address, optional phone number, subject and message.",
+            "Form submissions are validated in the browser and again on the server, then passed to whichever delivery service the company configures. Until that service is configured, submissions are not stored or forwarded anywhere."
+          ]
+        },
+        {
+          "heading": "Cookies and analytics",
+          "paragraphs": [
+            "As built, this website sets no cookies and loads no third-party analytics, advertising or tracking scripts. If any are added later, this section must be updated and an appropriate consent mechanism introduced."
+          ]
+        },
+        {
+          "heading": "Your rights",
+          "paragraphs": [
+            "Describe here how visitors can request access to, correction of, or deletion of their personal data, and how long enquiries are retained."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "Name the data controller, the postal address for written requests, and a contact route for privacy questions."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "title": "Terms of Service",
+      "description": "A structural placeholder for the terms governing use of this website.",
+      "metaDescription": "The terms on which {company} makes this website available. Placeholder document pending legal review.",
+      "sections": [
+        {
+          "heading": "Use of this website",
+          "paragraphs": [
+            "Set out the basis on which visitors may use the site, and any restrictions on automated access, scraping or republication of its content."
+          ]
+        },
+        {
+          "heading": "Information accuracy",
+          "paragraphs": [
+            "Equipment listings, service descriptions and figures shown on this website are indicative. They do not form part of any contract unless repeated in a signed quotation or agreement.",
+            "Availability of brand new, reconditioned and repaired units varies. Scope, price and lead time are confirmed in the quotation issued after assessment."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "paragraphs": [
+            "State who owns the site content, trade marks and imagery, and what limited use visitors may make of them."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "This section must be drafted by the company's legal advisers so that it is enforceable in the relevant jurisdiction."
+          ]
+        },
+        {
+          "heading": "Governing law",
+          "paragraphs": [
+            "State that these terms are governed by the laws of the Republic of the Philippines, and name the courts that have jurisdiction over disputes arising from use of this website."
+          ]
+        }
+      ]
+    }
+  },
+
+  "notFound": {
+    "metaTitle": "Page not found",
+    "metaDescription": "The page you were looking for does not exist or has moved.",
+    "eyebrow": "Error 404",
+    "title": "This page is not in the shop",
+    "description": "The address you followed does not match anything on this site. It may have moved, or the link may be out of date.",
+    "sectionsLabel": "Site sections",
+    "tryThese": "Or try one of these"
+  },
+
+  "cta": {
+    "eyebrow": "Next step",
+    "title": "Tell us what has stopped working",
+    "description": "Send the unit, the fault and the site. We will come back with a quotation — and if an inspection is needed first, we will say so before quoting."
+  }
+}

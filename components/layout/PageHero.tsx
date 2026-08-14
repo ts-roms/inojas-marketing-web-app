@@ -18,7 +18,7 @@ export function PageHero({ eyebrow, title, description, actions, aside }: PageHe
     <section className="on-dark relative isolate overflow-hidden bg-brand-900 text-brand-100">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(196,135,63,0.16),transparent_65%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.16),transparent_65%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
 

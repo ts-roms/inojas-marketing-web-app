@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
+import { t } from "@/lib/i18n";
 import { mainNav } from "@/data/navigation";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
@@ -109,7 +110,7 @@ export function Header() {
         {/* ---------------------------------------------------------------- */}
         {/* Desktop navigation                                               */}
         {/* ---------------------------------------------------------------- */}
-        <nav aria-label="Main" className="hidden lg:block">
+        <nav aria-label={t.nav.mainLabel} className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {mainNav.map((item) => {
               const active = isActive(pathname, item.href);
@@ -150,7 +151,7 @@ export function Header() {
             <span>{site.contact.mobileDisplay}</span>
           </a>
           <Button href="/contact" size="sm" icon="arrowRight">
-            Request a quotation
+            {t.actions.requestQuotation}
           </Button>
         </div>
 
@@ -166,7 +167,7 @@ export function Header() {
           className="inline-flex size-11 items-center justify-center rounded-md text-brand-800 ring-1 ring-inset ring-brand-200 transition-colors hover:bg-brand-50 lg:hidden"
         >
           <Icon name={isOpen ? "close" : "menu"} className="size-5" />
-          <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
+          <span className="sr-only">{isOpen ? t.nav.closeMenu : t.nav.openMenu}</span>
         </button>
       </Container>
 
@@ -187,11 +188,11 @@ export function Header() {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-label="Site menu"
+            aria-label={t.nav.siteMenuLabel}
             className="fixed inset-x-0 top-16 z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-hairline bg-white pb-8 shadow-lift animate-fade-up"
           >
             <Container className="pt-4">
-              <nav aria-label="Mobile">
+              <nav aria-label={t.nav.mobileLabel}>
                 <ul className="flex flex-col">
                   {mainNav.map((item) => {
                     const active = isActive(pathname, item.href);
@@ -229,7 +230,7 @@ export function Header() {
 
               <div className="mt-6 flex flex-col gap-3">
                 <Button href="/contact" size="lg" icon="arrowRight" className="w-full">
-                  Request a quotation
+                  {t.actions.requestQuotation}
                 </Button>
                 <Button
                   href={site.contact.mobileHref}

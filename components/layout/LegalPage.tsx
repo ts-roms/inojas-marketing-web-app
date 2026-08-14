@@ -2,12 +2,17 @@ import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { Icon } from "@/components/ui/icons";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
 export type LegalSection = {
   heading: string;
   paragraphs: string[];
 };
+
+/** Split on the placeholder so only the address becomes a link, while the
+ *  sentence stays a single translatable string in the locale file. */
+const [questionsBefore = "", questionsAfter = ""] = t.legal.questions.split("{email}");
 
 type LegalPageProps = {
   eyebrow: string;
@@ -32,9 +37,8 @@ export function LegalPage({ eyebrow, title, description, sections }: LegalPagePr
           <div className="flex gap-4 rounded-xl bg-amber-50 p-5 ring-1 ring-inset ring-amber-200">
             <Icon name="alert" className="mt-0.5 size-5 shrink-0 text-amber-700" />
             <p className="text-sm leading-relaxed text-amber-900">
-              <strong className="font-semibold">Placeholder document.</strong> This page provides
-              the structure only. {site.legalName} must replace it with wording reviewed by its own
-              legal advisers before the site goes live.
+              <strong className="font-semibold">{t.legal.notice.label}</strong>{" "}
+              {fill(t.legal.notice.body, textVars)}
             </p>
           </div>
 
@@ -52,14 +56,14 @@ export function LegalPage({ eyebrow, title, description, sections }: LegalPagePr
           </div>
 
           <p className="mt-14 border-t border-hairline pt-6 text-sm text-brand-500">
-            Questions about this document? Email{" "}
+            {questionsBefore}
             <a
               href={`mailto:${site.contact.email}`}
               className="text-accent-700 underline underline-offset-4 hover:text-accent-800"
             >
               {site.contact.email}
             </a>
-            .
+            {questionsAfter}
           </p>
         </Container>
       </Section>

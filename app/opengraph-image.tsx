@@ -22,7 +22,7 @@ export default async function OpengraphImage() {
           justifyContent: "space-between",
           backgroundColor: "#0a0d12",
           backgroundImage:
-            "radial-gradient(circle at 80% 8%, rgba(0,168,240,0.28) 0%, rgba(10,13,18,0) 58%)",
+            "radial-gradient(circle at 80% 8%, rgba(15,95,209,0.28) 0%, rgba(10,13,18,0) 58%)",
           padding: "72px",
           fontFamily: "sans-serif",
         }}

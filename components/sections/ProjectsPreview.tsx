@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -24,12 +25,12 @@ export function ProjectsPreview() {
       <Container>
         <SectionHeading
           id="projects-preview-heading"
-          eyebrow="Finished projects"
-          title="Work we have turned over"
-          description="Photographs from our own jobs — forklifts and pallet trucks back in service, cooling systems commissioned, motors rewound, doors installed."
+          eyebrow={t.home.projectsPreview.eyebrow}
+          title={t.home.projectsPreview.title}
+          description={t.home.projectsPreview.description}
           action={
             <Button href="/projects" variant="secondary" icon="arrowRight">
-              View all work
+              {t.actions.viewAllWork}
             </Button>
           }
         />

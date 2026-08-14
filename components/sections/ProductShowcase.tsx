@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
@@ -15,12 +16,12 @@ export function ProductShowcase() {
       <Container>
         <SectionHeading
           id="equipment-showcase-heading"
-          eyebrow="Equipment we handle"
-          title="Brand new, repaired, reconditioned or rebuilt"
-          description="Each line below can be supplied new, repaired in place, or rehabilitated and returned to service — whichever makes sense for the unit in front of us."
+          eyebrow={t.home.equipmentShowcase.eyebrow}
+          title={t.home.equipmentShowcase.title}
+          description={t.home.equipmentShowcase.description}
           action={
             <Button href="/equipment" variant="secondary" icon="arrowRight">
-              All equipment
+              {t.actions.allEquipment}
             </Button>
           }
         />
@@ -35,7 +36,7 @@ export function ProductShowcase() {
           ))}
         </ul>
 
-        <nav aria-label="Equipment categories" className="mt-12">
+        <nav aria-label={t.home.equipmentShowcase.categoriesLabel} className="mt-12">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {productCategories.map((category) => (
               <li key={category.id}>

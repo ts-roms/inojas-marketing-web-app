@@ -10,11 +10,11 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { equipment, productCategories, type ProductCategoryId } from "@/data/products";
+import { fill, t } from "@/lib/i18n";
 import { site } from "@/data/site";
 
-const title = "Equipment";
-const description =
-  "Forklifts, hand pallet trucks, stackers, jacks, hydraulic presses, HVAC and chiller units, industrial batteries and more — supplied brand new, repaired, reconditioned or rehabilitated.";
+const title = t.equipment.meta.title;
+const description = t.equipment.meta.description;
 
 export const metadata: Metadata = {
   title,
@@ -34,24 +34,9 @@ function toCategory(value: string | undefined): ProductCategoryId | "all" {
 }
 
 const supplyNotes = [
-  {
-    icon: "wrench" as const,
-    title: "Repaired in place or in the shop",
-    description:
-      "Most units can be worked on at your facility. Where a strip-down is needed, we collect, rebuild and return the unit running.",
-  },
-  {
-    icon: "spark" as const,
-    title: "Reconditioned as an option",
-    description:
-      "For several lines we can supply a reconditioned unit instead of new — the same capability at a lower cost, and less equipment scrapped.",
-  },
-  {
-    icon: "layers" as const,
-    title: "Parts and consumables supplied",
-    description:
-      "Seal kits, wheels, batteries, chargers and refrigerants are supplied with the work, so a repair is not held up waiting on a third party.",
-  },
+  { icon: "wrench" as const, ...t.equipment.supply.items.inPlace },
+  { icon: "spark" as const, ...t.equipment.supply.items.reconditioned },
+  { icon: "layers" as const, ...t.equipment.supply.items.parts },
 ];
 
 export default async function EquipmentPage({
@@ -65,16 +50,16 @@ export default async function EquipmentPage({
   return (
     <>
       <PageHero
-        eyebrow="Equipment"
-        title="The equipment we repair, supply and rebuild"
+        eyebrow={t.equipment.hero.eyebrow}
+        title={t.equipment.hero.title}
         description={description}
         actions={
           <>
             <Button href="/contact" variant="accent" icon="arrowRight">
-              Request a quotation
+              {t.actions.requestQuotation}
             </Button>
             <Button href="/services" variant="outline">
-              See our services
+              {t.actions.seeOurServices}
             </Button>
           </>
         }
@@ -87,9 +72,9 @@ export default async function EquipmentPage({
         <Container>
           <SectionHeading
             id="catalogue-heading"
-            eyebrow="What we handle"
-            title={`${equipment.length} equipment lines across four families`}
-            description="Filter by family to see what we work on and what we can offer for each line. If your equipment is not listed, ask — hydraulic, mechanical and refrigeration equipment is our trade regardless of badge."
+            eyebrow={t.equipment.catalogue.eyebrow}
+            title={fill(t.equipment.catalogue.title, { count: equipment.length })}
+            description={t.equipment.catalogue.description}
           />
 
           <div className="mt-12">
@@ -106,9 +91,9 @@ export default async function EquipmentPage({
           <SectionHeading
             id="supply-heading"
             align="center"
-            eyebrow="How we supply"
-            title="New is not always the right answer"
-            description="Every line above can be quoted more than one way. We will tell you which option we would choose if the unit were ours."
+            eyebrow={t.equipment.supply.eyebrow}
+            title={t.equipment.supply.title}
+            description={t.equipment.supply.description}
           />
 
           <ul className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -130,11 +115,11 @@ export default async function EquipmentPage({
       </Section>
 
       <CtaBanner
-        eyebrow="Quotations"
-        title="Need pricing, availability or a site visit?"
-        description="Tell us the equipment, the fault and how soon you need it back. We will quote the repair, the reconditioned option and the brand new one where all three apply."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "See completed work", href: "/projects" }}
+        eyebrow={t.equipment.cta.eyebrow}
+        title={t.equipment.cta.title}
+        description={t.equipment.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.seeCompletedWork, href: "/projects" }}
       />
     </>
   );

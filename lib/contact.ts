@@ -1,9 +1,13 @@
+import { fill, t } from "@/lib/i18n";
+
 /**
  * Contact form contract.
  *
  * Deliberately shared by the client form and the API route so validation
  * cannot drift between them — the browser check is a convenience, the server
  * check is the one that counts.
+ *
+ * All messages come from `public/locale/en.json` under `form.errors`.
  */
 
 export type ContactFieldName = "name" | "email" | "phone" | "subject" | "message";
@@ -37,38 +41,38 @@ export function validateField(
   values: ContactFormValues,
 ): string | undefined {
   const value = (values[field] ?? "").trim();
+  const errors = t.form.errors;
 
   switch (field) {
     case "name":
-      if (!value) return "Enter your full name.";
-      if (value.length < 2) return "Enter your full name.";
+      if (!value || value.length < 2) return errors.nameRequired;
       return undefined;
 
     case "email":
-      if (!value) return "Enter your email address so we can reply.";
-      if (!EMAIL_PATTERN.test(value)) return "Enter a valid email address, e.g. name@company.com.";
+      if (!value) return errors.emailRequired;
+      if (!EMAIL_PATTERN.test(value)) return errors.emailInvalid;
       return undefined;
 
     case "phone":
       // Optional, but validated when supplied.
       if (!value) return undefined;
       if (!PHONE_PATTERN.test(value) || value.replace(/\D/g, "").length < 7) {
-        return "Enter a valid phone number, or leave this field empty.";
+        return errors.phoneInvalid;
       }
       return undefined;
 
     case "subject":
-      if (!value) return "Add a subject so we can route your message.";
-      if (value.length < 3) return "Add a slightly longer subject.";
+      if (!value) return errors.subjectRequired;
+      if (value.length < 3) return errors.subjectShort;
       return undefined;
 
     case "message":
-      if (!value) return "Tell us what you need help with.";
+      if (!value) return errors.messageRequired;
       if (value.length < MESSAGE_MIN_LENGTH) {
-        return `Please add a little more detail (at least ${MESSAGE_MIN_LENGTH} characters).`;
+        return fill(errors.messageShort, { min: MESSAGE_MIN_LENGTH });
       }
       if (value.length > MESSAGE_MAX_LENGTH) {
-        return `Please keep the message under ${MESSAGE_MAX_LENGTH} characters.`;
+        return fill(errors.messageLong, { max: MESSAGE_MAX_LENGTH });
       }
       return undefined;
 

@@ -3,14 +3,9 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/icons";
+import { fill, t } from "@/lib/i18n";
 import { sectors } from "@/data/company";
-import { site } from "@/data/site";
-
-const assurances = [
-  "Forklifts, hand pallet trucks, stackers and jacks",
-  "Refrigeration, chillers and air-conditioning systems",
-  "Motor rewinding, fabrication and roll-up doors",
-];
+import { textVars } from "@/data/site";
 
 /**
  * Home hero. Answers, in order: who we are, what we repair, why us, and what
@@ -22,7 +17,7 @@ export function Hero() {
       {/* Depth: one soft cyan wash plus a hairline grid. No heavy gradients. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,rgba(0,168,240,0.22),transparent_60%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,rgba(15,95,209,0.22),transparent_60%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-40" />
 
@@ -31,23 +26,21 @@ export function Hero() {
           {/* Copy */}
           <div className="lg:col-span-6">
             <Eyebrow tone="dark" className="animate-fade-up">
-              Calamba City, Laguna · Est. {site.foundedYear}
+              {fill(t.home.hero.eyebrow, textVars)}
             </Eyebrow>
 
             <h1
               className="mt-6 text-display text-white animate-fade-up"
               style={{ animationDelay: "80ms" }}
             >
-              We repair the equipment your operation runs on.
+              {t.home.hero.title}
             </h1>
 
             <p
               className="mt-7 max-w-xl text-lead text-brand-200 animate-fade-up"
               style={{ animationDelay: "160ms" }}
             >
-              {site.name} repairs, supplies and installs forklifts, hand pallet trucks, hydraulic
-              equipment, refrigeration and air-conditioning systems — on your site or in our shop,
-              by technicians and engineers who have been doing this since {site.foundedYear}.
+              {fill(t.home.hero.lead, textVars)}
             </p>
 
             <div
@@ -55,15 +48,15 @@ export function Hero() {
               style={{ animationDelay: "240ms" }}
             >
               <Button href="/contact" variant="accent" size="lg" icon="arrowRight">
-                Request a quotation
+                {t.actions.requestQuotation}
               </Button>
               <Button href="/services" variant="outline" size="lg">
-                See what we repair
+                {t.actions.seeWhatWeRepair}
               </Button>
             </div>
 
             <ul className="mt-10 grid gap-3 animate-fade-up" style={{ animationDelay: "320ms" }}>
-              {assurances.map((item) => (
+              {t.home.hero.assurances.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-brand-200">
                   <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-400" />
                   <span>{item}</span>
@@ -80,26 +73,26 @@ export function Hero() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <HeroPhoto
-                  src="/images/projects/diesel-forklift-overhaul.jpg"
+                  src="/images/projects/diesel-forklift-overhaul.webp"
                   alt="Diesel forklift undergoing general rehabilitation in the yard"
                   className="aspect-[4/5]"
                   priority
                 />
                 <HeroPhoto
-                  src="/images/projects/motor-rewinding-bench.jpg"
+                  src="/images/projects/motor-rewinding-bench.webp"
                   alt="Motor stator and compressor components laid out for rewinding"
                   className="aspect-square"
                 />
               </div>
               <div className="space-y-4 pt-10">
                 <HeroPhoto
-                  src="/images/projects/refrigerant-charging.jpg"
+                  src="/images/projects/refrigerant-charging.webp"
                   alt="Technicians charging refrigerant at an outdoor condenser bank"
                   className="aspect-square"
                   priority
                 />
                 <HeroPhoto
-                  src="/images/projects/hydraulic-cylinder-workshop.jpg"
+                  src="/images/projects/hydraulic-cylinder-workshop.webp"
                   alt="Large hydraulic cylinder standing on the workshop floor"
                   className="aspect-[4/5]"
                 />
@@ -113,7 +106,7 @@ export function Hero() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:gap-8">
           <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-brand-400">
-            Sectors we serve
+            {t.labels.sectorsWeServe}
           </p>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {sectors.map((sector) => (

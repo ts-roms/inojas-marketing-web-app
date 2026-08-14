@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { t } from "@/lib/i18n";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,9 +15,9 @@ export function ProcessSection() {
         <SectionHeading
           id="process-heading"
           tone="dark"
-          eyebrow="Our process"
-          title="Four steps, from your first message to turnover"
-          description="The same sequence on every job, whether it is a single pallet truck or a plant-wide maintenance schedule."
+          eyebrow={t.process.eyebrow}
+          title={t.process.title}
+          description={t.process.description}
         />
 
         <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

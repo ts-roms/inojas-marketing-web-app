@@ -11,11 +11,11 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { services } from "@/data/services";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
-const title = "Services";
-const description =
-  "Hydraulic equipment repair, refrigeration and air-conditioning, preventive maintenance, motor rewinding, cooling tower servicing, fabrication and roll-up doors — from one shop in Calamba City.";
+const title = t.services.meta.title;
+const description = fill(t.services.meta.description, textVars);
 
 export const metadata: Metadata = {
   title,
@@ -29,40 +29,25 @@ export const metadata: Metadata = {
 };
 
 const workingApproach = [
-  {
-    icon: "compass" as const,
-    title: "Assessed before it is quoted",
-    description:
-      "A check-up confirms the actual fault first, so the quotation covers what the unit needs rather than a standard package.",
-  },
-  {
-    icon: "people" as const,
-    title: "On your site or in our shop",
-    description:
-      "Whichever costs you less downtime. Equipment that cannot be moved is worked on where it stands.",
-  },
-  {
-    icon: "spark" as const,
-    title: "Repair before replacement",
-    description:
-      "Rewinding, resealing and rebounding keep serviceable equipment out of the scrap bin — and off your capital budget.",
-  },
+  { icon: "compass" as const, ...t.services.approach.items.assessed },
+  { icon: "people" as const, ...t.services.approach.items.location },
+  { icon: "spark" as const, ...t.services.approach.items.repairFirst },
 ];
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services offered"
-        title="Repair, installation and maintenance under one roof"
+        eyebrow={t.services.hero.eyebrow}
+        title={t.services.hero.title}
         description={description}
         actions={
           <>
             <Button href="/contact" variant="accent" icon="arrowRight">
-              Request a quotation
+              {t.actions.requestQuotation}
             </Button>
             <Button href="/equipment" variant="outline">
-              View equipment
+              {t.actions.viewEquipment}
             </Button>
           </>
         }
@@ -75,9 +60,9 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             id="service-list-heading"
-            eyebrow="What we do"
-            title={`${services.length} service lines, one accountable team`}
-            description="Open any service for what it covers, the equipment it applies to, and the clients we have delivered it for."
+            eyebrow={t.services.list.eyebrow}
+            title={fill(t.services.list.title, { count: services.length })}
+            description={t.services.list.description}
           />
 
           <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -100,8 +85,8 @@ export default function ServicesPage() {
           <SectionHeading
             id="approach-heading"
             align="center"
-            eyebrow="How we work"
-            title="The same approach on every job"
+            eyebrow={t.services.approach.eyebrow}
+            title={t.services.approach.title}
           />
 
           <ul className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -125,11 +110,11 @@ export default function ServicesPage() {
       <ProcessSection />
 
       <CtaBanner
-        eyebrow="Start here"
-        title="Describe the fault — we will tell you what it needs"
-        description="Send the equipment, the symptom and the site. If we need to inspect it before quoting, we will arrange a check-up rather than guess at a price."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "Browse equipment", href: "/equipment" }}
+        eyebrow={t.services.cta.eyebrow}
+        title={t.services.cta.title}
+        description={t.services.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.browseEquipment, href: "/equipment" }}
       />
     </>
   );

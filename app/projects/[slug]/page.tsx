@@ -21,16 +21,12 @@ import {
 } from "@/data/company";
 import { getEquipment } from "@/data/products";
 import { getService } from "@/data/services";
+import { fill, t } from "@/lib/i18n";
 import { site } from "@/data/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
-const disciplineLabels: Record<string, string> = {
-  hydraulics: "Hydraulics & material handling",
-  cooling: "Refrigeration & air-conditioning",
-  motors: "Motors",
-  fabrication: "Fabrication & doors",
-};
+const disciplineLabels: Record<string, string> = t.projects.disciplines;
 
 /** One static page per vendor project, generated at build time. */
 export function generateStaticParams() {
@@ -43,10 +39,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   if (!project) return { title: "Project not found" };
 
-  const description = `${project.scope} Completed by ${site.name} for ${project.client}.`;
+  const description = fill(t.projects.detail.metaDescription, {
+    scope: project.scope,
+    company: site.name,
+    client: project.client,
+  });
 
   return {
-    title: `${project.client} — project`,
+    title: fill(t.projects.detail.metaTitle, { client: project.client }),
     description,
     alternates: { canonical: `/projects/${project.id}` },
     openGraph: {
@@ -77,22 +77,22 @@ export default async function ProjectDetailPage({ params }: Params) {
       <section className="on-dark relative isolate overflow-hidden bg-brand-900 text-brand-100">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(0,168,240,0.18),transparent_65%)]"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.18),transparent_65%)]"
         />
         <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
 
         <Container className="py-10 sm:py-12 lg:py-16">
           <Breadcrumbs
             items={[
-              { label: "Home", href: "/" },
-              { label: "Projects", href: "/projects" },
+              { label: t.nav.items.home.label, href: "/" },
+              { label: t.nav.items.projects.label, href: "/projects" },
               { label: project.client },
             ]}
           />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
             <div className="lg:col-span-8">
-              <Eyebrow tone="dark">Vendor project</Eyebrow>
+              <Eyebrow tone="dark">{t.labels.vendorProject}</Eyebrow>
               <h1 className="mt-5 text-h1 text-white">{project.client}</h1>
               <p className="mt-5 max-w-2xl text-lead text-brand-200">{project.scope}</p>
 
@@ -113,10 +113,10 @@ export default async function ProjectDetailPage({ params }: Params) {
                   variant="accent"
                   icon="arrowRight"
                 >
-                  Request similar work
+                  {t.actions.requestSimilarWork}
                 </Button>
                 <Button href="/projects" variant="outline">
-                  All projects
+                  {t.actions.allProjects}
                 </Button>
               </div>
             </div>
@@ -148,22 +148,20 @@ export default async function ProjectDetailPage({ params }: Params) {
               <SectionHeading
                 id="scope-heading"
                 as="h2"
-                eyebrow="Scope of work"
-                title="What we were asked to do"
+                eyebrow={t.projects.detail.scope.eyebrow}
+                title={t.projects.detail.scope.title}
               />
 
               <p className="mt-8 text-lead text-brand-700">{project.scope}</p>
 
               <p className="mt-6 leading-relaxed text-brand-600">
-                Work of this type is quoted after a check-up rather than from a catalogue, because
-                the same symptom can have very different causes on two units of the same age. The
-                services and equipment listed here are the disciplines this job drew on.
+                {t.projects.detail.scope.body}
               </p>
 
               {services.length > 0 ? (
                 <>
                   <h3 className="mt-10 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                    Services involved
+                    {t.labels.servicesInvolved}
                   </h3>
                   <ul className="mt-5 grid gap-4 sm:grid-cols-2">
                     {services.map((service) => (
@@ -194,15 +192,15 @@ export default async function ProjectDetailPage({ params }: Params) {
             <div className="lg:col-span-5">
               <Card tone="muted" padding="lg">
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                  Project summary
+                  {t.labels.projectSummary}
                 </h3>
                 <dl className="mt-6 space-y-4 text-sm">
                   <div>
-                    <dt className="font-semibold text-brand-500">Client</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.client}</dt>
                     <dd className="mt-1 text-brand-800">{project.client}</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-brand-500">Disciplines</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.disciplines}</dt>
                     <dd className="mt-1 text-brand-800">
                       {project.disciplines
                         .map((discipline) => disciplineLabels[discipline] ?? discipline)
@@ -210,7 +208,7 @@ export default async function ProjectDetailPage({ params }: Params) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-brand-500">Delivered by</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.deliveredBy}</dt>
                     <dd className="mt-1 text-brand-800">{site.name}</dd>
                   </div>
                 </dl>
@@ -218,7 +216,7 @@ export default async function ProjectDetailPage({ params }: Params) {
                 {equipmentItems.length > 0 ? (
                   <>
                     <h3 className="mt-8 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                      Equipment involved
+                      {t.labels.equipmentInvolved}
                     </h3>
                     <ul className="mt-4 space-y-2">
                       {equipmentItems.map((item) => (
@@ -257,12 +255,12 @@ export default async function ProjectDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="photos-heading"
-              eyebrow="Work of this type"
-              title="What this kind of job looks like"
-              description="Photographs of comparable work from our gallery. They are our own photos, but they are not necessarily from this client's site."
+              eyebrow={t.projects.detail.photos.eyebrow}
+              title={t.projects.detail.photos.title}
+              description={t.projects.detail.photos.description}
               action={
                 <Button href="/projects" variant="secondary" icon="arrowRight">
-                  Full gallery
+                  {t.actions.fullGallery}
                 </Button>
               }
             />
@@ -302,8 +300,8 @@ export default async function ProjectDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="related-heading"
-              eyebrow="Similar projects"
-              title="Other work in the same disciplines"
+              eyebrow={t.projects.detail.related.eyebrow}
+              title={t.projects.detail.related.title}
             />
 
             <ul className="mt-12 grid gap-4 lg:grid-cols-3">
@@ -334,11 +332,11 @@ export default async function ProjectDetailPage({ params }: Params) {
       ) : null}
 
       <CtaBanner
-        eyebrow="Your site next"
-        title="Have work like this that needs doing?"
-        description="Tell us the equipment, the fault and the location. We will arrange a check-up and quote what it actually needs."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "Browse equipment", href: "/equipment" }}
+        eyebrow={t.projects.detail.cta.eyebrow}
+        title={t.projects.detail.cta.title}
+        description={t.projects.detail.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.browseEquipment, href: "/equipment" }}
       />
     </>
   );

@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/icons";
+import { t } from "@/lib/i18n";
 import { site } from "@/data/site";
 
 type CtaBannerProps = {
@@ -17,11 +18,11 @@ type CtaBannerProps = {
  * copy so each one asks for the next step that actually makes sense there.
  */
 export function CtaBanner({
-  eyebrow = "Next step",
-  title = "Tell us what has stopped working",
-  description = "Send the unit, the fault and the site. We will come back with a quotation — and if an inspection is needed first, we will say so before quoting.",
-  primary = { label: "Request a quotation", href: "/contact" },
-  secondary = { label: "See our services", href: "/services" },
+  eyebrow = t.cta.eyebrow,
+  title = t.cta.title,
+  description = t.cta.description,
+  primary = { label: t.actions.requestQuotation, href: "/contact" },
+  secondary = { label: t.actions.seeOurServices, href: "/services" },
 }: CtaBannerProps) {
   return (
     <section aria-labelledby="cta-heading" className="on-dark bg-white pb-20 pt-4 sm:pb-24">
@@ -29,7 +30,7 @@ export function CtaBanner({
         <div className="relative isolate overflow-hidden rounded-2xl bg-brand-950 px-6 py-14 sm:px-12 sm:py-16 lg:px-16">
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(40rem_24rem_at_88%_10%,rgba(196,135,63,0.24),transparent_60%)]"
+            className="absolute inset-0 -z-10 bg-[radial-gradient(40rem_24rem_at_88%_10%,rgba(15,95,209,0.24),transparent_60%)]"
           />
           <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-25" />
 

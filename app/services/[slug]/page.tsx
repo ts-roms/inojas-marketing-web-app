@@ -17,7 +17,8 @@ import { ServiceCard } from "@/components/services/ServiceCard";
 import { photosForDisciplines, vendorProjectsForService } from "@/data/company";
 import { getEquipment } from "@/data/products";
 import { getService, relatedServices, services } from "@/data/services";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -81,22 +82,22 @@ export default async function ServiceDetailPage({ params }: Params) {
       <section className="on-dark relative isolate overflow-hidden bg-brand-900 text-brand-100">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(0,168,240,0.18),transparent_65%)]"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.18),transparent_65%)]"
         />
         <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
 
         <Container className="py-10 sm:py-12 lg:py-16">
           <Breadcrumbs
             items={[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/services" },
+              { label: t.nav.items.home.label, href: "/" },
+              { label: t.nav.items.services.label, href: "/services" },
               { label: service.title },
             ]}
           />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
             <div className="lg:col-span-7">
-              <Eyebrow tone="dark">Service</Eyebrow>
+              <Eyebrow tone="dark">{t.labels.service}</Eyebrow>
               <h1 className="mt-5 flex flex-wrap items-center gap-4 text-h1 text-white">
                 <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-xl bg-accent-500/15 text-accent-300 ring-1 ring-inset ring-accent-400/30">
                   <Icon name={service.icon} className="size-7" />
@@ -111,7 +112,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   variant="accent"
                   icon="arrowRight"
                 >
-                  Request a quotation
+                  {t.actions.requestQuotation}
                 </Button>
                 <Button href={site.contact.mobileHref} variant="outline">
                   <Icon name="phone" className="size-4" />
@@ -123,7 +124,7 @@ export default async function ServiceDetailPage({ params }: Params) {
             <div className="lg:col-span-5">
               <div className="rounded-xl bg-white/[0.045] p-6 ring-1 ring-inset ring-white/10 backdrop-blur-[2px]">
                 <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-accent-300">
-                  What you get
+                  {t.labels.whatYouGet}
                 </h2>
                 <ul className="mt-5 space-y-3">
                   {service.benefits.map((benefit) => (
@@ -149,22 +150,19 @@ export default async function ServiceDetailPage({ params }: Params) {
               <SectionHeading
                 id="detail-heading"
                 as="h2"
-                eyebrow="How we approach it"
-                title="What this service covers"
+                eyebrow={t.services.detail.coverage.eyebrow}
+                title={t.services.detail.coverage.title}
               />
 
               <p className="mt-8 text-lead text-brand-700">{service.description}</p>
 
               <p className="mt-6 leading-relaxed text-brand-600">
-                Work is carried out at your site where the equipment cannot easily be moved, and in
-                the {site.contact.address.city} workshop where a strip-down is the safer option. In
-                either case the scope is confirmed by a check-up before anything is committed to a
-                quotation.
+                {fill(t.services.detail.coverage.body, textVars)}
               </p>
 
               <div className="mt-8">
                 <Button href="/contact" icon="arrowRight">
-                  Arrange a check-up
+                  {t.actions.arrangeCheckUp}
                 </Button>
               </div>
             </div>
@@ -173,7 +171,7 @@ export default async function ServiceDetailPage({ params }: Params) {
               <div className="lg:col-span-5">
                 <Card tone="muted" padding="lg">
                   <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                    Equipment we apply it to
+                    {t.labels.equipmentWeApplyItTo}
                   </h2>
                   <ul className="mt-5 space-y-2">
                     {equipmentItems.map((item) => (
@@ -211,12 +209,12 @@ export default async function ServiceDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="photos-heading"
-              eyebrow="On the job"
-              title="This work, in our hands"
-              description="Photographs from our own projects — not stock imagery."
+              eyebrow={t.services.detail.photos.eyebrow}
+              title={t.services.detail.photos.title}
+              description={t.services.detail.photos.description}
               action={
                 <Button href="/projects" variant="secondary" icon="arrowRight">
-                  Full gallery
+                  {t.actions.fullGallery}
                 </Button>
               }
             />
@@ -256,9 +254,9 @@ export default async function ServiceDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="projects-heading"
-              eyebrow="Where we have done it"
-              title="Clients this service has been delivered for"
-              description="Taken from the vendor project record in our company profile."
+              eyebrow={t.services.detail.projects.eyebrow}
+              title={t.services.detail.projects.title}
+              description={t.services.detail.projects.description}
             />
 
             <ul className="mt-12 grid gap-4 sm:grid-cols-2">
@@ -301,11 +299,11 @@ export default async function ServiceDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="others-heading"
-              eyebrow="Also from the shop"
-              title="Other services"
+              eyebrow={t.services.detail.others.eyebrow}
+              title={t.services.detail.others.title}
               action={
                 <Button href="/services" variant="secondary" icon="arrowRight">
-                  All services
+                  {t.actions.allServices}
                 </Button>
               }
             />
@@ -322,11 +320,11 @@ export default async function ServiceDetailPage({ params }: Params) {
       ) : null}
 
       <CtaBanner
-        eyebrow="Next step"
-        title={`Need ${service.title.toLowerCase()}?`}
-        description="Tell us the equipment, the fault and the site. We will arrange a check-up and quote what the job actually needs."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "Browse equipment", href: "/equipment" }}
+        eyebrow={t.services.detail.cta.eyebrow}
+        title={fill(t.services.detail.cta.title, { service: service.title.toLowerCase() })}
+        description={t.services.detail.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.browseEquipment, href: "/equipment" }}
       />
 
       <script

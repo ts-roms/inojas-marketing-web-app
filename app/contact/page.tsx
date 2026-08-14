@@ -8,10 +8,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { processSteps } from "@/data/services";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
-const title = "Contact us";
-const description = `Request a quotation from ${site.name} in Calamba City, Laguna — forklift and hand pallet truck repair, hydraulics, refrigeration, air-conditioning, motor rewinding and fabrication.`;
+const title = t.contact.meta.title;
+const description = fill(t.contact.meta.description, textVars);
 
 export const metadata: Metadata = {
   title,
@@ -36,15 +37,15 @@ export default async function ContactPage({
   return (
     <>
       <PageHero
-        eyebrow="Contact us"
-        title="Tell us what needs fixing"
+        eyebrow={t.contact.hero.eyebrow}
+        title={t.contact.hero.title}
         description={description}
       />
 
       <Section tone="canvas" ariaLabelledby="contact-heading">
         <Container>
           <h2 id="contact-heading" className="sr-only">
-            Contact details and enquiry form
+            {t.contact.sectionLabel}
           </h2>
 
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -54,7 +55,7 @@ export default async function ContactPage({
             <div className="lg:col-span-5">
               <Card padding="lg">
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                  Shop details
+                  {t.labels.companyDetails}
                 </h3>
 
                 <ul className="mt-6 space-y-6">
@@ -63,11 +64,12 @@ export default async function ContactPage({
                       <Icon name="mapPin" className="size-5" />
                     </span>
                     <div>
-                      <h4 className="text-sm font-semibold text-brand-900">Workshop</h4>
+                      <h4 className="text-sm font-semibold text-brand-900">{t.labels.workshop}</h4>
                       <address className="mt-1 text-sm not-italic leading-relaxed text-brand-600">
                         {site.contact.address.line1}
                         <br />
-                        {site.contact.address.city}, {site.contact.address.region}
+                        {site.contact.address.city}, {site.contact.address.region}{" "}
+                        {site.contact.address.postalCode}
                         <br />
                         {site.contact.address.country}
                       </address>
@@ -79,10 +81,10 @@ export default async function ContactPage({
                       <Icon name="phone" className="size-5" />
                     </span>
                     <div>
-                      <h4 className="text-sm font-semibold text-brand-900">Phone</h4>
+                      <h4 className="text-sm font-semibold text-brand-900">{t.labels.phone}</h4>
                       <ul className="mt-1 space-y-1 text-sm text-brand-600">
                         <li>
-                          Mobile:{" "}
+                          {t.labels.mobile}:{" "}
                           <a
                             href={site.contact.mobileHref}
                             className="inline-block py-1 text-accent-700 underline underline-offset-4 hover:text-accent-800"
@@ -91,7 +93,7 @@ export default async function ContactPage({
                           </a>
                         </li>
                         <li>
-                          Landline:{" "}
+                          {t.labels.landline}:{" "}
                           <a
                             href={site.contact.landlineHref}
                             className="inline-block py-1 text-accent-700 underline underline-offset-4 hover:text-accent-800"
@@ -111,10 +113,10 @@ export default async function ContactPage({
                       <Icon name="mail" className="size-5" />
                     </span>
                     <div>
-                      <h4 className="text-sm font-semibold text-brand-900">Email</h4>
+                      <h4 className="text-sm font-semibold text-brand-900">{t.labels.email}</h4>
                       <ul className="mt-1 space-y-1 text-sm text-brand-600">
                         <li>
-                          Enquiries:{" "}
+                          {t.labels.enquiries}:{" "}
                           <a
                             href={`mailto:${site.contact.email}`}
                             className="break-all text-accent-700 underline underline-offset-4 hover:text-accent-800"
@@ -123,7 +125,7 @@ export default async function ContactPage({
                           </a>
                         </li>
                         <li>
-                          Management:{" "}
+                          {t.labels.management}:{" "}
                           <a
                             href={`mailto:${site.contact.managementEmail}`}
                             className="break-all text-accent-700 underline underline-offset-4 hover:text-accent-800"
@@ -140,7 +142,7 @@ export default async function ContactPage({
                       <Icon name="clock" className="size-5" />
                     </span>
                     <div className="w-full">
-                      <h4 className="text-sm font-semibold text-brand-900">Business hours</h4>
+                      <h4 className="text-sm font-semibold text-brand-900">{t.labels.businessHours}</h4>
                       <dl className="mt-2 space-y-1 text-sm">
                         {site.contact.hours.map((entry) => (
                           <div key={entry.days} className="flex justify-between gap-4">
@@ -154,10 +156,10 @@ export default async function ContactPage({
                 </ul>
 
                 <p className="mt-8 rounded-md bg-canvas p-4 text-xs leading-relaxed text-brand-500 ring-1 ring-inset ring-hairline">
-                  <strong className="font-semibold text-brand-700">Note for the client:</strong>{" "}
-                  {site.contact.hoursNote} Everything else on this page comes from your company
-                  profile — update any of it in{" "}
-                  <code className="rounded bg-white px-1 py-0.5">data/site.ts</code>.
+                  <strong className="font-semibold text-brand-700">
+                    {t.contact.clientNote.label}
+                  </strong>{" "}
+                  {site.contact.hoursNote} {t.contact.clientNote.body}
                 </p>
               </Card>
 
@@ -178,7 +180,7 @@ export default async function ContactPage({
                         {site.contact.address.city}, {site.contact.address.region}
                       </p>
                       <p className="mt-1 text-sm text-brand-500">
-                        Add a Google Maps embed here once the exact pin is confirmed.
+                        {t.contact.map.note}
                       </p>
                     </div>
                   </div>
@@ -192,9 +194,9 @@ export default async function ContactPage({
             <div className="lg:col-span-7">
               <SectionHeading
                 as="h3"
-                eyebrow="Request for quotation"
-                title="Send us the details"
-                description="The more you can tell us — equipment, brand, fault and location — the more useful our first reply will be."
+                eyebrow={t.contact.form.eyebrow}
+                title={t.contact.form.title}
+                description={t.contact.form.description}
               />
 
               <div className="mt-8">
@@ -203,7 +205,7 @@ export default async function ContactPage({
 
               <Card tone="muted" padding="lg" className="mt-6">
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                  What happens next
+                  {t.labels.whatHappensNext}
                 </h3>
                 <ol className="mt-5 space-y-4">
                   {processSteps.map((step, index) => (

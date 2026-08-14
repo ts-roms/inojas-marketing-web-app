@@ -4,11 +4,12 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/icons";
+import { t } from "@/lib/i18n";
 import { mainNav } from "@/data/navigation";
 
 export const metadata: Metadata = {
-  title: "Page not found",
-  description: "The page you were looking for does not exist or has moved.",
+  title: t.notFound.metaTitle,
+  description: t.notFound.metaDescription,
   robots: { index: false, follow: true },
 };
 
@@ -17,31 +18,30 @@ export default function NotFound() {
     <section className="on-dark relative isolate overflow-hidden bg-brand-950 text-brand-100">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_80%_0%,rgba(196,135,63,0.18),transparent_65%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_80%_0%,rgba(15,95,209,0.18),transparent_65%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
 
       <Container className="py-24 lg:py-32">
         <div className="max-w-2xl">
-          <Eyebrow tone="dark">Error 404</Eyebrow>
-          <h1 className="mt-6 text-h1 text-white">This page is not in the shop</h1>
+          <Eyebrow tone="dark">{t.notFound.eyebrow}</Eyebrow>
+          <h1 className="mt-6 text-h1 text-white">{t.notFound.title}</h1>
           <p className="mt-6 text-lead text-brand-200">
-            The address you followed does not match anything on this site. It may have moved, or
-            the link may be out of date.
+            {t.notFound.description}
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button href="/" variant="accent" size="lg" icon="arrowRight">
-              Back to home
+              {t.actions.backToHome}
             </Button>
             <Button href="/contact" variant="outline" size="lg">
-              Contact us
+              {t.actions.contactUs}
             </Button>
           </div>
 
-          <nav aria-label="Site sections" className="mt-14 border-t border-white/10 pt-8">
+          <nav aria-label={t.notFound.sectionsLabel} className="mt-14 border-t border-white/10 pt-8">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-400">
-              Or try one of these
+              {t.notFound.tryThese}
             </h2>
             <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
               {mainNav.map((item) => (

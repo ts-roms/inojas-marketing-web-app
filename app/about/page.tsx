@@ -19,10 +19,11 @@ import {
   sectors,
   vision,
 } from "@/data/company";
-import { formattedAddress, site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { formattedAddress, site, textVars } from "@/data/site";
 
-const title = "About us";
-const description = `${site.name} was established in ${site.foundedYear} by skilled and trained technicians and engineers, repairing hydraulic, material handling and refrigeration equipment across the Philippines.`;
+const title = t.about.meta.title;
+const description = fill(t.about.meta.description, textVars);
 
 export const metadata: Metadata = {
   title,
@@ -37,27 +38,27 @@ export const metadata: Metadata = {
 
 /** Company profile facts, from the company profile document. */
 const profileFacts = [
-  { label: "Established", value: String(site.foundedYear) },
-  { label: "Founded by", value: "Skilled and trained technicians and engineers" },
-  { label: "Based in", value: `${site.contact.address.city}, ${site.contact.address.region}` },
-  { label: "Coverage", value: "Client sites across the Philippines" },
-  { label: "Work carried out", value: "On site or in the Calamba workshop" },
-];
+  t.about.profile.facts.established,
+  t.about.profile.facts.foundedBy,
+  t.about.profile.facts.basedIn,
+  t.about.profile.facts.coverage,
+  t.about.profile.facts.workCarriedOut,
+].map((fact) => ({ label: fact.label, value: fill(fact.value, textVars) }));
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About us"
-        title="Skilled technicians, environmentally friendly repairs"
+        eyebrow={t.about.hero.eyebrow}
+        title={t.about.hero.title}
         description={description}
         actions={
           <>
             <Button href="/services" variant="accent" icon="arrowRight">
-              What we repair
+              {t.actions.whatWeRepair}
             </Button>
             <Button href="/contact" variant="outline">
-              Talk to our team
+              {t.actions.talkToOurTeam}
             </Button>
           </>
         }
@@ -72,35 +73,26 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <SectionHeading
                 id="profile-heading"
-                eyebrow="Company profile"
-                title="A shop set up to fix things properly"
+                eyebrow={t.about.profile.eyebrow}
+                title={t.about.profile.title}
               />
 
               <div className="mt-8 space-y-6 text-brand-600">
                 <p className="text-lead text-brand-700">
-                  {site.name} was established in {site.foundedYear} by skilled and trained
-                  technicians and engineers. The company advocates for environmentally friendly
-                  repairs through the brands it carries and distributes across the Philippines.
+                  {fill(t.about.profile.lead, textVars)}
                 </p>
                 <p className="leading-relaxed">
-                  We provide a diverse array of products and services, including the repair, supply
-                  and installation of various forklift and hand pallet truck brands,
-                  air-conditioning and refrigeration repairs, motor rewinding and reconditioning,
-                  fabrication, and the supply and installation of roll-up doors.
+                  {t.about.profile.body1}
                 </p>
                 <p className="leading-relaxed">
-                  That breadth is the point. Warehouses and plants rarely fail in neat categories —
-                  a dock leveller that will not lift, a chiller that will not hold temperature, a
-                  forklift down on a Monday morning. Having hydraulics, cooling, electrical and
-                  fabrication skills in the same team means one call, one assessment and one team
-                  accountable for the outcome.
+                  {t.about.profile.body2}
                 </p>
               </div>
 
               <blockquote className="mt-10 rounded-xl border-l-2 border-accent-500 bg-canvas p-6">
                 <p className="text-lead text-brand-800">{philosophy}</p>
                 <footer className="mt-4 text-sm font-semibold uppercase tracking-[0.14em] text-brand-500">
-                  Our philosophy
+                  {t.about.profile.philosophyLabel}
                 </footer>
               </blockquote>
             </div>
@@ -109,7 +101,7 @@ export default function AboutPage() {
               <Reveal>
                 <Card tone="muted" padding="lg">
                   <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                    At a glance
+                    {t.labels.atAGlance}
                   </h3>
                   <dl className="mt-6 divide-y divide-brand-200">
                     {profileFacts.map((fact) => (
@@ -122,7 +114,7 @@ export default function AboutPage() {
                     ))}
                     <div className="grid gap-1 py-4 sm:grid-cols-5">
                       <dt className="text-sm font-semibold text-brand-500 sm:col-span-2">
-                        Workshop
+                        {t.about.profile.facts.workshop.label}
                       </dt>
                       <dd className="text-sm text-brand-800 sm:col-span-3">
                         <address className="not-italic">{formattedAddress()}</address>
@@ -131,7 +123,7 @@ export default function AboutPage() {
                   </dl>
 
                   <h3 className="mt-8 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                    Sectors served
+                    {t.labels.sectorsServed}
                   </h3>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {sectors.map((sector) => (
@@ -160,14 +152,14 @@ export default function AboutPage() {
             id="mission-heading"
             tone="dark"
             align="center"
-            eyebrow="Mission & vision"
-            title="What we are working towards"
+            eyebrow={t.about.missionVision.eyebrow}
+            title={t.about.missionVision.title}
           />
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
             {[
-              { label: "Our mission", body: mission, icon: "compass" as const },
-              { label: "Our vision", body: vision, icon: "spark" as const },
+              { label: t.about.missionVision.missionLabel, body: mission, icon: "compass" as const },
+              { label: t.about.missionVision.visionLabel, body: vision, icon: "spark" as const },
             ].map((item, index) => (
               <Reveal key={item.label} delay={index * 90}>
                 <Card tone="dark" padding="lg" className="h-full">
@@ -192,9 +184,9 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             id="story-heading"
-            eyebrow="Our story"
-            title="From hydraulic repairs to full plant maintenance"
-            description="How the scope of the shop widened as customers kept asking for the next thing."
+            eyebrow={t.about.story.eyebrow}
+            title={t.about.story.title}
+            description={t.about.story.description}
           />
 
           <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -228,9 +220,9 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             id="values-heading"
-            eyebrow="Core values"
-            title="The values behind our professional philosophy"
-            description="These are the fundamental values our mission refers to — the ones we fall back on when a job gets difficult."
+            eyebrow={t.about.values.eyebrow}
+            title={t.about.values.title}
+            description={t.about.values.description}
           />
 
           <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -265,8 +257,8 @@ export default function AboutPage() {
           <SectionHeading
             id="figures-heading"
             align="center"
-            eyebrow="By the numbers"
-            title="The shop, in figures"
+            eyebrow={t.about.figures.eyebrow}
+            title={t.about.figures.title}
           />
           <div className="mt-12">
             <StatsBand />
@@ -275,11 +267,11 @@ export default function AboutPage() {
       </Section>
 
       <CtaBanner
-        eyebrow="Work with us"
-        title="Bring us the unit everyone else wants to replace"
-        description="We will assess it honestly and tell you whether it is worth repairing. If it is not, we will say so — and quote the replacement instead."
-        primary={{ label: "Contact the shop", href: "/contact" }}
-        secondary={{ label: "See completed work", href: "/projects" }}
+        eyebrow={t.about.cta.eyebrow}
+        title={t.about.cta.title}
+        description={t.about.cta.description}
+        primary={{ label: t.actions.contactTheShop, href: "/contact" }}
+        secondary={{ label: t.actions.seeCompletedWork, href: "/projects" }}
       />
     </>
   );

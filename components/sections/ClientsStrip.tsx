@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { fill, t } from "@/lib/i18n";
 import { clients } from "@/data/company";
 
 /**
@@ -20,9 +21,9 @@ export function ClientsStrip({ tone = "canvas" }: { tone?: "canvas" | "white" })
         <SectionHeading
           id="clients-heading"
           align="center"
-          eyebrow="Our valued clients"
-          title="Trusted by manufacturers, logistics hubs and facilities teams"
-          description="A selection of the companies whose forklifts, pallet trucks, cooling systems and dock equipment we keep running."
+          eyebrow={t.clients.eyebrow}
+          title={t.clients.title}
+          description={t.clients.description}
         />
 
         <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -44,7 +45,9 @@ export function ClientsStrip({ tone = "canvas" }: { tone?: "canvas" | "white" })
 
         {withoutLogos.length > 0 ? (
           <p className="mt-6 text-center text-sm text-brand-500">
-            Also serving {withoutLogos.map((client) => client.name).join(" and ")}.
+            {fill(t.clients.alsoServing, {
+              names: withoutLogos.map((client) => client.name).join(" and "),
+            })}
           </p>
         ) : null}
       </Container>

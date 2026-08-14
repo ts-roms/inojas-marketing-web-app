@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
+import { fill, t } from "@/lib/i18n";
 import { ProductCard } from "@/components/products/ProductCard";
 import { Icon } from "@/components/ui/icons";
 import { equipment, productCategories, type ProductCategoryId } from "@/data/products";
@@ -9,7 +10,7 @@ import { equipment, productCategories, type ProductCategoryId } from "@/data/pro
 type Filter = ProductCategoryId | "all";
 
 const filters: { id: Filter; label: string }[] = [
-  { id: "all", label: "All equipment" },
+  { id: "all", label: t.equipment.filters.all },
   ...productCategories.map((category) => ({ id: category.id, label: category.name })),
 ];
 
@@ -39,7 +40,7 @@ export function ProductGrid({ initialCategory = "all" }: { initialCategory?: Fil
       <div className="flex flex-col gap-5 border-b border-hairline pb-6 sm:flex-row sm:items-center sm:justify-between">
         <div
           role="group"
-          aria-label="Filter products by category"
+          aria-label={t.equipment.filters.groupLabel}
           className="-mx-1 flex flex-wrap gap-2 px-1"
         >
           {filters.map((filter) => {
@@ -64,7 +65,10 @@ export function ProductGrid({ initialCategory = "all" }: { initialCategory?: Fil
         </div>
 
         <p aria-live="polite" className="text-sm text-brand-500">
-          Showing {visible.length} of {equipment.length} equipment lines
+          {fill(t.equipment.filters.showing, {
+            visible: visible.length,
+            total: equipment.length,
+          })}
         </p>
       </div>
 
@@ -79,10 +83,7 @@ export function ProductGrid({ initialCategory = "all" }: { initialCategory?: Fil
       ) : (
         <div className="mt-10 rounded-xl border border-dashed border-brand-200 p-12 text-center">
           <Icon name="alert" className="mx-auto size-6 text-brand-400" />
-          <p className="mt-3 text-brand-600">
-            Nothing listed in this category yet. Try another category, or get in touch — if it is
-            hydraulic, mechanical or refrigeration equipment, we will look at it.
-          </p>
+          <p className="mt-3 text-brand-600">{t.equipment.filters.emptyMessage}</p>
         </div>
       )}
     </div>

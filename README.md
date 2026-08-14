@@ -79,8 +79,8 @@ app/
   about/ services/ equipment/ projects/ contact/    Main pages
   privacy/ terms/       Placeholder legal pages (so no footer link is broken)
   api/contact/route.ts  Contact form endpoint — see "Contact form" below
-  icon.svg              Favicon
-  apple-icon.tsx        iOS home-screen icon (generated)
+  icon.png              Favicon (hexagon mark from the logo badge)
+  apple-icon.png        iOS home-screen icon
   opengraph-image.tsx   Social share card (generated)
   robots.ts sitemap.ts  Generated robots.txt and sitemap.xml
   not-found.tsx         404
@@ -98,7 +98,8 @@ components/
   forms/        ContactForm
 
 data/           site.ts, navigation.ts, services.ts, products.ts, company.ts
-lib/            cn.ts, contact.ts (validation shared by form and API)
+lib/            cn.ts, i18n.ts (locale loader), contact.ts (shared validation)
+public/locale/  en.json — every word on the website
 public/images/  brand/ (logo), projects/ (20 job photos), clients/ (14 logos)
 ```
 
@@ -111,35 +112,54 @@ menu), the equipment filter, the project gallery filter and the contact form.
 
 Content is data-driven, so copy changes rarely require touching a layout.
 
+**All website copy lives in `public/locale/en.json`.** Edit that file and the
+site changes — no code edits. `data/*.ts` holds only structure (ids, icons,
+image paths, links, phone numbers): things that would not change if the site
+were translated.
+
+To add a language: copy `public/locale/en.json` to e.g. `fil.json`, translate
+the values (keys stay in English), and register it in `lib/i18n.ts`. TypeScript
+flags any key you miss, and at runtime missing keys fall back to English, so a
+partial translation is safe to ship. The site currently renders one locale, so
+there is no URL prefix and no switcher.
+
 | What                                                       | Where                |
 | ---------------------------------------------------------- | -------------------- |
-| Company name, address, phone numbers, emails, hours, social | `data/site.ts`       |
+| **Every sentence, label, button and error message**         | `public/locale/en.json` |
+| Phone numbers, emails, address, links, founding year        | `data/site.ts`       |
 | Navigation and footer links                                 | `data/navigation.ts` |
-| Services, benefits, four-step process                       | `data/services.ts`   |
-| Equipment lines and families                                | `data/products.ts`   |
-| Philosophy, mission, vision, values, permits, clients, vendor projects, project photos, figures | `data/company.ts` |
-| Legal copy                                                  | `app/privacy/page.tsx`, `app/terms/page.tsx` |
+| Service ids, icons, relationships                           | `data/services.ts`   |
+| Equipment ids, categories, photo paths, relationships       | `data/products.ts`   |
+| Value/value-prop ids, client logos, project relationships    | `data/company.ts`    |
 | Brand colours, type scale, shadows, motion                  | `app/globals.css` (`@theme` block) |
-| Logo artwork                                                | `public/images/brand/ihrs-logo.png`, `app/icon.svg` |
+| Logo artwork                                                | `public/images/brand/`, `app/icon.png` |
 
 ### Adding an equipment line
 
+Two steps: structure in `data/products.ts`, words in `public/locale/en.json`.
+
 ```ts
-// data/products.ts
+// data/products.ts — structure only
 {
   id: "new-line",                 // also the detail page route: /equipment/new-line
-  name: "Equipment name",
   category: "material-handling",  // must match a productCategories entry
-  description: "What we do with it.",           // card + meta description
-  detail: "Opening paragraph for the detail page.",
-  workScope: ["What the work usually involves", "…"],
-  offerings: ["Repair services", "Brand new"],  // company's own wording
   relatedServices: ["hydraulic-equipment-repair"],  // ids from data/services.ts
   icon: "forklift",
-  image: "/images/projects/photo.jpg",  // optional — an icon tile is used if omitted
-  imageAlt: "Describe what the photo shows.",
-  gallery: [{ src: "/images/projects/other.jpg", alt: "…" }],  // optional
+  image: "/images/projects/photo.webp",  // optional — an icon tile is used if omitted
+  galleryKeys: ["another-photo"],        // optional, keys from projects.photos
   featured: true,                 // optional: promote to the home page
+}
+```
+
+```jsonc
+// public/locale/en.json — equipment.items."new-line"
+{
+  "name": "Equipment name",
+  "description": "What we do with it.",
+  "detail": "Opening paragraph for the detail page.",
+  "workScope": ["What the work usually involves"],
+  "offerings": ["Repair services", "Brand new"],
+  "imageAlt": "Describe what the photo shows."
 }
 ```
 
@@ -231,16 +251,20 @@ Vercel project settings.
 
 ## Design and engineering notes
 
-**Brand.** Colours are taken from the logo: the cyan of the gear
-(`#00a8f0`, `--color-accent-500`) against the near-black of the wrenches
-(`--color-brand-950`). Headings are set in Archivo, which echoes the heavy
-squared lettering of the wordmark; body copy is Inter. Everything is defined in
-the `@theme` block of `app/globals.css`, so the whole site re-themes from one
-place.
+**Brand.** Colours are sampled from the company logo badge: the deep navy
+(`#001840`, `--color-brand-950` family) and the blue of the hexagon mark
+(`#0048b0`, `--color-accent-600`). Headings are set in Archivo, which echoes the
+heavy squared lettering of the wordmark; body copy is Inter. Everything is
+defined in the `@theme` block of `app/globals.css`, so the whole site re-themes
+from one place.
+
+The favicon and touch icon are generated from the inner hexagon of the badge —
+the full circular logo with its ring of text is unreadable at 16px.
 
 **Photography.** All 20 project photographs and the 14 client logos are the
-company's own, extracted from the profile PDF and re-encoded for the web
-(progressive JPEG, ~1400px longest edge, 25–85 KB each). Equipment lines with no
+company's own, extracted from the profile PDF and re-encoded as WebP (~1400px
+longest edge) — about 28% smaller than the JPEG/PNG originals, on top of the
+per-request optimisation `next/image` already does. Equipment lines with no
 matching photograph show an icon tile rather than a stock substitute — nothing on
 the site is illustrated with imagery that is not the company's.
 

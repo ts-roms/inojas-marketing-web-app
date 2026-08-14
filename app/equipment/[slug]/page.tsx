@@ -20,7 +20,8 @@ import {
   relatedEquipment,
 } from "@/data/products";
 import { getService } from "@/data/services";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   if (!item) return { title: "Equipment not found" };
 
-  const title = `${item.name} — repair, parts and supply`;
+  const title = fill(t.equipment.detail.metaTitle, { name: item.name });
 
   return {
     title,
@@ -83,15 +84,15 @@ export default async function EquipmentDetailPage({ params }: Params) {
       <section className="on-dark relative isolate overflow-hidden bg-brand-900 text-brand-100">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(0,168,240,0.18),transparent_65%)]"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.18),transparent_65%)]"
         />
         <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
 
         <Container className="py-10 sm:py-12 lg:py-16">
           <Breadcrumbs
             items={[
-              { label: "Home", href: "/" },
-              { label: "Equipment", href: "/equipment" },
+              { label: t.nav.items.home.label, href: "/" },
+              { label: t.nav.items.equipment.label, href: "/equipment" },
               { label: item.name },
             ]}
           />
@@ -119,7 +120,7 @@ export default async function EquipmentDetailPage({ params }: Params) {
                   variant="accent"
                   icon="arrowRight"
                 >
-                  Request a quotation
+                  {t.actions.requestQuotation}
                 </Button>
                 <Button href={site.contact.mobileHref} variant="outline">
                   <Icon name="phone" className="size-4" />
@@ -163,14 +164,14 @@ export default async function EquipmentDetailPage({ params }: Params) {
               <SectionHeading
                 id="detail-heading"
                 as="h2"
-                eyebrow="What we do with it"
-                title={`Bringing a ${item.name.toLowerCase()} back into service`}
+                eyebrow={t.equipment.detail.work.eyebrow}
+                title={fill(t.equipment.detail.work.title, { name: item.name.toLowerCase() })}
               />
 
               <p className="mt-8 text-lead text-brand-700">{item.detail}</p>
 
               <h3 className="mt-10 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                What the work usually involves
+                {t.labels.whatTheWorkInvolves}
               </h3>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {item.workScope.map((step) => (
@@ -182,13 +183,12 @@ export default async function EquipmentDetailPage({ params }: Params) {
               </ul>
 
               <p className="mt-8 rounded-xl bg-canvas p-5 text-sm leading-relaxed text-brand-600 ring-1 ring-inset ring-hairline">
-                Scope, price and lead time are confirmed after a check-up — we quote what the unit
-                in front of us needs rather than a standard package.{" "}
+                {t.equipment.detail.quoteNote}{" "}
                 <Link
                   href="/services"
                   className="font-medium text-accent-700 underline underline-offset-4 hover:text-accent-800"
                 >
-                  How a job runs
+                  {t.actions.howAJobRuns}
                 </Link>
                 .
               </p>
@@ -197,12 +197,12 @@ export default async function EquipmentDetailPage({ params }: Params) {
             <div className="lg:col-span-5">
               <Card tone="muted" padding="lg">
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                  At a glance
+                  {t.labels.atAGlance}
                 </h3>
 
                 <dl className="mt-6 space-y-4 text-sm">
                   <div>
-                    <dt className="font-semibold text-brand-500">Family</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.family}</dt>
                     <dd className="mt-1 text-brand-800">
                       {category ? (
                         <Link
@@ -217,13 +217,13 @@ export default async function EquipmentDetailPage({ params }: Params) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-brand-500">Available as</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.availableAs}</dt>
                     <dd className="mt-1 text-brand-800">{item.offerings.join(" · ")}</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-brand-500">Where we work</dt>
+                    <dt className="font-semibold text-brand-500">{t.labels.whereWeWork}</dt>
                     <dd className="mt-1 text-brand-800">
-                      On your site, or in the {site.contact.address.city} workshop
+                      {fill(t.labels.onSiteOrWorkshop, textVars)}
                     </dd>
                   </div>
                 </dl>
@@ -231,7 +231,7 @@ export default async function EquipmentDetailPage({ params }: Params) {
                 {services.length > 0 ? (
                   <>
                     <h3 className="mt-8 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                      Related services
+                      {t.labels.relatedServices}
                     </h3>
                     <ul className="mt-4 space-y-2">
                       {services.map((service) => (
@@ -267,9 +267,9 @@ export default async function EquipmentDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="gallery-heading"
-              eyebrow="From our jobs"
-              title="This equipment, in our hands"
-              description="Photographs taken on our own projects — not stock imagery."
+              eyebrow={t.equipment.detail.gallery.eyebrow}
+              title={t.equipment.detail.gallery.title}
+              description={t.equipment.detail.gallery.description}
             />
 
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -302,11 +302,17 @@ export default async function EquipmentDetailPage({ params }: Params) {
           <Container>
             <SectionHeading
               id="related-heading"
-              eyebrow="Also in this family"
-              title={category ? `More ${category.name.toLowerCase()} equipment` : "Related equipment"}
+              eyebrow={t.equipment.detail.related.eyebrow}
+              title={
+                category
+                  ? fill(t.equipment.detail.related.title, {
+                      category: category.name.toLowerCase(),
+                    })
+                  : t.equipment.detail.related.titleFallback
+              }
               action={
                 <Button href="/equipment" variant="secondary" icon="arrowRight">
-                  All equipment
+                  {t.actions.allEquipment}
                 </Button>
               }
             />
@@ -323,11 +329,11 @@ export default async function EquipmentDetailPage({ params }: Params) {
       ) : null}
 
       <CtaBanner
-        eyebrow="Quotations"
-        title={`Need a ${item.name.toLowerCase()} looked at?`}
-        description="Send us the unit, the fault and where it is. We will tell you whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "See completed work", href: "/projects" }}
+        eyebrow={t.equipment.detail.cta.eyebrow}
+        title={fill(t.equipment.detail.cta.title, { name: item.name.toLowerCase() })}
+        description={t.equipment.detail.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.seeCompletedWork, href: "/projects" }}
       />
 
       <script

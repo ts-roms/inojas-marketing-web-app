@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
+import { fill, t } from "@/lib/i18n";
 import { projectPhotos, type ProjectPhoto } from "@/data/company";
 
 type Discipline = ProjectPhoto["discipline"] | "all";
 
 const filters: { id: Discipline; label: string }[] = [
-  { id: "all", label: "All work" },
-  { id: "hydraulics", label: "Hydraulics & material handling" },
-  { id: "cooling", label: "Refrigeration & air-conditioning" },
-  { id: "motors", label: "Motors" },
-  { id: "fabrication", label: "Fabrication & doors" },
+  { id: "all", label: t.projects.gallery.all },
+  { id: "hydraulics", label: t.projects.disciplines.hydraulics },
+  { id: "cooling", label: t.projects.disciplines.cooling },
+  { id: "motors", label: t.projects.disciplines.motors },
+  { id: "fabrication", label: t.projects.disciplines.fabrication },
 ];
 
 const SIZES = "(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw";
@@ -36,7 +37,7 @@ export function ProjectGallery() {
   return (
     <div>
       <div className="flex flex-col gap-5 border-b border-hairline pb-6 sm:flex-row sm:items-center sm:justify-between">
-        <div role="group" aria-label="Filter work by discipline" className="flex flex-wrap gap-2">
+        <div role="group" aria-label={t.projects.gallery.groupLabel} className="flex flex-wrap gap-2">
           {filters.map((filter) => {
             const isActive = filter.id === active;
             return (
@@ -59,7 +60,10 @@ export function ProjectGallery() {
         </div>
 
         <p aria-live="polite" className="text-sm text-brand-500">
-          {visible.length} of {projectPhotos.length} photos
+          {fill(t.projects.gallery.count, {
+            visible: visible.length,
+            total: projectPhotos.length,
+          })}
         </p>
       </div>
 

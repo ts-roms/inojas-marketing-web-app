@@ -34,43 +34,43 @@
   --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
   --text-lead--line-height: 1.65;
 
-  /* ---- Brand: workshop graphite ---------------------------------------- */
-  /* Taken from the black in the Inojas logo mark and the company profile. */
-  --color-brand-50: #f5f7f9;
-  --color-brand-100: #e9edf1;
-  --color-brand-200: #d4dae1;
-  --color-brand-300: #b0b9c4;
-  --color-brand-400: #7e8894;
-  --color-brand-500: #5a6673; /* AA on white (5.7:1) */
-  --color-brand-600: #414c58;
-  --color-brand-700: #2e3844;
-  --color-brand-800: #1d242d;
-  --color-brand-900: #131920;
-  --color-brand-950: #0a0d12;
+  /* ---- Brand: Inojas navy ---------------------------------------------- */
+  /* Sampled from the deep navy in the logo badge (#001840). */
+  --color-brand-50: #f1f5fa;
+  --color-brand-100: #dfe8f4;
+  --color-brand-200: #bfd0e8;
+  --color-brand-300: #92a9d1;
+  --color-brand-400: #6685b8; /* AA on brand-950 (5.0:1) */
+  --color-brand-500: #3b5a8b; /* AA on white (6.6:1) */
+  --color-brand-600: #27406b;
+  --color-brand-700: #1a2e52;
+  --color-brand-800: #122139;
+  --color-brand-900: #0a1a38;
+  --color-brand-950: #061127;
 
-  /* ---- Accent: Inojas cyan --------------------------------------------- */
-  /* --color-accent-500 is the cyan sampled from the logo gear (#00a8f0). */
-  --color-accent-50: #e9f7fe;
-  --color-accent-100: #ccedfd;
-  --color-accent-200: #9bddfb;
-  --color-accent-300: #5fc8f7;
-  --color-accent-400: #23b4f4;
-  --color-accent-500: #00a8f0;
-  --color-accent-600: #0089c9;
-  --color-accent-700: #026c9e; /* AA text on white (5.7:1) */
-  --color-accent-800: #05567c;
-  --color-accent-900: #0a4763;
+  /* ---- Accent: Inojas blue --------------------------------------------- */
+  /* --color-accent-600 is the blue sampled from the logo hexagon (#0048b0). */
+  --color-accent-50: #eaf2fe;
+  --color-accent-100: #d3e4fd;
+  --color-accent-200: #a8c8fa;
+  --color-accent-300: #74a5f3;
+  --color-accent-400: #3d7fe6;
+  --color-accent-500: #0f5fd1; /* AA text on white (5.9:1) */
+  --color-accent-600: #0b4fb0;
+  --color-accent-700: #093f8c;
+  --color-accent-800: #0a3271;
+  --color-accent-900: #0a2857;
 
   /* ---- Neutral surfaces ------------------------------------------------ */
-  --color-canvas: #f4f6f8;
-  --color-muted: #edf1f4;
-  --color-hairline: #e1e6ea;
+  --color-canvas: #f4f7fb;
+  --color-muted: #eaf0f7;
+  --color-hairline: #dde5ee;
 
   /* ---- Elevation ------------------------------------------------------- */
-  --shadow-subtle: 0 1px 2px 0 rgb(10 13 18 / 0.05);
-  --shadow-card: 0 1px 3px rgb(10 13 18 / 0.06), 0 8px 24px -12px rgb(10 13 18 / 0.14);
-  --shadow-lift: 0 2px 6px rgb(10 13 18 / 0.07), 0 18px 40px -18px rgb(10 13 18 / 0.26);
-  --shadow-inset-hairline: inset 0 0 0 1px rgb(10 13 18 / 0.07);
+  --shadow-subtle: 0 1px 2px 0 rgb(6 17 39 / 0.05);
+  --shadow-card: 0 1px 3px rgb(6 17 39 / 0.06), 0 8px 24px -12px rgb(6 17 39 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(6 17 39 / 0.07), 0 18px 40px -18px rgb(6 17 39 / 0.26);
+  --shadow-inset-hairline: inset 0 0 0 1px rgb(6 17 39 / 0.07);
 
   /* ---- Motion ---------------------------------------------------------- */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Inter } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
+import { t } from "@/lib/i18n";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -83,8 +84,8 @@ const organizationSchema = {
   url: site.url,
   description: site.description,
   foundingDate: String(site.foundedYear),
-  image: `${site.url}/images/brand/ihrs-logo.png`,
-  logo: `${site.url}/images/brand/ihrs-logo.png`,
+  image: `${site.url}/images/brand/inojas-logo.png`,
+  logo: `${site.url}/images/brand/inojas-logo.png`,
   telephone: site.contact.mobileDisplay,
   email: site.contact.email,
   address: {
@@ -92,6 +93,7 @@ const organizationSchema = {
     streetAddress: site.contact.address.line1,
     addressLocality: site.contact.address.city,
     addressRegion: site.contact.address.region,
+    postalCode: site.contact.address.postalCode,
     addressCountry: "PH",
   },
   areaServed: { "@type": "Country", name: "Philippines" },
@@ -131,7 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="#main"
           className="sr-only rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"
         >
-          Skip to main content
+          {t.nav.skipToContent}
         </a>
 
         <Header />

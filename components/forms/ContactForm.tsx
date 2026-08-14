@@ -3,6 +3,7 @@
 import { useId, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/icons";
+import { fill, t } from "@/lib/i18n";
 import { site } from "@/data/site";
 import {
   MESSAGE_MAX_LENGTH,
@@ -79,7 +80,7 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
 
     const firstInvalid = contactFieldOrder.find((field) => nextErrors[field]);
     if (firstInvalid) {
-      setStatus({ kind: "error", message: "Please correct the highlighted fields." });
+      setStatus({ kind: "error", message: t.form.errors.correctFields });
       formRef.current
         ?.querySelector<HTMLElement>(`#${CSS.escape(fieldId(firstInvalid))}`)
         ?.focus();
@@ -100,8 +101,7 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
       if (response.ok && data.ok) {
         setStatus({
           kind: "success",
-          message:
-            "Salamat — your enquiry has been received. Our team will get back to you with a quotation or to arrange a check-up.",
+          message: t.form.success.message,
         });
         setValues({ ...emptyContactForm });
         setTouched({});
@@ -114,26 +114,25 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
           kind: "unconfigured",
           message:
             data.message ??
-            "This form is not connected to a delivery service yet, so your message was not sent.",
+            t.form.unconfigured.message,
         });
         return;
       }
 
       if (data.code === "validation_error" && data.errors) {
         setErrors(data.errors);
-        setStatus({ kind: "error", message: data.message ?? "Please correct the fields above." });
+        setStatus({ kind: "error", message: data.message ?? t.form.errors.correctFields });
         return;
       }
 
       setStatus({
         kind: "error",
-        message: data.message ?? "Something went wrong. Please try again or call us.",
+        message: data.message ?? t.form.errors.generic,
       });
     } catch {
       setStatus({
         kind: "error",
-        message:
-          "We could not reach the server. Check your connection, or contact us by phone or email.",
+        message: t.form.errors.network,
       });
     }
   }
@@ -151,14 +150,14 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         <span className="mx-auto inline-flex size-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
           <Icon name="checkCircle" className="size-7" />
         </span>
-        <h3 className="mt-6 text-h3 text-brand-900">Message sent</h3>
+        <h3 className="mt-6 text-h3 text-brand-900">{t.form.success.title}</h3>
         <p className="mx-auto mt-3 max-w-md leading-relaxed text-brand-600">{status.message}</p>
         <button
           type="button"
           onClick={() => setStatus({ kind: "idle" })}
           className="mt-7 inline-flex h-11 items-center justify-center rounded-md bg-brand-900 px-5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-brand-800"
         >
-          Send another message
+          {t.form.success.again}
         </button>
       </div>
     );
@@ -172,17 +171,16 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
       className="rounded-xl bg-white p-6 ring-1 ring-hairline shadow-card sm:p-8"
     >
       <p className="text-sm text-brand-500">
-        Fields marked <span aria-hidden="true">*</span>
-        <span className="sr-only">with an asterisk</span> are required.
+        {t.form.requiredNote}
       </p>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <Field
-          label="Full name"
+          label={t.form.fields.name.label}
           name="name"
           required
           autoComplete="name"
-          placeholder="Juan dela Cruz"
+          placeholder={t.form.fields.name.placeholder}
           value={values.name}
           error={touched.name ? errors.name : undefined}
           onChange={handleChange}
@@ -193,13 +191,13 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         />
 
         <Field
-          label="Email address"
+          label={t.form.fields.email.label}
           name="email"
           type="email"
           required
           inputMode="email"
           autoComplete="email"
-          placeholder="juan@company.com.ph"
+          placeholder={t.form.fields.email.placeholder}
           value={values.email}
           error={touched.email ? errors.email : undefined}
           onChange={handleChange}
@@ -210,12 +208,12 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         />
 
         <Field
-          label="Phone number"
+          label={t.form.fields.phone.label}
           name="phone"
           type="tel"
           inputMode="tel"
           autoComplete="tel"
-          hint="Optional"
+          hint={t.form.optional}
           placeholder={site.contact.mobileDisplay}
           value={values.phone}
           error={touched.phone ? errors.phone : undefined}
@@ -227,10 +225,10 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         />
 
         <Field
-          label="Subject"
+          label={t.form.fields.subject.label}
           name="subject"
           required
-          placeholder="Forklift hydraulic leak — Calamba warehouse"
+          placeholder={t.form.fields.subject.placeholder}
           value={values.subject}
           error={touched.subject ? errors.subject : undefined}
           onChange={handleChange}
@@ -243,11 +241,11 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         <div className="sm:col-span-2">
           <Field
             as="textarea"
-            label="Message"
+            label={t.form.fields.message.label}
             name="message"
             required
             rows={6}
-            placeholder="Tell us the equipment and brand, what it is doing (or not doing), and where it is located."
+            placeholder={t.form.fields.message.placeholder}
             hint={`${values.message.length}/${MESSAGE_MAX_LENGTH}`}
             value={values.message}
             error={touched.message ? errors.message : undefined}
@@ -262,7 +260,7 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
 
       {/* Honeypot — hidden from people and assistive tech, catnip for bots. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor={`${formId}-website`}>Website (leave this field empty)</label>
+        <label htmlFor={`${formId}-website`}>{t.form.fields.honeypot}</label>
         <input
           id={`${formId}-website`}
           name="website"
@@ -283,18 +281,18 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
           {isSubmitting ? (
             <>
               <Icon name="spinner" className="size-4 animate-spin" />
-              Sending…
+              {t.form.submitting}
             </>
           ) : (
             <>
-              Send message
+              {t.form.submit}
               <Icon name="arrowRight" className="size-4" />
             </>
           )}
         </button>
 
         <p className="text-sm text-brand-500">
-          Or call{" "}
+          {t.form.orCall}{" "}
           <a
             href={site.contact.mobileHref}
             className="font-medium text-accent-700 underline underline-offset-4 hover:text-accent-800"
@@ -318,26 +316,17 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
             <Icon name="alert" className="mt-0.5 size-4 shrink-0" />
             <div>
               <p className="font-medium">
-                {status.kind === "unconfigured" ? "Message not sent" : "Something went wrong"}
+                {status.kind === "unconfigured"
+                  ? t.form.unconfigured.title
+                  : t.form.errors.genericTitle}
               </p>
               <p className="mt-1 leading-relaxed">{status.message}</p>
               {status.kind === "unconfigured" ? (
                 <p className="mt-2 leading-relaxed">
-                  Please email{" "}
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="font-medium underline underline-offset-4"
-                  >
-                    {site.contact.email}
-                  </a>{" "}
-                  or call{" "}
-                  <a
-                    href={site.contact.mobileHref}
-                    className="font-medium underline underline-offset-4"
-                  >
-                    {site.contact.mobileDisplay}
-                  </a>{" "}
-                  instead.
+                  {fill(t.form.unconfigured.fallback, {
+                    email: site.contact.email,
+                    phone: site.contact.mobileDisplay,
+                  })}
                 </p>
               ) : null}
             </div>
@@ -410,7 +399,7 @@ function Field({
               <span aria-hidden="true" className="text-accent-700">
                 *
               </span>
-              <span className="sr-only">(required)</span>
+              <span className="sr-only">{t.form.requiredSuffix}</span>
             </>
           ) : null}
         </label>

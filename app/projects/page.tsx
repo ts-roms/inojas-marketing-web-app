@@ -12,11 +12,11 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { vendorProjects } from "@/data/company";
-import { site } from "@/data/site";
+import { fill, t } from "@/lib/i18n";
+import { site, textVars } from "@/data/site";
 
-const title = "Projects";
-const description =
-  "Completed hydraulic, material handling, refrigeration and fabrication work by Inojas Hydraulic Repair Shop — with the clients and scopes we have delivered to date.";
+const title = t.projects.meta.title;
+const description = fill(t.projects.meta.description, textVars);
 
 export const metadata: Metadata = {
   title,
@@ -33,16 +33,16 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Finished projects"
-        title="Equipment we have put back into service"
+        eyebrow={t.projects.hero.eyebrow}
+        title={t.projects.hero.title}
         description={description}
         actions={
           <>
             <Button href="/contact" variant="accent" icon="arrowRight">
-              Request a quotation
+              {t.actions.requestQuotation}
             </Button>
             <Button href="/services" variant="outline">
-              See our services
+              {t.actions.seeOurServices}
             </Button>
           </>
         }
@@ -55,9 +55,9 @@ export default function ProjectsPage() {
         <Container>
           <SectionHeading
             id="gallery-heading"
-            eyebrow="On the job"
-            title="Photographs from our own workshop and client sites"
-            description="Filter by discipline to see the kind of work we take on. Every photograph here is our own — no stock imagery."
+            eyebrow={t.projects.gallery.eyebrow}
+            title={t.projects.gallery.title}
+            description={t.projects.gallery.description}
           />
 
           <div className="mt-12">
@@ -73,9 +73,9 @@ export default function ProjectsPage() {
         <Container>
           <SectionHeading
             id="record-heading"
-            eyebrow="Vendor projects to date"
-            title="What we delivered, and for whom"
-            description="The record of vendor work from our company profile — the scope in each case is described as it was carried out."
+            eyebrow={t.projects.record.eyebrow}
+            title={t.projects.record.title}
+            description={t.projects.record.description}
           />
 
           <ul className="mt-12 grid gap-4 lg:grid-cols-2">
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                         {project.scope}
                       </p>
                       <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 transition-colors group-hover:text-accent-700">
-                        View project
+                        {t.actions.viewProject}
                         <Icon
                           name="arrowRight"
                           className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
@@ -117,11 +117,11 @@ export default function ProjectsPage() {
       <ClientsStrip tone="white" />
 
       <CtaBanner
-        eyebrow="Your equipment next"
-        title="Have something that needs the same treatment?"
-        description="Tell us the unit, the fault and where it sits. We will advise whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
-        primary={{ label: "Request a quotation", href: "/contact" }}
-        secondary={{ label: "Browse equipment", href: "/equipment" }}
+        eyebrow={t.projects.cta.eyebrow}
+        title={t.projects.cta.title}
+        description={t.projects.cta.description}
+        primary={{ label: t.actions.requestQuotation, href: "/contact" }}
+        secondary={{ label: t.actions.browseEquipment, href: "/equipment" }}
       />
     </>
   );

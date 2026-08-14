@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -13,12 +14,12 @@ export function ServicesOverview() {
       <Container>
         <SectionHeading
           id="services-overview-heading"
-          eyebrow="Services offered"
-          title="Hydraulics, cooling, motors and fabrication — one shop"
-          description="Everything we do sits within reach of the same team, so a job that turns out to span two trades does not turn into two contractors."
+          eyebrow={t.home.servicesOverview.eyebrow}
+          title={t.home.servicesOverview.title}
+          description={t.home.servicesOverview.description}
           action={
             <Button href="/services" variant="secondary" icon="arrowRight">
-              All services
+              {t.actions.allServices}
             </Button>
           }
         />
