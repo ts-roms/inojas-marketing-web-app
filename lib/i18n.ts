@@ -1,26 +1,66 @@
-import en from "@/public/locale/en.json";
+import enCommon from "@/public/locale/en/common.json";
+import enCompany from "@/public/locale/en/company.json";
+import enHome from "@/public/locale/en/home.json";
+import enAbout from "@/public/locale/en/about.json";
+import enServices from "@/public/locale/en/services.json";
+import enEquipment from "@/public/locale/en/equipment.json";
+import enProjects from "@/public/locale/en/projects.json";
+import enContact from "@/public/locale/en/contact.json";
+import enLegal from "@/public/locale/en/legal.json";
+import enStatus from "@/public/locale/en/status.json";
 
 /**
  * ---------------------------------------------------------------------------
- * Localisation
+ * Content and localisation
  * ---------------------------------------------------------------------------
- * All user-facing copy lives in `public/locale/<locale>.json`. Editing that
- * file changes the website — no code edits, no component changes.
+ * Everything the website says — and every record it is built from — lives in
+ * `public/locale/<locale>/*.json`, split by page so no single file gets
+ * unwieldy:
+ *
+ *   common.json     company details, navigation, buttons, labels, footer, CTA
+ *   company.json    philosophy, mission, vision, values, permits, figures,
+ *                   process, clients — the narrative shared across pages
+ *   home.json       home page sections
+ *   about.json      about page
+ *   services.json   services page + one record per service
+ *   equipment.json  equipment page + categories + one record per line
+ *   projects.json   projects page + photographs + one record per project
+ *   contact.json    contact page + the enquiry form and its validation
+ *   legal.json      privacy policy and terms
+ *   status.json     404, 500 and the maintenance notice
+ *
+ * The files are composed back into one object below, so call sites stay
+ * `t.home.hero.title` regardless of which file a key lives in. Moving a key
+ * between files changes nothing for components.
  *
  * Adding a language:
- *   1. Copy `public/locale/en.json` to e.g. `public/locale/fil.json` and
- *      translate the values (keys must stay in English).
- *   2. Import it below and add it to `dictionaries`.
- *   3. TypeScript will flag any key you missed, and at runtime any key still
- *      missing falls back to English — a partial translation is safe to ship.
+ *   1. Copy `public/locale/en/` to e.g. `public/locale/fil/` and translate the
+ *      text values. Keys stay in English, and structural fields (icon, photo,
+ *      category, href) do not need repeating — they fall back.
+ *   2. Import the files below and add the locale to `dictionaries`.
+ *   3. TypeScript flags any key you miss; at runtime missing keys fall back to
+ *      English, so a partial translation is safe to ship.
  *
  * The site currently renders a single locale, so there is no URL prefix and no
- * language switcher. Both can be added later without touching this contract.
+ * switcher. Both can be added later without changing this contract.
  */
+
+const en = {
+  ...enCommon,
+  ...enCompany,
+  ...enHome,
+  ...enAbout,
+  ...enServices,
+  ...enEquipment,
+  ...enProjects,
+  ...enContact,
+  ...enLegal,
+  ...enStatus,
+};
 
 export type Dictionary = typeof en;
 
-/** Every locale with a file in public/locale. */
+/** Every locale with a folder in public/locale. */
 export const locales = ["en"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -60,13 +100,13 @@ export function getDictionary(locale: Locale = defaultLocale): Dictionary {
 /**
  * The active dictionary.
  *
- * Server Components can import this directly. When a second locale and a
- * switcher are added, swap these call sites for `getDictionary(locale)`.
+ * Server Components import this directly. When a second locale and a switcher
+ * are added, swap these call sites for `getDictionary(locale)`.
  */
 export const t: Dictionary = getDictionary();
 
 /**
- * Replaces `{placeholders}` in a string from the locale file.
+ * Replaces `{placeholders}` in a string from the locale files.
  *
  *   fill("Est. {year}", { year: 2022 })  ->  "Est. 2022"
  *

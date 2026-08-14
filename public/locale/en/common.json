@@ -1,0 +1,175 @@
+{
+  "_readme": "Shared across every page: company details and contact info, navigation, button labels, reusable UI labels, the footer and the default closing call to action.",
+  "site": {
+    "name": "Inojas Hydraulic Repair Shop",
+    "shortName": "Inojas",
+    "legalName": "Inojas Hydraulic Repair Shop",
+    "foundedYear": 2022,
+    "tagline": "Hydraulic repair • Fabrication • Maintenance • Supply",
+    "description": "Inojas Hydraulic Repair Shop repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems across the Philippines.",
+    "logoDescriptor": "Hydraulic",
+    "contact": {
+      "email": "inojas.hydraulic.repair@gmail.com",
+      "managementEmail": "rodelperegrina1@gmail.com",
+      "mobileDisplay": "0946-556-6185",
+      "mobileHref": "tel:+639465566185",
+      "landlineDisplay": "(049) 548 3164",
+      "landlineHref": "tel:+63495483164",
+      "address": {
+        "line1": "#217 Purok 2, Barangay Sirang Lupa",
+        "city": "Calamba City",
+        "region": "Laguna",
+        "postalCode": "4027",
+        "country": "Philippines"
+      },
+      "hours": [
+        {
+          "days": "Monday – Friday",
+          "time": "8:00 AM – 5:00 PM"
+        },
+        {
+          "days": "Saturday",
+          "time": "8:00 AM – 12:00 NN"
+        },
+        {
+          "days": "Sunday",
+          "time": "Closed"
+        }
+      ],
+      "hoursNote": "Opening hours to be confirmed by the client before launch.",
+      "emergencyNote": "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule."
+    },
+    "social": []
+  },
+  "nav": {
+    "mainLabel": "Main",
+    "mobileLabel": "Mobile",
+    "footerLabel": "Footer",
+    "breadcrumbLabel": "Breadcrumb",
+    "siteMenuLabel": "Site menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content",
+    "items": {
+      "home": {
+        "href": "/",
+        "label": "Home",
+        "description": "What we repair and where"
+      },
+      "about": {
+        "href": "/about",
+        "label": "About Us",
+        "description": "The shop, our philosophy and permits"
+      },
+      "services": {
+        "href": "/services",
+        "label": "Services",
+        "description": "Hydraulics, cooling, motors, fabrication"
+      },
+      "equipment": {
+        "href": "/equipment",
+        "label": "Equipment",
+        "description": "Forklifts, pallet trucks, HVAC and more"
+      },
+      "projects": {
+        "href": "/projects",
+        "label": "Projects",
+        "description": "Completed work and clients served"
+      },
+      "contact": {
+        "href": "/contact",
+        "label": "Contact Us",
+        "description": "Request a quotation"
+      },
+      "privacy": {
+        "href": "/privacy",
+        "label": "Privacy Policy",
+        "description": ""
+      },
+      "terms": {
+        "href": "/terms",
+        "label": "Terms of Service",
+        "description": ""
+      }
+    }
+  },
+  "actions": {
+    "requestQuotation": "Request a quotation",
+    "requestSimilarWork": "Request similar work",
+    "arrangeCheckUp": "Arrange a check-up",
+    "viewDetails": "View details",
+    "viewProject": "View project",
+    "learnMore": "Learn more",
+    "allServices": "All services",
+    "allEquipment": "All equipment",
+    "allProjects": "All projects",
+    "browseEquipment": "Browse equipment",
+    "seeOurServices": "See our services",
+    "seeWhatWeRepair": "See what we repair",
+    "whatWeRepair": "What we repair",
+    "viewEquipment": "View equipment",
+    "viewAllWork": "View all work",
+    "fullGallery": "Full gallery",
+    "seeCompletedWork": "See completed work",
+    "seeHowWeWork": "See how we work",
+    "moreAboutCompany": "More about the company",
+    "aboutTheShop": "About the shop",
+    "readOurStory": "Read our story",
+    "talkToOurTeam": "Talk to our team",
+    "contactTheShop": "Contact the shop",
+    "backToHome": "Back to home",
+    "contactUs": "Contact us",
+    "howAJobRuns": "How a job runs"
+  },
+  "labels": {
+    "atAGlance": "At a glance",
+    "whatYouGet": "What you get",
+    "whatWeOffer": "What we offer",
+    "relatedServices": "Related services",
+    "servicesInvolved": "Services involved",
+    "equipmentInvolved": "Equipment involved",
+    "equipmentWeApplyItTo": "Equipment we apply it to",
+    "projectSummary": "Project summary",
+    "client": "Client",
+    "disciplines": "Disciplines",
+    "deliveredBy": "Delivered by",
+    "family": "Family",
+    "availableAs": "Available as",
+    "whereWeWork": "Where we work",
+    "onSiteOrWorkshop": "On your site, or in the {city} workshop",
+    "sectorsWeServe": "Sectors we serve",
+    "sectorsServed": "Sectors served",
+    "companyDetails": "Shop details",
+    "getInTouch": "Get in touch",
+    "company": "Company",
+    "services": "Services",
+    "equipment": "Equipment",
+    "workshop": "Workshop",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "landline": "Landline",
+    "email": "Email",
+    "enquiries": "Enquiries",
+    "management": "Management",
+    "businessHours": "Business hours",
+    "whatHappensNext": "What happens next",
+    "whatTheWorkInvolves": "What the work usually involves",
+    "service": "Service",
+    "vendorProject": "Vendor project"
+  },
+  "footer": {
+    "companyHeading": "Company",
+    "servicesHeading": "Services",
+    "equipmentHeading": "Equipment",
+    "contactHeading": "Get in touch",
+    "allServices": "All services",
+    "allEquipment": "All equipment",
+    "copyright": "© {from}–{to} {legalName}. All rights reserved.",
+    "socialLabel": "{company} on {network}"
+  },
+  "cta": {
+    "eyebrow": "Next step",
+    "title": "Tell us what has stopped working",
+    "description": "Send the unit, the fault and the site. We will come back with a quotation — and if an inspection is needed first, we will say so before quoting."
+  }
+}

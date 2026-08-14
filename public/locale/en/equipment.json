@@ -1,0 +1,378 @@
+{
+  "_readme": "Equipment page copy, the four families under `categories`, and one record per equipment line under `items`.",
+  "equipment": {
+    "meta": {
+      "title": "Equipment",
+      "description": "Forklifts, hand pallet trucks, stackers, jacks, hydraulic presses, HVAC and chiller units, industrial batteries and more — supplied brand new, repaired, reconditioned or rehabilitated."
+    },
+    "hero": {
+      "eyebrow": "Equipment",
+      "title": "The equipment we repair, supply and rebuild"
+    },
+    "catalogue": {
+      "eyebrow": "What we handle",
+      "title": "{count} equipment lines across four families",
+      "description": "Filter by family to see what we work on and what we can offer for each line. If your equipment is not listed, ask — hydraulic, mechanical and refrigeration equipment is our trade regardless of badge."
+    },
+    "filters": {
+      "groupLabel": "Filter equipment by family",
+      "all": "All equipment",
+      "showing": "Showing {visible} of {total} equipment lines",
+      "emptyMessage": "Nothing listed in this category yet. Try another category, or get in touch — if it is hydraulic, mechanical or refrigeration equipment, we will look at it."
+    },
+    "supply": {
+      "eyebrow": "How we supply",
+      "title": "New is not always the right answer",
+      "description": "Every line above can be quoted more than one way. We will tell you which option we would choose if the unit were ours.",
+      "items": {
+        "inPlace": {
+          "title": "Repaired in place or in the shop",
+          "description": "Most units can be worked on at your facility. Where a strip-down is needed, we collect, rebuild and return the unit running."
+        },
+        "reconditioned": {
+          "title": "Reconditioned as an option",
+          "description": "For several lines we can supply a reconditioned unit instead of new — the same capability at a lower cost, and less equipment scrapped."
+        },
+        "parts": {
+          "title": "Parts and consumables supplied",
+          "description": "Seal kits, wheels, batteries, chargers and refrigerants are supplied with the work, so a repair is not held up waiting on a third party."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Quotations",
+      "title": "Need pricing, availability or a site visit?",
+      "description": "Tell us the equipment, the fault and how soon you need it back. We will quote the repair, the reconditioned option and the brand new one where all three apply."
+    },
+    "detail": {
+      "metaTitle": "{name} — repair, parts and supply",
+      "work": {
+        "eyebrow": "What we do with it",
+        "title": "Bringing a {name} back into service"
+      },
+      "quoteNote": "Scope, price and lead time are confirmed after a check-up — we quote what the unit in front of us needs rather than a standard package.",
+      "gallery": {
+        "eyebrow": "From our jobs",
+        "title": "This equipment, in our hands",
+        "description": "Photographs taken on our own projects — not stock imagery."
+      },
+      "related": {
+        "eyebrow": "Also in this family",
+        "title": "More {category} equipment",
+        "titleFallback": "Related equipment"
+      },
+      "cta": {
+        "eyebrow": "Quotations",
+        "title": "Need a {name} looked at?",
+        "description": "Send us the unit, the fault and where it is. We will tell you whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
+      }
+    },
+    "categories": {
+      "material-handling": {
+        "icon": "forklift",
+        "name": "Material Handling",
+        "description": "Forklifts, pallet trucks, stackers and jacks."
+      },
+      "cooling": {
+        "icon": "snowflake",
+        "name": "Cooling & HVAC",
+        "description": "Air-conditioning, refrigeration and chiller units."
+      },
+      "power": {
+        "icon": "battery",
+        "name": "Power & Batteries",
+        "description": "Industrial batteries and charging equipment."
+      },
+      "workshop": {
+        "icon": "gear",
+        "name": "Workshop Equipment",
+        "description": "Presses, grinders and shop machinery."
+      }
+    },
+    "items": {
+      "hvac-refrigeration-chiller": {
+        "category": "cooling",
+        "icon": "snowflake",
+        "photo": "condenser-units-outdoor",
+        "gallery": [
+          "condensing-unit-installation",
+          "split-type-acu-installation",
+          "refrigerant-charging",
+          "refrigeration-pipework"
+        ],
+        "relatedServices": [
+          "refrigeration-airconditioning",
+          "installation-maintenance",
+          "cooling-tower-servicing"
+        ],
+        "featured": true,
+        "name": "HVAC, AC Refrigeration & Chiller",
+        "description": "Package-type and centralised units, chillers and refrigeration systems — supplied brand new, repaired in place, or offered as a reconditioned unit.",
+        "detail": "Cooling work covers everything from a split-type unit in an office to a walk-in freezer or a centralised plant. We repair units on site where we can, and take on transfers, replacements and complete installations where a repair is no longer the sensible option.",
+        "workScope": [
+          "Fault diagnosis on the unit rather than a parts-swap guess",
+          "Leak testing, evacuation and refrigerant charging",
+          "Compressor and condenser repair, transfer or replacement",
+          "Commissioning and handover once temperatures hold"
+        ],
+        "offerings": [
+          "Brand new",
+          "Repair services",
+          "Reconditioned unit"
+        ],
+        "imageAlt": "Two outdoor condensing units installed on a concrete plinth during an Inojas air-conditioning project"
+      },
+      "hand-pallet-truck": {
+        "category": "material-handling",
+        "icon": "cylinder",
+        "photo": "hydraulic-seal-kit",
+        "gallery": [],
+        "relatedServices": [
+          "hydraulic-equipment-repair",
+          "parts-supply"
+        ],
+        "featured": true,
+        "name": "Hand Pallet Truck",
+        "description": "The workhorse of any warehouse. We rebuild the hydraulic unit, replace worn wheels and seals, or supply a brand new or reconditioned truck.",
+        "detail": "Most hand pallet truck faults trace back to the hydraulic unit — seals that no longer hold pressure, a pump that will not reach full lift, or a lowering valve that has stopped metering. We strip the unit, replace what has failed, and put the truck back on the floor rather than writing it off.",
+        "workScope": [
+          "Hydraulic unit strip-down and seal kit replacement",
+          "Pump and lowering valve repair",
+          "Load and steer wheel replacement",
+          "Fork and frame straightening where the geometry allows"
+        ],
+        "offerings": [
+          "Brand new",
+          "Repair services",
+          "Reconditioned unit"
+        ],
+        "imageAlt": "Hydraulic seal kit and components laid out on a workbench during a pallet truck rebuild"
+      },
+      "electric-forklift": {
+        "category": "material-handling",
+        "icon": "forklift",
+        "photo": "forklift-service-yard",
+        "gallery": [],
+        "relatedServices": [
+          "hydraulic-equipment-repair",
+          "parts-supply",
+          "installation-maintenance"
+        ],
+        "featured": true,
+        "name": "Electric Forklift",
+        "description": "Repairs, parts supply and general rehabilitation for electric forklifts, carried out at your site or in the shop.",
+        "detail": "Electric forklifts bring together three systems that have to be diagnosed as one: the hydraulics that lift, the traction and control gear that drives, and the battery and charger that feed both. We work across all three rather than handing the electrical side to someone else.",
+        "workScope": [
+          "Lift, tilt and steering hydraulic repair",
+          "Mast, chain and carriage inspection and adjustment",
+          "Traction and control fault diagnosis",
+          "Battery and charging system checks"
+        ],
+        "offerings": [
+          "Repair services",
+          "Parts",
+          "General rehabilitation"
+        ],
+        "imageAlt": "Forklift with its mast raised undergoing repair in the service yard"
+      },
+      "diesel-gas-forklift": {
+        "category": "material-handling",
+        "icon": "forklift",
+        "photo": "diesel-forklift-overhaul",
+        "gallery": [],
+        "relatedServices": [
+          "hydraulic-equipment-repair",
+          "parts-supply"
+        ],
+        "featured": true,
+        "name": "Diesel / Gas Forklift",
+        "description": "Engine-driven forklifts serviced end to end — hydraulics, mast, transmission and running gear — with parts supplied as part of the job.",
+        "detail": "Engine-driven units earn their keep outdoors and on rougher ground, and they show it. A general rehabilitation takes the machine back through its hydraulics, mast, transmission and running gear so it holds a load properly again instead of limping between breakdowns.",
+        "workScope": [
+          "Lift and tilt cylinder reseal or replacement",
+          "Mast, chain and roller inspection",
+          "Transmission and running gear repair",
+          "General rehabilitation with parts supplied"
+        ],
+        "offerings": [
+          "Repair services",
+          "Parts",
+          "General rehabilitation"
+        ],
+        "imageAlt": "Yellow diesel forklift undergoing general rehabilitation outdoors"
+      },
+      "electrical-manual-stacker": {
+        "category": "material-handling",
+        "icon": "layers",
+        "photo": "manual-stacker-repair",
+        "gallery": [
+          "pallet-stacker-rebuild"
+        ],
+        "relatedServices": [
+          "hydraulic-equipment-repair",
+          "fabrication-doors"
+        ],
+        "featured": true,
+        "name": "Electrical / Manual Stacker",
+        "description": "Walk-behind stackers supplied brand new, or restored — including general re-plating of the frame and mast.",
+        "detail": "Stackers take a beating around racking and doorways, and corrosion usually arrives before mechanical failure does. Alongside the hydraulic and mast work, we can strip a unit back and re-plate it so the frame is protected rather than painted over.",
+        "workScope": [
+          "Lift cylinder and hydraulic unit repair",
+          "Mast and carriage alignment",
+          "General re-plating of frame and mast",
+          "Wheel and castor replacement"
+        ],
+        "offerings": [
+          "Brand new",
+          "General re-plating"
+        ],
+        "imageAlt": "Manual stacker with a red mast being repaired inside a client's facility"
+      },
+      "jack-crocodile-jack": {
+        "category": "material-handling",
+        "icon": "cylinder",
+        "photo": "hydraulic-cylinder-assembly",
+        "gallery": [],
+        "relatedServices": [
+          "hydraulic-equipment-repair"
+        ],
+        "featured": false,
+        "name": "Jack / Crocodile Jack",
+        "description": "Bottle jacks, trolley jacks and crocodile jacks resealed and returned to full lifting capacity, or replaced with a new unit.",
+        "detail": "A jack that creeps down under load is a safety problem before it is a productivity one. We strip the ram, replace the seals and check the body for scoring — and if the cylinder is past saving, we say so rather than returning a jack that will fail again.",
+        "workScope": [
+          "Ram strip-down and reseal",
+          "Cylinder inspection for scoring and wear",
+          "Pump and release valve repair",
+          "Load test before release"
+        ],
+        "offerings": [
+          "Repair services",
+          "Brand new"
+        ],
+        "imageAlt": "Hydraulic cylinder assembly removed for reseal and inspection"
+      },
+      "hydraulic-press": {
+        "category": "workshop",
+        "icon": "cylinder",
+        "photo": "hydraulic-cylinder-workshop",
+        "gallery": [],
+        "relatedServices": [
+          "hydraulic-equipment-repair",
+          "fabrication-doors"
+        ],
+        "featured": true,
+        "name": "Hydraulic Press",
+        "description": "Shop presses repaired and, where a part is no longer available, fabricated in-house to match the original.",
+        "detail": "Presses tend to outlive their parts supply. When a component is no longer available we fabricate a replacement to match the original rather than condemning the machine, which is usually the difference between a repair and buying new.",
+        "workScope": [
+          "Cylinder reseal and pump repair",
+          "Frame and bolster inspection",
+          "Fabrication of obsolete components",
+          "Hose and fitting replacement"
+        ],
+        "offerings": [
+          "Repair services",
+          "Fabrication"
+        ],
+        "imageAlt": "Large hydraulic cylinder on the workshop floor awaiting repair"
+      },
+      "grinding-machine": {
+        "category": "workshop",
+        "icon": "gear",
+        "photo": null,
+        "gallery": [],
+        "relatedServices": [
+          "motor-rewinding",
+          "installation-maintenance"
+        ],
+        "featured": false,
+        "name": "Grinding Machine",
+        "description": "Bench and pedestal grinding machines repaired and calibrated so they cut true and run safely.",
+        "detail": "A grinder that runs out of true wastes material and puts the operator at risk. We repair the drive and mountings and calibrate the machine so it returns to service running straight and guarded properly.",
+        "workScope": [
+          "Motor and bearing repair",
+          "Spindle and mounting inspection",
+          "Calibration after repair",
+          "Guard and safety fitting checks"
+        ],
+        "offerings": [
+          "Repair services",
+          "Calibration"
+        ]
+      },
+      "industrial-battery": {
+        "category": "power",
+        "icon": "battery",
+        "photo": null,
+        "gallery": [],
+        "relatedServices": [
+          "parts-supply",
+          "installation-maintenance"
+        ],
+        "featured": false,
+        "name": "Industrial Battery",
+        "description": "Traction batteries for electric material handling equipment — supplied new or repaired to extend service life.",
+        "detail": "A traction battery is often the single most expensive part of an electric forklift, and it rarely fails all at once. Where cells and connections can be repaired we do that first, and supply new only when the pack genuinely will not hold a shift.",
+        "workScope": [
+          "Capacity and condition assessment",
+          "Cell and connector repair",
+          "Terminal and cable replacement",
+          "Supply of new traction batteries"
+        ],
+        "offerings": [
+          "Brand new",
+          "Repair services"
+        ]
+      },
+      "battery-charger": {
+        "category": "power",
+        "icon": "bolt",
+        "photo": null,
+        "gallery": [],
+        "relatedServices": [
+          "parts-supply",
+          "fabrication-doors"
+        ],
+        "featured": false,
+        "name": "Battery Charger",
+        "description": "Charger repairs, with fabrication of enclosures and mounts where the original hardware is beyond saving.",
+        "detail": "Chargers live in the dustiest corner of the warehouse and are usually the last thing anyone inspects. We repair the electronics and, where the enclosure or mounting has corroded away, fabricate a replacement so the unit is safe to leave running overnight.",
+        "workScope": [
+          "Charging fault diagnosis",
+          "Component-level electronic repair",
+          "Enclosure and mount fabrication",
+          "Cable and connector replacement"
+        ],
+        "offerings": [
+          "Repair services",
+          "Fabrication"
+        ]
+      },
+      "polyurethane-wheel": {
+        "category": "material-handling",
+        "icon": "flow",
+        "photo": null,
+        "gallery": [],
+        "relatedServices": [
+          "parts-supply",
+          "hydraulic-equipment-repair"
+        ],
+        "featured": false,
+        "name": "Polyurethane Wheel",
+        "description": "Worn load and steer wheels rebounded with fresh polyurethane onto the original hub, or replaced with new wheels.",
+        "detail": "Rebounding re-bonds fresh polyurethane onto the hub you already own. It costs less than a new wheel set, keeps a serviceable hub out of the scrap bin, and is usually the quickest way to stop a pallet truck marking your floor.",
+        "workScope": [
+          "Wheel and hub condition assessment",
+          "Rebounding onto the original hub",
+          "Bearing replacement",
+          "Supply of new wheels where the hub is beyond use"
+        ],
+        "offerings": [
+          "Brand new",
+          "Rebounding"
+        ]
+      }
+    }
+  }
+}

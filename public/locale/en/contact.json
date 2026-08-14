@@ -1,0 +1,82 @@
+{
+  "_readme": "Contact page copy and every string in the enquiry form, including its validation messages.",
+  "contact": {
+    "meta": {
+      "title": "Contact us",
+      "description": "Request a quotation from {company} in {city}, {region} — forklift and hand pallet truck repair, hydraulics, refrigeration, air-conditioning, motor rewinding and fabrication."
+    },
+    "hero": {
+      "eyebrow": "Contact us",
+      "title": "Tell us what needs fixing"
+    },
+    "sectionLabel": "Contact details and enquiry form",
+    "form": {
+      "eyebrow": "Request for quotation",
+      "title": "Send us the details",
+      "description": "The more you can tell us — equipment, brand, fault and location — the more useful our first reply will be."
+    },
+    "map": {
+      "note": "Add a Google Maps embed here once the exact pin is confirmed."
+    },
+    "clientNote": {
+      "label": "Note for the client:",
+      "body": "Everything else on this page comes from your company profile — update any of it in data/site.ts, and all wording in public/locale/en.json."
+    }
+  },
+  "form": {
+    "requiredNote": "Fields marked * are required.",
+    "requiredSuffix": "(required)",
+    "asteriskNote": "with an asterisk",
+    "optional": "Optional",
+    "fields": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "Juan dela Cruz"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "juan@company.com.ph"
+      },
+      "phone": {
+        "label": "Phone number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Forklift hydraulic leak — Calamba warehouse"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us the equipment and brand, what it is doing (or not doing), and where it is located."
+      },
+      "honeypot": "Website (leave this field empty)"
+    },
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "orCall": "Or call",
+    "errors": {
+      "nameRequired": "Enter your full name.",
+      "emailRequired": "Enter your email address so we can reply.",
+      "emailInvalid": "Enter a valid email address, e.g. name@company.com.",
+      "phoneInvalid": "Enter a valid phone number, or leave this field empty.",
+      "subjectRequired": "Add a subject so we can route your message.",
+      "subjectShort": "Add a slightly longer subject.",
+      "messageRequired": "Tell us what you need help with.",
+      "messageShort": "Please add a little more detail (at least {min} characters).",
+      "messageLong": "Please keep the message under {max} characters.",
+      "correctFields": "Please correct the highlighted fields.",
+      "genericTitle": "Something went wrong",
+      "generic": "Something went wrong. Please try again or call us.",
+      "network": "We could not reach the server. Check your connection, or contact us by phone or email."
+    },
+    "success": {
+      "title": "Message sent",
+      "message": "Salamat — your enquiry has been received. Our team will get back to you with a quotation or to arrange a check-up.",
+      "again": "Send another message"
+    },
+    "unconfigured": {
+      "title": "Message not sent",
+      "message": "This website is not yet connected to a message delivery service, so your message was not sent.",
+      "fallback": "Please email {email} or call {phone} instead."
+    }
+  }
+}

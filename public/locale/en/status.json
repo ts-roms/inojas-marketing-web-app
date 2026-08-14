@@ -1,0 +1,34 @@
+{
+  "_readme": "404, 500, the root error boundary and the maintenance notice.",
+  "notFound": {
+    "metaTitle": "Page not found",
+    "metaDescription": "The page you were looking for does not exist or has moved.",
+    "eyebrow": "Error 404",
+    "title": "This page is not in the shop",
+    "description": "The address you followed does not match anything on this site. It may have moved, or the link may be out of date.",
+    "sectionsLabel": "Site sections",
+    "tryThese": "Or try one of these"
+  },
+  "error": {
+    "metaTitle": "Something went wrong",
+    "eyebrow": "Error 500",
+    "title": "Something went wrong at our end",
+    "description": "This page failed to load. It is a fault on our side, not yours. Try again — and if it keeps happening, call or email us and we will sort it out.",
+    "retry": "Try again",
+    "reference": "Reference:",
+    "contactNote": "Need something urgently? Call {phone} or email {email}."
+  },
+  "globalError": {
+    "title": "Something went wrong",
+    "description": "The site failed to load. Please try again, or contact us directly at {phone}.",
+    "retry": "Try again"
+  },
+  "maintenance": {
+    "metaTitle": "Down for maintenance",
+    "eyebrow": "Scheduled maintenance",
+    "title": "We are working on the website",
+    "description": "The site is briefly offline while we make some updates. The workshop is open as usual — call or message us and we will help you straight away.",
+    "backSoon": "Please check back shortly.",
+    "contactHeading": "Reach us in the meantime"
+  }
+}

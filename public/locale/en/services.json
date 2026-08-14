@@ -1,0 +1,203 @@
+{
+  "_readme": "Services page copy, plus one record per service under `items` — each carrying its icon, discipline and related equipment alongside its wording.",
+  "services": {
+    "meta": {
+      "title": "Services",
+      "description": "Hydraulic equipment repair, refrigeration and air-conditioning, preventive maintenance, motor rewinding, cooling tower servicing, fabrication and roll-up doors — from one shop in {city}."
+    },
+    "hero": {
+      "eyebrow": "Services offered",
+      "title": "Repair, installation and maintenance under one roof"
+    },
+    "list": {
+      "eyebrow": "What we do",
+      "title": "{count} service lines, one accountable team",
+      "description": "Open any service for what it covers, the equipment it applies to, and the clients we have delivered it for."
+    },
+    "approach": {
+      "eyebrow": "How we work",
+      "title": "The same approach on every job",
+      "items": {
+        "assessed": {
+          "title": "Assessed before it is quoted",
+          "description": "A check-up confirms the actual fault first, so the quotation covers what the unit needs rather than a standard package."
+        },
+        "location": {
+          "title": "On your site or in our shop",
+          "description": "Whichever costs you less downtime. Equipment that cannot be moved is worked on where it stands."
+        },
+        "repairFirst": {
+          "title": "Repair before replacement",
+          "description": "Rewinding, resealing and rebounding keep serviceable equipment out of the scrap bin — and off your capital budget."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Start here",
+      "title": "Describe the fault — we will tell you what it needs",
+      "description": "Send the equipment, the symptom and the site. If we need to inspect it before quoting, we will arrange a check-up rather than guess at a price."
+    },
+    "detail": {
+      "coverage": {
+        "eyebrow": "How we approach it",
+        "title": "What this service covers",
+        "body": "Work is carried out at your site where the equipment cannot easily be moved, and in the {city} workshop where a strip-down is the safer option. In either case the scope is confirmed by a check-up before anything is committed to a quotation."
+      },
+      "photos": {
+        "eyebrow": "On the job",
+        "title": "This work, in our hands",
+        "description": "Photographs from our own projects — not stock imagery."
+      },
+      "projects": {
+        "eyebrow": "Where we have done it",
+        "title": "Clients this service has been delivered for",
+        "description": "Taken from the vendor project record in our company profile."
+      },
+      "others": {
+        "eyebrow": "Also from the shop",
+        "title": "Other services"
+      },
+      "cta": {
+        "eyebrow": "Next step",
+        "title": "Need {service}?",
+        "description": "Tell us the equipment, the fault and the site. We will arrange a check-up and quote what the job actually needs."
+      }
+    },
+    "items": {
+      "hydraulic-equipment-repair": {
+        "icon": "forklift",
+        "discipline": "hydraulics",
+        "featured": true,
+        "relatedEquipment": [
+          "hand-pallet-truck",
+          "electric-forklift",
+          "diesel-gas-forklift",
+          "electrical-manual-stacker",
+          "jack-crocodile-jack",
+          "hydraulic-press"
+        ],
+        "title": "Hydraulic Equipment Repair",
+        "summary": "Forklifts, hand pallet trucks, stackers, jacks and presses put back to work.",
+        "description": "The core of the shop. Our technicians repair, supply and install various forklift and hand pallet truck brands — from a leaking cylinder to a full mechanical rehabilitation. Units can be worked on at your site or brought into the shop, whichever keeps your operation moving.",
+        "benefits": [
+          "Electric, diesel and gas forklift repair",
+          "Hand pallet truck, stacker and crocodile jack repair",
+          "Hydraulic cylinder reseal and rebuild",
+          "General rehabilitation and parts supply"
+        ]
+      },
+      "refrigeration-airconditioning": {
+        "icon": "snowflake",
+        "discipline": "cooling",
+        "featured": true,
+        "relatedEquipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "title": "Refrigeration & Air-Conditioning",
+        "summary": "Low temperature, industrial, domestic, transport and vehicle cooling systems.",
+        "description": "We cover the full range of cooling work, from a walk-in freezer to a package-type air-conditioning unit or a refrigerated van. Repairs, transfers and complete installations are all handled by the same team.",
+        "benefits": [
+          "Low temperature refrigeration",
+          "Industrial refrigeration — centralised and package-type ACU",
+          "Domestic refrigeration — fridges, freezers and others",
+          "Transport refrigeration — refrigerated vans and reefer units",
+          "Vehicle air-conditioning units"
+        ]
+      },
+      "installation-maintenance": {
+        "icon": "clock",
+        "discipline": "cooling",
+        "featured": true,
+        "relatedEquipment": [
+          "hvac-refrigeration-chiller",
+          "electric-forklift",
+          "industrial-battery",
+          "grinding-machine"
+        ],
+        "title": "Installation & Preventive Maintenance",
+        "summary": "Scheduled upkeep for cooling systems, motors, pumps and dock equipment.",
+        "description": "Planned maintenance keeps small faults from becoming shutdowns. We install refrigeration and air-conditioning systems, induction and DC motors and submersible pumps, then keep them on a maintenance schedule agreed with your team.",
+        "benefits": [
+          "Refrigeration and air-conditioning system installation",
+          "Induction motor, DC motor and submersible pump servicing",
+          "Quarterly and scheduled preventive maintenance",
+          "Dock leveller and roll-up door maintenance"
+        ]
+      },
+      "motor-rewinding": {
+        "icon": "gear",
+        "discipline": "motors",
+        "featured": true,
+        "relatedEquipment": [
+          "grinding-machine",
+          "hvac-refrigeration-chiller"
+        ],
+        "title": "Motor Rewinding & Reconditioning",
+        "summary": "Rewinding and reconditioning rather than replacing a failed motor.",
+        "description": "A rewound motor is usually back in service for a fraction of the cost of a new unit, which is part of how the shop keeps repairs environmentally friendly. We handle induction motors, DC motors, submersible pump motors and compressor motors.",
+        "benefits": [
+          "Motor rewinding",
+          "Motor reconditioning",
+          "Induction and DC motors",
+          "Submersible pump and compressor motors"
+        ]
+      },
+      "cooling-tower-servicing": {
+        "icon": "fan",
+        "discipline": "cooling",
+        "featured": true,
+        "relatedEquipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "title": "Cooling Tower Servicing",
+        "summary": "General servicing through to complete cooling tower rehabilitation.",
+        "description": "Scale, rust and algae quietly cost you cooling capacity. We service cooling tower units end to end, and where a tower is too far gone for cleaning alone we carry out a complete rehabilitation.",
+        "benefits": [
+          "De-scaling",
+          "De-rusting",
+          "Removal of algae",
+          "Complete cooling tower rehabilitation"
+        ]
+      },
+      "fabrication-doors": {
+        "icon": "door",
+        "discipline": "fabrication",
+        "featured": true,
+        "relatedEquipment": [
+          "battery-charger",
+          "electrical-manual-stacker",
+          "hydraulic-press"
+        ],
+        "title": "Fabrication & Roll-Up Doors",
+        "summary": "Aluminium and stainless fabrication, plus motorised and manual roll-up doors.",
+        "description": "In-house fabrication in aluminium, stainless steel and other materials — from replacement parts and company logo signage to minor construction repairs. We also supply and install motorised and manual roll-up doors.",
+        "benefits": [
+          "Aluminium, stainless steel and other fabrication",
+          "Supply and installation of motorised roll-up doors",
+          "Manual roll-up doors",
+          "Minor construction repairs and logo fabrication"
+        ]
+      },
+      "parts-supply": {
+        "icon": "layers",
+        "discipline": "hydraulics",
+        "featured": false,
+        "relatedEquipment": [
+          "polyurethane-wheel",
+          "industrial-battery",
+          "battery-charger",
+          "hand-pallet-truck"
+        ],
+        "title": "Spare Parts & Consumables",
+        "summary": "Refrigerants, wheels, batteries and replacement parts, supplied on request.",
+        "description": "We supply the consumables and spare parts that go with the work — refrigerants, hydraulic components, polyurethane wheels, industrial batteries and chargers — so a repair is not held up waiting on a separate supplier.",
+        "benefits": [
+          "Refrigerants and other consumables",
+          "Forklift and hand pallet truck parts",
+          "Polyurethane wheel supply and rebounding",
+          "Industrial batteries and battery chargers"
+        ]
+      }
+    }
+  }
+}

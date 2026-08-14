@@ -1,0 +1,177 @@
+{
+  "_readme": "The company narrative used on more than one page: philosophy, mission, vision, values, permits, figures, sectors, the four-step process and the client roster.",
+  "company": {
+    "philosophy": "Inojas Hydraulic Repair Shop strives to attain enduring contentment for both our clients and employees by establishing a resilient organisational framework that fosters significant global competitiveness and embraces new challenges while promoting teamwork to fulfil all expectations.",
+    "mission": "Our goal is to ensure total customer satisfaction and deliver steady and enduring returns to our investors. To accomplish this mission, we consistently uphold the fundamental values that define our professional philosophy.",
+    "vision": "To become acknowledged authorities in the industry and surpass the expectations of all our clients and investors.",
+    "statsSource": "Figures counted from the Inojas Hydraulic Repair Shop company profile, November 2024.",
+    "sectors": [
+      "Food & beverage manufacturing",
+      "Logistics & warehousing",
+      "Pharmaceutical",
+      "Electronics",
+      "Hospitality & clubs",
+      "Education"
+    ],
+    "coreValues": {
+      "customer-satisfaction": {
+        "icon": "checkCircle",
+        "title": "Total customer satisfaction",
+        "description": "The measure of a job is a client who is satisfied with the outcome — not simply an invoice that has been issued."
+      },
+      "teamwork": {
+        "icon": "people",
+        "title": "Teamwork",
+        "description": "We promote teamwork to fulfil all expectations, between our own technicians and with the client's maintenance staff."
+      },
+      "resilient-organisation": {
+        "icon": "shield",
+        "title": "A resilient organisation",
+        "description": "A stable organisational framework is what lets a small shop take on demanding work and still be here for the next repair."
+      },
+      "global-competitiveness": {
+        "icon": "compass",
+        "title": "Global competitiveness",
+        "description": "We hold our workmanship to standards that stand comparison beyond our own region, not only within it."
+      },
+      "new-challenges": {
+        "icon": "spark",
+        "title": "Embracing new challenges",
+        "description": "Unfamiliar equipment and awkward site conditions are part of the trade. We take the work on and learn it properly."
+      },
+      "care": {
+        "icon": "gauge",
+        "title": "Care for clients and employees",
+        "description": "Enduring contentment for both our clients and our employees is written into our philosophy, and it shapes how we schedule and staff work."
+      }
+    },
+    "milestones": {
+      "founded": {
+        "year": "2022",
+        "title": "The shop is established",
+        "description": "Founded in Calamba City, Laguna by skilled and trained technicians and engineers."
+      },
+      "hydraulics": {
+        "year": "Hydraulics",
+        "title": "Forklifts and pallet trucks",
+        "description": "Repair, supply and installation of various forklift and hand pallet truck brands becomes the core of the business."
+      },
+      "cooling": {
+        "year": "Cooling",
+        "title": "Refrigeration and air-conditioning",
+        "description": "Walk-in freezers, condensing units, chillers and vehicle air-conditioning are added to the service list."
+      },
+      "today": {
+        "year": "Today",
+        "title": "A full plant maintenance partner",
+        "description": "Motor rewinding, fabrication, roll-up doors and preventive maintenance contracts for clients across the Philippines."
+      }
+    },
+    "stats": {
+      "established": {
+        "value": "2022",
+        "label": "Established",
+        "description": "By skilled technicians and engineers"
+      },
+      "clients": {
+        "value": "16",
+        "label": "Client companies",
+        "description": "Documented in our project record"
+      },
+      "equipmentLines": {
+        "value": "11",
+        "label": "Equipment lines",
+        "description": "Serviced, supplied or rehabilitated"
+      },
+      "registrations": {
+        "value": "4",
+        "label": "Registrations",
+        "description": "DTI, Mayor's, DOLE and business permits"
+      }
+    }
+  },
+  "valueProps": {
+    "skilled-technicians": {
+      "icon": "people",
+      "title": "Skilled, trained technicians",
+      "description": "The shop was established in {year} by technicians and engineers who had already spent years on this equipment. The people who quote your job are the people who work on it."
+    },
+    "environmentally-friendly": {
+      "icon": "spark",
+      "title": "Environmentally friendly repairs",
+      "description": "We advocate repair over replacement — rewinding a motor, resealing a cylinder, rebounding a wheel — through the brands we carry and distribute across the Philippines."
+    },
+    "one-shop": {
+      "icon": "layers",
+      "title": "One shop for the whole plant",
+      "description": "Hydraulics, material handling, refrigeration, motors, fabrication and roll-up doors under one roof, so a mixed job does not need three separate contractors."
+    },
+    "on-site-or-shop": {
+      "icon": "compass",
+      "title": "On site or in the shop",
+      "description": "Work is carried out wherever it costs you least downtime — at your facility, or brought into the {city} shop and returned when it is running."
+    }
+  },
+  "trust": {
+    "eyebrow": "Registered and permitted",
+    "title": "A properly registered shop, not a backyard operation",
+    "description": "{company} holds the national and local registrations required to work on client sites. Copies of any of these documents can be provided with a quotation on request.",
+    "documents": {
+      "dti": {
+        "icon": "document",
+        "title": "DTI permit",
+        "description": "Registered with the Department of Trade and Industry."
+      },
+      "mayors": {
+        "icon": "shield",
+        "title": "Mayor's permit",
+        "description": "Business permit issued by the local government unit."
+      },
+      "dole": {
+        "icon": "people",
+        "title": "DOLE permit",
+        "description": "Registered with the Department of Labor and Employment."
+      },
+      "registration": {
+        "icon": "checkCircle",
+        "title": "Certificate of registration",
+        "description": "Business registration certificate and registration plate on file."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Our process",
+    "title": "Four steps, from your first message to turnover",
+    "description": "The same sequence on every job, whether it is a single pallet truck or a plant-wide maintenance schedule.",
+    "steps": {
+      "enquiry": {
+        "title": "Contact us / request for quotation",
+        "description": "Call, message or send the enquiry form with the unit or system you need looked at. We come back with a quotation."
+      },
+      "assessment": {
+        "title": "Check-up and assessment",
+        "description": "Our technicians inspect the equipment — on your site or at the shop — and confirm the actual scope before any work starts."
+      },
+      "delivery": {
+        "title": "Rendering of services",
+        "description": "The repair, installation or maintenance is carried out, with payment based on the terms agreed in the quotation."
+      },
+      "completion": {
+        "title": "Project completion",
+        "description": "The unit is turned over in working condition and the balance is settled based on the agreed terms."
+      }
+    },
+    "order": [
+      "enquiry",
+      "assessment",
+      "delivery",
+      "completion"
+    ]
+  },
+  "clients": {
+    "eyebrow": "Our valued clients",
+    "title": "Trusted by manufacturers, logistics hubs and facilities teams",
+    "description": "A selection of the companies whose forklifts, pallet trucks, cooling systems and dock equipment we keep running.",
+    "alsoServing": "Also serving {names}."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "_readme": "Home page sections only.",
+  "home": {
+    "hero": {
+      "eyebrow": "{city}, {region} · Est. {year}",
+      "title": "We repair the equipment your operation runs on.",
+      "lead": "{company} repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems — on your site or in our shop, by technicians and engineers who have been doing this since {year}.",
+      "assurances": [
+        "Forklifts, hand pallet trucks, stackers and jacks",
+        "Refrigeration, chillers and air-conditioning systems",
+        "Motor rewinding, fabrication and roll-up doors"
+      ]
+    },
+    "introduction": {
+      "eyebrow": "About the company",
+      "title": "A repair shop built by technicians, not by salesmen",
+      "lead": "{company} was established in {year} by skilled and trained technicians and engineers. We advocate environmentally friendly repairs through the brands we carry and distribute across the Philippines — because a motor that can be rewound or a cylinder that can be resealed should not become scrap.",
+      "body": "The shop provides a diverse array of products and services: repair, supply and installation of various forklift and hand pallet truck brands, air-conditioning and refrigeration repairs, motor rewinding, fabrication and more. That range is deliberate. A dock leveller that will not lift can turn out to be a hydraulic fault, an electrical fault or a worn structure, and our customers should not have to hire three different contractors to find out which."
+    },
+    "servicesOverview": {
+      "eyebrow": "Services offered",
+      "title": "Hydraulics, cooling, motors and fabrication — one shop",
+      "description": "Everything we do sits within reach of the same team, so a job that turns out to span two trades does not turn into two contractors."
+    },
+    "valueProps": {
+      "eyebrow": "Why work with us",
+      "title": "Repair first, replace only when it is the honest answer",
+      "description": "Four things that shape how every job is quoted, carried out and turned over."
+    },
+    "equipmentShowcase": {
+      "eyebrow": "Equipment we handle",
+      "title": "Brand new, repaired, reconditioned or rebuilt",
+      "description": "Each line below can be supplied new, repaired in place, or rehabilitated and returned to service — whichever makes sense for the unit in front of us.",
+      "categoriesLabel": "Equipment categories"
+    },
+    "projectsPreview": {
+      "eyebrow": "Finished projects",
+      "title": "Work we have turned over",
+      "description": "Photographs from our own jobs — forklifts and pallet trucks back in service, cooling systems commissioned, motors rewound, doors installed."
+    },
+    "aboutPreview": {
+      "eyebrow": "Who we are",
+      "title": "Based in {city}, working across the Philippines",
+      "description": "{company} started in {year} with a simple proposition: give plants and warehouses one team that can actually fix the equipment, instead of quoting to replace it.",
+      "missionLabel": "Our mission",
+      "commitments": [
+        "Technicians and engineers, trained on this equipment",
+        "Work carried out on site or in the {city} shop",
+        "Assessment before the scope is fixed",
+        "Payment based on the terms in your quotation"
+      ]
+    }
+  }
+}

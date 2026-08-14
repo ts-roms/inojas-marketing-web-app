@@ -110,7 +110,7 @@ components/
 
 data/           site.ts, navigation.ts, services.ts, products.ts, company.ts
 lib/            cn.ts, i18n.ts (locale loader), contact.ts (shared validation)
-public/locale/  en.json — every word on the website
+public/locale/  en/*.json — all copy and content, split by page
 public/images/  brand/ (logo), projects/ (20 job photos), clients/ (14 logos)
 ```
 
@@ -123,10 +123,29 @@ menu), the equipment filter, the project gallery filter and the contact form.
 
 Content is data-driven, so copy changes rarely require touching a layout.
 
-**Everything the site says, and every record it is built from, lives in one
-file: `public/locale/en.json`.** Copy, contact details, opening hours,
-navigation, services, equipment, projects, photo captions and client logos are
-all there. Edit that file and the site changes — no code edits.
+**Everything the site says, and every record it is built from, lives in
+`public/locale/en/`.** Copy, contact details, opening hours, navigation,
+services, equipment, projects, photo captions and client logos are all there.
+Edit those files and the site changes — no code edits.
+
+The content is split by page so no single file gets unwieldy:
+
+| File             | Contains                                                          |
+| ---------------- | ----------------------------------------------------------------- |
+| `common.json`    | Company details and contact info, navigation, buttons, shared labels, footer, default CTA |
+| `company.json`   | Philosophy, mission, vision, values, permits, figures, sectors, the four-step process, clients |
+| `home.json`      | Home page sections                                                |
+| `about.json`     | About page                                                        |
+| `services.json`  | Services page + one record per service                            |
+| `equipment.json` | Equipment page + families + one record per equipment line         |
+| `projects.json`  | Projects page + photographs + one record per vendor project       |
+| `contact.json`   | Contact page + the enquiry form and its validation messages       |
+| `legal.json`     | Privacy Policy and Terms                                          |
+| `status.json`    | 404, 500 and the maintenance notice                               |
+
+`lib/i18n.ts` composes them into one object, so call sites stay
+`t.home.hero.title` no matter which file a key lives in — moving a key between
+files changes nothing for components.
 
 `data/*.ts` no longer holds content. Each module is now a thin typed reader over
 the locale file: it declares the TypeScript types, resolves image paths, and
@@ -138,15 +157,16 @@ moving a block reorders that part of the site.
 
 | What                                                        | Where                              |
 | ----------------------------------------------------------- | ---------------------------------- |
-| **Everything: copy, contact details, services, equipment, projects, clients** | `public/locale/en.json` |
+| **Everything: copy, contact details, services, equipment, projects, clients** | `public/locale/en/*.json` |
 | Brand colours, type scale, shadows, motion                   | `app/globals.css` (`@theme` block) |
 | Logo artwork and photography                                 | `public/images/`, `app/icon.png`   |
 | Types, lookups and image-path resolution                     | `data/*.ts`                        |
 
 ### Adding a language
 
-Copy `public/locale/en.json` to e.g. `fil.json`, translate the text values
-(keys stay in English) and register it in `lib/i18n.ts`. Structural fields —
+Copy the `public/locale/en/` folder to e.g. `public/locale/fil/`, translate the
+text values (keys stay in English) and register the files in `lib/i18n.ts`.
+Structural fields —
 `icon`, `photo`, `category`, `href`, `relatedServices` — do not need repeating:
 missing keys deep-merge from English, so a translation only carries the words.
 TypeScript flags any key you miss. The site currently renders one locale, so
@@ -154,8 +174,9 @@ there is no URL prefix and no switcher.
 
 ### Adding an equipment line
 
-One step: add a block under `equipment.items` in `public/locale/en.json`. The
-key is the id, and also the detail page route.
+One step: add a block under `equipment.items` in
+`public/locale/en/equipment.json`. The key is the id, and also the detail page
+route.
 
 ```jsonc
 "new-line": {
@@ -181,7 +202,7 @@ and the sitemap all pick it up. Services and projects work the same way, under
 ### Adding a project photo
 
 Drop a `.webp` in `public/images/projects/` and add an entry under
-`projects.photos` in the locale file, keyed by the filename without its
+`projects.photos` in `public/locale/en/projects.json`, keyed by the filename without its
 extension, with a `discipline` (`hydraulics`, `cooling`, `motors` or
 `fabrication`), an `alt` and a `caption`. The gallery, its filter, the
 home-page preview and any equipment referencing that key pick it up.

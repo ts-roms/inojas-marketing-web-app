@@ -1,0 +1,413 @@
+{
+  "_readme": "Projects page copy, discipline labels, one record per photograph under `photos`, and one per vendor project under `items`.",
+  "projects": {
+    "meta": {
+      "title": "Projects",
+      "description": "Completed hydraulic, material handling, refrigeration and fabrication work by {company} — with the clients and scopes we have delivered to date."
+    },
+    "hero": {
+      "eyebrow": "Finished projects",
+      "title": "Equipment we have put back into service"
+    },
+    "gallery": {
+      "eyebrow": "On the job",
+      "title": "Photographs from our own workshop and client sites",
+      "description": "Filter by discipline to see the kind of work we take on. Every photograph here is our own — no stock imagery.",
+      "groupLabel": "Filter work by discipline",
+      "all": "All work",
+      "count": "{visible} of {total} photos"
+    },
+    "record": {
+      "eyebrow": "Vendor projects to date",
+      "title": "What we delivered, and for whom",
+      "description": "The record of vendor work from our company profile — the scope in each case is described as it was carried out."
+    },
+    "cta": {
+      "eyebrow": "Your equipment next",
+      "title": "Have something that needs the same treatment?",
+      "description": "Tell us the unit, the fault and where it sits. We will advise whether it is a repair, a rehabilitation or a replacement — and quote accordingly."
+    },
+    "disciplines": {
+      "hydraulics": "Hydraulics & material handling",
+      "cooling": "Refrigeration & air-conditioning",
+      "motors": "Motors",
+      "fabrication": "Fabrication & doors"
+    },
+    "detail": {
+      "metaTitle": "{client} — project",
+      "metaDescription": "{scope} Completed by {company} for {client}.",
+      "scope": {
+        "eyebrow": "Scope of work",
+        "title": "What we were asked to do",
+        "body": "Work of this type is quoted after a check-up rather than from a catalogue, because the same symptom can have very different causes on two units of the same age. The services and equipment listed here are the disciplines this job drew on."
+      },
+      "photos": {
+        "eyebrow": "Work of this type",
+        "title": "What this kind of job looks like",
+        "description": "Photographs of comparable work from our gallery. They are our own photos, but they are not necessarily from this client's site."
+      },
+      "related": {
+        "eyebrow": "Similar projects",
+        "title": "Other work in the same disciplines"
+      },
+      "cta": {
+        "eyebrow": "Your site next",
+        "title": "Have work like this that needs doing?",
+        "description": "Tell us the equipment, the fault and the location. We will arrange a check-up and quote what it actually needs."
+      }
+    },
+    "photos": {
+      "vehicle-lift-installation": {
+        "discipline": "hydraulics",
+        "alt": "Two-post vehicle lift installed in a car service bay",
+        "caption": "Two-post vehicle lift installation"
+      },
+      "vehicle-lift-service": {
+        "discipline": "hydraulics",
+        "alt": "Technician's view of a two-post vehicle lift column during servicing",
+        "caption": "Vehicle lift servicing"
+      },
+      "dock-leveler-platform": {
+        "discipline": "hydraulics",
+        "alt": "Dock leveller platform raised in a loading bay",
+        "caption": "Dock leveller platform repair"
+      },
+      "dock-leveler-cylinder": {
+        "discipline": "hydraulics",
+        "alt": "Hydraulic cylinder mounted beneath a dock leveller platform",
+        "caption": "Dock leveller cylinder replacement"
+      },
+      "dock-leveler-welding": {
+        "discipline": "fabrication",
+        "alt": "Technician in protective gear welding underneath a dock leveller",
+        "caption": "Dock leveller structural repair"
+      },
+      "hydraulic-cylinder-workshop": {
+        "discipline": "hydraulics",
+        "alt": "Large hydraulic cylinder standing on the workshop floor",
+        "caption": "Hydraulic cylinder overhaul"
+      },
+      "hydraulic-cylinder-assembly": {
+        "discipline": "hydraulics",
+        "alt": "Hydraulic cylinder assembly removed from a machine for inspection",
+        "caption": "Cylinder strip-down and reseal"
+      },
+      "hydraulic-seal-kit": {
+        "discipline": "hydraulics",
+        "alt": "Hydraulic seal kit and components laid out on a workbench",
+        "caption": "Seal kit replacement"
+      },
+      "forklift-service-yard": {
+        "discipline": "hydraulics",
+        "alt": "Forklift with its mast raised parked in a service yard",
+        "caption": "Forklift repair and maintenance"
+      },
+      "diesel-forklift-overhaul": {
+        "discipline": "hydraulics",
+        "alt": "Yellow diesel forklift undergoing general rehabilitation outdoors",
+        "caption": "Diesel forklift rehabilitation"
+      },
+      "manual-stacker-repair": {
+        "discipline": "hydraulics",
+        "alt": "Manual stacker with a red mast being repaired inside a facility",
+        "caption": "Manual stacker repair"
+      },
+      "pallet-stacker-rebuild": {
+        "discipline": "hydraulics",
+        "alt": "Pallet stacker outside the workshop after rebuilding",
+        "caption": "Pallet stacker rebuild"
+      },
+      "condensing-unit-installation": {
+        "discipline": "cooling",
+        "alt": "Outdoor condensing unit and control panel installed against a wall",
+        "caption": "Condensing unit installation"
+      },
+      "condenser-units-outdoor": {
+        "discipline": "cooling",
+        "alt": "Two outdoor condenser units installed on a concrete plinth",
+        "caption": "Condenser installation"
+      },
+      "split-type-acu-installation": {
+        "discipline": "cooling",
+        "alt": "Two technicians mounting a split-type air-conditioning unit indoors",
+        "caption": "Split-type ACU installation"
+      },
+      "refrigerant-charging": {
+        "discipline": "cooling",
+        "alt": "Technicians charging refrigerant at an outdoor condenser bank",
+        "caption": "Refrigerant charging and commissioning"
+      },
+      "refrigeration-pipework": {
+        "discipline": "cooling",
+        "alt": "Technicians brazing refrigeration pipework on site",
+        "caption": "Refrigeration pipework"
+      },
+      "motor-rewinding-bench": {
+        "discipline": "motors",
+        "alt": "Motor stator and compressor components laid out for rewinding",
+        "caption": "Motor rewinding"
+      },
+      "compressor-motor-repair": {
+        "discipline": "motors",
+        "alt": "Technician working on a compressor motor stator",
+        "caption": "Compressor motor repair"
+      },
+      "roll-up-door-installation": {
+        "discipline": "fabrication",
+        "alt": "Metal roll-up door installed at a warehouse entrance",
+        "caption": "Roll-up door installation"
+      }
+    },
+    "items": {
+      "canlubang-golf-and-country-club": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "canlubang-golf-and-country-club",
+        "client": "Canlubang Golf and Country Club",
+        "scope": "Walk-in freezer repair and installation."
+      },
+      "atkins-import-export": {
+        "disciplines": [
+          "hydraulics",
+          "cooling"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "electric-forklift",
+          "hand-pallet-truck",
+          "diesel-gas-forklift"
+        ],
+        "logo": "atkins",
+        "client": "ATKINS Import Export",
+        "scope": "Various hydraulic repairs for forklift, hand pallet truck and dock leveller, plus storage facility fan repair."
+      },
+      "varex-imaging": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "varex-imaging",
+        "client": "VAREX Imaging",
+        "scope": "Transfer of cooling system — condenser and compressor — as subcontractor."
+      },
+      "acbel-philippines": {
+        "disciplines": [
+          "hydraulics",
+          "fabrication"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "fabrication-doors"
+        ],
+        "equipment": [
+          "electric-forklift",
+          "hand-pallet-truck"
+        ],
+        "logo": "acbel",
+        "client": "AcBel Philippines",
+        "scope": "Forklift and hand pallet truck repairs as subcontractor; company logo fabrication."
+      },
+      "universal-robina": {
+        "disciplines": [
+          "cooling",
+          "motors"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "motor-rewinding"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "universal-robina",
+        "client": "Universal Robina Corporation",
+        "scope": "Compressor conversion and technical support as subcontractor."
+      },
+      "ninja-van-philippines": {
+        "disciplines": [
+          "hydraulics",
+          "fabrication"
+        ],
+        "services": [
+          "installation-maintenance",
+          "fabrication-doors"
+        ],
+        "equipment": [],
+        "logo": "ninjavan",
+        "client": "Ninja Van Philippines",
+        "scope": "Quarterly preventive maintenance for dock leveller and mechanical roll-up doors."
+      },
+      "san-miguel-corporation": {
+        "disciplines": [
+          "hydraulics"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "diesel-gas-forklift",
+          "electric-forklift",
+          "hand-pallet-truck"
+        ],
+        "logo": "san-miguel-corporation",
+        "client": "San Miguel Corporation",
+        "scope": "Various repairs and maintenance for forklifts and hand pallet trucks."
+      },
+      "interphil-laboratories": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "interphil-laboratories",
+        "client": "Interphil Laboratories Inc.",
+        "scope": "ACU installations and preventive maintenance."
+      },
+      "blue-macay-food-corporation": {
+        "disciplines": [
+          "hydraulics"
+        ],
+        "services": [
+          "hydraulic-equipment-repair"
+        ],
+        "equipment": [
+          "hand-pallet-truck"
+        ],
+        "logo": "blue-macay",
+        "client": "Blue Macay Food Corporation",
+        "scope": "Hand pallet truck repairs."
+      },
+      "the-country-club": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": null,
+        "client": "The Country Club",
+        "scope": "ACU maintenance and installations."
+      },
+      "crestec-philippines": {
+        "disciplines": [
+          "fabrication",
+          "hydraulics"
+        ],
+        "services": [
+          "fabrication-doors",
+          "hydraulic-equipment-repair"
+        ],
+        "equipment": [
+          "hand-pallet-truck",
+          "electric-forklift"
+        ],
+        "logo": "crestec",
+        "client": "Crestec Philippines Inc.",
+        "scope": "Various fabrication and minor construction repairs, including hand pallet truck and forklift repair and maintenance."
+      },
+      "samsof-technologies": {
+        "disciplines": [
+          "hydraulics"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "parts-supply"
+        ],
+        "equipment": [
+          "hand-pallet-truck",
+          "polyurethane-wheel"
+        ],
+        "logo": "samsof-technologies",
+        "client": "Samsof Technologies Inc.",
+        "scope": "Overall fix and rehabilitation of mechanical parts of hand pallet trucks."
+      },
+      "kerry-logistikus-philippines": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "kerry-logistics",
+        "client": "Kerry Logistikus Philippines",
+        "scope": "Repair of ACU and freezers."
+      },
+      "pioneer-adhesive": {
+        "disciplines": [
+          "hydraulics"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hand-pallet-truck"
+        ],
+        "logo": "pioneer-adhesive",
+        "client": "Pioneer Adhesive Incorporated",
+        "scope": "Hand pallet truck repair and maintenance."
+      },
+      "san-sebastian-college-recoletos": {
+        "disciplines": [
+          "cooling"
+        ],
+        "services": [
+          "refrigeration-airconditioning",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "hvac-refrigeration-chiller"
+        ],
+        "logo": "san-sebastian-college-recoletos",
+        "client": "San Sebastian College – Recoletos, Canlubang",
+        "scope": "ACU supply and installation."
+      },
+      "vl-dj-metal-fabrication": {
+        "disciplines": [
+          "hydraulics"
+        ],
+        "services": [
+          "hydraulic-equipment-repair",
+          "installation-maintenance"
+        ],
+        "equipment": [
+          "diesel-gas-forklift",
+          "electric-forklift"
+        ],
+        "logo": null,
+        "client": "VL&DJ Metal Fabrication and Construction Corporation",
+        "scope": "Forklift repair including maintenance."
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "_readme": "About page only.",
+  "about": {
+    "meta": {
+      "title": "About us",
+      "description": "{company} was established in {year} by skilled and trained technicians and engineers, repairing hydraulic, material handling and refrigeration equipment across the Philippines."
+    },
+    "hero": {
+      "eyebrow": "About us",
+      "title": "Skilled technicians, environmentally friendly repairs"
+    },
+    "profile": {
+      "eyebrow": "Company profile",
+      "title": "A shop set up to fix things properly",
+      "lead": "{company} was established in {year} by skilled and trained technicians and engineers. The company advocates for environmentally friendly repairs through the brands it carries and distributes across the Philippines.",
+      "body1": "We provide a diverse array of products and services, including the repair, supply and installation of various forklift and hand pallet truck brands, air-conditioning and refrigeration repairs, motor rewinding and reconditioning, fabrication, and the supply and installation of roll-up doors.",
+      "body2": "That breadth is the point. Warehouses and plants rarely fail in neat categories — a dock leveller that will not lift, a chiller that will not hold temperature, a forklift down on a Monday morning. Having hydraulics, cooling, electrical and fabrication skills in the same team means one call, one assessment and one team accountable for the outcome.",
+      "philosophyLabel": "Our philosophy",
+      "facts": {
+        "established": {
+          "label": "Established",
+          "value": "{year}"
+        },
+        "foundedBy": {
+          "label": "Founded by",
+          "value": "Skilled and trained technicians and engineers"
+        },
+        "basedIn": {
+          "label": "Based in",
+          "value": "{city}, {region}"
+        },
+        "coverage": {
+          "label": "Coverage",
+          "value": "Client sites across the Philippines"
+        },
+        "workCarriedOut": {
+          "label": "Work carried out",
+          "value": "On site or in the {city} workshop"
+        },
+        "workshop": {
+          "label": "Workshop",
+          "value": ""
+        }
+      }
+    },
+    "missionVision": {
+      "eyebrow": "Mission & vision",
+      "title": "What we are working towards",
+      "missionLabel": "Our mission",
+      "visionLabel": "Our vision"
+    },
+    "story": {
+      "eyebrow": "Our story",
+      "title": "From hydraulic repairs to full plant maintenance",
+      "description": "How the scope of the shop widened as customers kept asking for the next thing."
+    },
+    "values": {
+      "eyebrow": "Core values",
+      "title": "The values behind our professional philosophy",
+      "description": "These are the fundamental values our mission refers to — the ones we fall back on when a job gets difficult."
+    },
+    "figures": {
+      "eyebrow": "By the numbers",
+      "title": "The shop, in figures"
+    },
+    "cta": {
+      "eyebrow": "Work with us",
+      "title": "Bring us the unit everyone else wants to replace",
+      "description": "We will assess it honestly and tell you whether it is worth repairing. If it is not, we will say so — and quote the replacement instead."
+    }
+  }
+}
