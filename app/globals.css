@@ -35,15 +35,22 @@
   --text-lead--line-height: 1.65;
 
   /* ---- Brand: Inojas navy ---------------------------------------------- */
-  /* Sampled from the deep navy in the logo badge (#001840). */
+  /* Sampled from the deep navy in the logo badge (#001840).
+   *
+   * The scale is deliberately split. 800–950 stay saturated navy: they are the
+   * brand — dark section backgrounds, buttons and headings. 300–700 are the
+   * text tones and are desaturated towards slate, because paragraph after
+   * paragraph of saturated navy reads faintly blue on white, close enough to a
+   * link colour to be distracting. Headings keep the brand colour; body copy
+   * gets out of the way. */
   --color-brand-50: #f1f5fa;
   --color-brand-100: #dfe8f4;
-  --color-brand-200: #bfd0e8;
-  --color-brand-300: #92a9d1;
-  --color-brand-400: #6685b8; /* AA on brand-950 (5.0:1) */
-  --color-brand-500: #3b5a8b; /* AA on white (6.6:1) */
-  --color-brand-600: #27406b;
-  --color-brand-700: #1a2e52;
+  --color-brand-200: #c4cedb;
+  --color-brand-300: #a9b4c4; /* AA on brand-950 (9.4:1) */
+  --color-brand-400: #7b8798; /* AA on brand-950 (5.3:1) */
+  --color-brand-500: #5c6879; /* AA on white (5.6:1) */
+  --color-brand-600: #434e5e; /* body copy on white (8.4:1) */
+  --color-brand-700: #333c49; /* lead paragraphs */
   --color-brand-800: #122139;
   --color-brand-900: #0a1a38;
   --color-brand-950: #061127;
