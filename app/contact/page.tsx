@@ -163,26 +163,33 @@ export default async function ContactPage({
                 </p>
               </Card>
 
-              {/* Map placeholder: no third-party embed is loaded, so no consent
-                  banner or tracking is introduced before the client decides. */}
+              {/* The embed only loads when it scrolls into view, so the rest of
+                  the page — including the form — is never held up by Google's
+                  frame, and a visitor who never reaches it makes no request. */}
               <Reveal>
                 <div className="mt-6 overflow-hidden rounded-xl ring-1 ring-hairline">
-                  <div className="relative flex aspect-[16/10] items-center justify-center bg-brand-50">
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(19,25,32,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(19,25,32,0.06)_1px,transparent_1px)] [background-size:32px_32px]"
-                    />
-                    <div className="relative max-w-xs px-6 text-center">
-                      <span className="inline-flex size-11 items-center justify-center rounded-full bg-white text-accent-700 ring-1 ring-brand-100">
-                        <Icon name="mapPin" className="size-5" />
-                      </span>
-                      <p className="mt-4 text-sm font-semibold text-brand-800">
-                        {site.contact.address.city}, {site.contact.address.region}
-                      </p>
-                      <p className="mt-1 text-sm text-brand-500">
-                        {t.contact.map.note}
-                      </p>
-                    </div>
+                  <iframe
+                    src={site.contact.mapEmbedUrl}
+                    title={fill(t.contact.map.title, textVars)}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                    className="block aspect-[16/10] w-full border-0"
+                  />
+                  <div className="flex flex-wrap items-center justify-between gap-3 bg-white px-4 py-3">
+                    <p className="flex items-center gap-2 text-sm text-brand-600">
+                      <Icon name="mapPin" className="size-4 shrink-0 text-accent-700" />
+                      {site.contact.address.city}, {site.contact.address.region}
+                    </p>
+                    <a
+                      href={site.contact.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 py-1 text-sm font-semibold text-accent-700 transition-colors hover:text-accent-800"
+                    >
+                      {t.contact.map.directions}
+                      <Icon name="arrowUpRight" className="size-3.5" />
+                    </a>
                   </div>
                 </div>
               </Reveal>

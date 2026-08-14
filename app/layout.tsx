@@ -96,6 +96,12 @@ const organizationSchema = {
     postalCode: site.contact.address.postalCode,
     addressCountry: "PH",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.contact.geo.latitude,
+    longitude: site.contact.geo.longitude,
+  },
+  hasMap: site.contact.mapUrl,
   areaServed: { "@type": "Country", name: "Philippines" },
   knowsAbout: [
     "Forklift repair",

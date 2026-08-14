@@ -16,7 +16,8 @@
       "description": "The more you can tell us — equipment, brand, fault and location — the more useful our first reply will be."
     },
     "map": {
-      "note": "Add a Google Maps embed here once the exact pin is confirmed."
+      "title": "Map showing the {company} workshop in {city}, {region}",
+      "directions": "Get directions"
     },
     "clientNote": {
       "label": "Note for the client:",

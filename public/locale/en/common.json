@@ -37,7 +37,13 @@
         }
       ],
       "hoursNote": "Opening hours to be confirmed by the client before launch.",
-      "emergencyNote": "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule."
+      "emergencyNote": "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule.",
+      "mapUrl": "https://maps.app.goo.gl/iQGr7RWwQzcBn9KP8",
+      "mapEmbedUrl": "https://www.google.com/maps?q=14.2056046,121.1118978&z=16&hl=en&output=embed",
+      "geo": {
+        "latitude": 14.2056046,
+        "longitude": 121.1118978
+      }
     },
     "social": []
   },
