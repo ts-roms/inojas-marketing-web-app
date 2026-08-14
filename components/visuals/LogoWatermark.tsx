@@ -22,7 +22,7 @@ export function LogoWatermark({ tone = "dark", className }: LogoWatermarkProps) 
       aria-hidden="true"
       className={cn(
         "logo-watermark pointer-events-none absolute select-none",
-        tone === "dark" ? "bg-white/[0.045]" : "bg-brand-900/[0.035]",
+        tone === "dark" ? "bg-white/4.5" : "bg-brand-900/[0.035]",
         className,
       )}
     />

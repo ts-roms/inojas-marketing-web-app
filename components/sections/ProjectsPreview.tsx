@@ -40,7 +40,7 @@ export function ProjectsPreview() {
             <li key={photo.src}>
               <Reveal delay={index * 60}>
                 <figure className="group overflow-hidden rounded-xl bg-brand-950 ring-1 ring-hairline">
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="relative aspect-4/5 overflow-hidden">
                     <Image
                       src={photo.src}
                       alt={photo.alt}

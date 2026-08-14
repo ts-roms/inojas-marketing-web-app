@@ -25,7 +25,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
       interactive
       className="group flex h-full flex-col overflow-hidden scroll-mt-28"
     >
-      <div className="relative aspect-[4/3] overflow-hidden border-b border-hairline bg-brand-950">
+      <div className="relative aspect-4/3 overflow-hidden border-b border-hairline bg-brand-950">
         {product.image ? (
           <Image
             src={product.image}

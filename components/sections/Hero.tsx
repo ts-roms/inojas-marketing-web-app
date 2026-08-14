@@ -21,7 +21,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,rgba(15,95,209,0.22),transparent_60%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-40" />
-      <LogoWatermark className="-z-10 -right-24 -top-16 size-[34rem] sm:-right-16 lg:right-[-6rem] lg:size-[42rem]" />
+      <LogoWatermark className="-z-10 -right-24 -top-16 size-136 sm:-right-16 lg:right-24 lg:size-168" />
 
       <Container className="py-20 sm:py-24 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
@@ -77,7 +77,7 @@ export function Hero() {
                 <HeroPhoto
                   src="/images/projects/diesel-forklift-overhaul.webp"
                   alt="Diesel forklift undergoing general rehabilitation in the yard"
-                  className="aspect-[4/5]"
+                  className="aspect-4/5"
                   priority
                 />
                 <HeroPhoto
@@ -96,7 +96,7 @@ export function Hero() {
                 <HeroPhoto
                   src="/images/projects/hydraulic-cylinder-workshop.webp"
                   alt="Large hydraulic cylinder standing on the workshop floor"
-                  className="aspect-[4/5]"
+                  className="aspect-4/5"
                 />
               </div>
             </div>
