@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens
+   Single source of truth for colour, type, radius, shadow and motion.
+   Change values here and the whole site follows.
+   ========================================================================== */
+
+@theme {
+  /* ---- Typography ------------------------------------------------------ */
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-display:
+    var(--font-archivo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid display sizes: no media queries needed, no layout shift. */
+  --text-display: clamp(2.5rem, 1.65rem + 3.6vw, 4.5rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-h1: clamp(2.125rem, 1.5rem + 2.6vw, 3.5rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+
+  --text-h2: clamp(1.75rem, 1.35rem + 1.6vw, 2.625rem);
+  --text-h2--line-height: 1.14;
+  --text-h2--letter-spacing: -0.025em;
+
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.015em;
+
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead--line-height: 1.65;
+
+  /* ---- Brand: workshop graphite ---------------------------------------- */
+  /* Taken from the black in the Inojas logo mark and the company profile. */
+  --color-brand-50: #f5f7f9;
+  --color-brand-100: #e9edf1;
+  --color-brand-200: #d4dae1;
+  --color-brand-300: #b0b9c4;
+  --color-brand-400: #7e8894;
+  --color-brand-500: #5a6673; /* AA on white (5.7:1) */
+  --color-brand-600: #414c58;
+  --color-brand-700: #2e3844;
+  --color-brand-800: #1d242d;
+  --color-brand-900: #131920;
+  --color-brand-950: #0a0d12;
+
+  /* ---- Accent: Inojas cyan --------------------------------------------- */
+  /* --color-accent-500 is the cyan sampled from the logo gear (#00a8f0). */
+  --color-accent-50: #e9f7fe;
+  --color-accent-100: #ccedfd;
+  --color-accent-200: #9bddfb;
+  --color-accent-300: #5fc8f7;
+  --color-accent-400: #23b4f4;
+  --color-accent-500: #00a8f0;
+  --color-accent-600: #0089c9;
+  --color-accent-700: #026c9e; /* AA text on white (5.7:1) */
+  --color-accent-800: #05567c;
+  --color-accent-900: #0a4763;
+
+  /* ---- Neutral surfaces ------------------------------------------------ */
+  --color-canvas: #f4f6f8;
+  --color-muted: #edf1f4;
+  --color-hairline: #e1e6ea;
+
+  /* ---- Elevation ------------------------------------------------------- */
+  --shadow-subtle: 0 1px 2px 0 rgb(10 13 18 / 0.05);
+  --shadow-card: 0 1px 3px rgb(10 13 18 / 0.06), 0 8px 24px -12px rgb(10 13 18 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(10 13 18 / 0.07), 0 18px 40px -18px rgb(10 13 18 / 0.26);
+  --shadow-inset-hairline: inset 0 0 0 1px rgb(10 13 18 / 0.07);
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
+  --animate-fade-in: fade-in 0.8s var(--ease-out-soft) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Base layer
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps sticky-header offset correct for in-page anchor links. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-brand-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Belt-and-braces guard against horizontal overflow on small screens. */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* One consistent, always-visible focus treatment across the whole site. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-600);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Dark sections opt into a light focus ring for contrast. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-accent-300);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-200);
+    color: var(--color-brand-950);
+  }
+
+  /* Headings in the profile deck are set tight and heavy; match that weight. */
+  h1,
+  h2 {
+    font-weight: 800;
+  }
+
+  hr {
+    border-color: var(--color-hairline);
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+/* Scroll-reveal, used by <Reveal />.
+   The hidden starting state is gated on `html.js`, a class set by a tiny inline
+   script in the root layout. If scripting is disabled — or the bundle fails to
+   run at all — the class is never added and every element simply renders
+   visible. Content is never hidden by an animation that cannot finish. */
+@layer utilities {
+  .reveal {
+    transition:
+      opacity 0.7s var(--ease-out-soft),
+      transform 0.7s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  html.js .reveal:not(.reveal-visible) {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+    will-change: opacity, transform;
+  }
+}
+
+/* Fine hairline grid used behind dark feature sections. */
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ==========================================================================
+   Accessibility: honour the OS "reduce motion" preference everywhere.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html.js .reveal:not(.reveal-visible) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
