@@ -185,7 +185,7 @@ export default async function EquipmentDetailPage({ params }: Params) {
                 Scope, price and lead time are confirmed after a check-up — we quote what the unit
                 in front of us needs rather than a standard package.{" "}
                 <Link
-                  href="/services#hydraulic-equipment-repair"
+                  href="/services"
                   className="font-medium text-accent-700 underline underline-offset-4 hover:text-accent-800"
                 >
                   How a job runs
@@ -237,7 +237,7 @@ export default async function EquipmentDetailPage({ params }: Params) {
                       {services.map((service) => (
                         <li key={service.id}>
                           <Link
-                            href={`/services#${service.id}`}
+                            href={`/services/${service.id}`}
                             className="group flex items-start gap-3 rounded-lg bg-white p-3 ring-1 ring-inset ring-brand-100 transition-colors hover:ring-accent-200"
                           >
                             <Icon

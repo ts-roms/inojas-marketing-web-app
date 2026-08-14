@@ -22,7 +22,7 @@ export function ServiceCard({ service, variant = "compact" }: ServiceCardProps) 
 
       <h3 className="mt-6 text-h3 text-brand-900">
         <Link
-          href={`/services#${service.id}`}
+          href={`/services/${service.id}`}
           className="after:absolute after:inset-0 after:rounded-xl after:content-['']"
         >
           {service.title}

@@ -63,7 +63,7 @@ export function Footer() {
               <ul className="mt-4 space-y-1 text-sm">
                 {services.slice(0, 5).map((service) => (
                   <li key={service.id}>
-                    <FooterLink href={`/services#${service.id}`}>{service.title}</FooterLink>
+                    <FooterLink href={`/services/${service.id}`}>{service.title}</FooterLink>
                   </li>
                 ))}
                 <li>

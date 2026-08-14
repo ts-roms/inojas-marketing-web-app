@@ -37,7 +37,8 @@ The site runs at <http://localhost:3000>.
 | ------------------- | ----------------------------------------------------------------- |
 | `/`                 | Hero, about, services, strengths, equipment, project photos, clients, process, permits, figures, CTA |
 | `/about`            | Company profile, philosophy, mission, vision, story, values, permits, figures |
-| `/services`         | Seven service lines in detail, with the four-step process         |
+| `/services`         | Seven service lines as cards, how we work, the four-step process  |
+| `/services/[slug]`  | Detail page per service — 7 pages, statically generated           |
 | `/equipment`        | Eleven equipment lines, filterable by family                      |
 | `/equipment/[slug]` | Detail page per equipment line — 11 pages, statically generated   |
 | `/projects`         | Photo gallery filterable by discipline, plus the vendor project record |
@@ -45,11 +46,22 @@ The site runs at <http://localhost:3000>.
 | `/contact`          | Shop details, hours, enquiry form, what happens next              |
 | `/privacy`, `/terms` | Placeholder legal pages pending review                           |
 
-Detail pages are generated from `data/products.ts` and `data/company.ts` via
-`generateStaticParams`, so adding a record creates its page, its breadcrumb, its
-metadata and its sitemap entry with no further work. Each carries
-`BreadcrumbList` structured data, and equipment pages also carry `Service`
-schema (repair work on the customer's equipment — not a priced retail product).
+Detail pages are generated from `data/services.ts`, `data/products.ts` and
+`data/company.ts` via `generateStaticParams`, so adding a record creates its
+page, its breadcrumb, its metadata and its sitemap entry with no further work.
+Each carries `BreadcrumbList` structured data; service and equipment pages also
+carry `Service` schema (repair work on the customer's equipment — not a priced
+retail product).
+
+The three detail types cross-link: a service lists the equipment it applies to
+and the clients it has been delivered for, equipment lists its related services,
+and a project lists both. Those links are data, not hand-maintained markup — see
+`relatedEquipment` in `data/services.ts`, `relatedServices` in
+`data/products.ts`, and `services` / `equipment` on each vendor project.
+
+**Note on `/services` anchors.** Service detail now lives at `/services/<id>`
+rather than `/services#<id>`. Old anchor links still land on the services page,
+they simply no longer scroll to a section.
 
 **Honesty note on project pages.** The company profile does not attribute
 individual photographs to individual clients, so a project page never claims a

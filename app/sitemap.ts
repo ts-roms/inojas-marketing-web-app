@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { vendorProjects } from "@/data/company";
 import { equipment } from "@/data/products";
+import { services } from "@/data/services";
 import { site } from "@/data/site";
 
 type Frequency = MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -29,6 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Detail pages are generated from the same data as the pages themselves, so
   // the sitemap can never fall behind the catalogue.
+  const serviceEntries = services.map((service) => ({
+    url: `${site.url}/services/${service.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const equipmentEntries = equipment.map((item) => ({
     url: `${site.url}/equipment/${item.id}`,
     lastModified,
@@ -43,5 +51,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...equipmentEntries, ...projectEntries];
+  return [...staticEntries, ...serviceEntries, ...equipmentEntries, ...projectEntries];
 }

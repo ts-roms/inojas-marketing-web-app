@@ -12,16 +12,22 @@ import type { IconName } from "@/components/ui/icons";
  * delete it. `featured: true` promotes a service to the home page overview.
  */
 
+export type ServiceDiscipline = "hydraulics" | "cooling" | "motors" | "fabrication";
+
 export type Service = {
-  /** Stable identifier, also used as the in-page anchor (`/services#id`). */
+  /** Stable identifier — also the detail page route: /services/<id>. */
   id: string;
   title: string;
   /** One line shown under the title in cards. */
   summary: string;
-  /** Two to three sentences used on the services page. */
+  /** Two to three sentences used on the detail page. */
   description: string;
   /** Scannable specifics — kept to what the company profile lists. */
   benefits: string[];
+  /** Equipment ids from data/products.ts that this service covers. */
+  relatedEquipment: string[];
+  /** Groups the service with matching project photographs. */
+  discipline: ServiceDiscipline;
   icon: IconName;
   featured?: boolean;
 };
@@ -39,6 +45,15 @@ export const services: Service[] = [
       "Hydraulic cylinder reseal and rebuild",
       "General rehabilitation and parts supply",
     ],
+    relatedEquipment: [
+      "hand-pallet-truck",
+      "electric-forklift",
+      "diesel-gas-forklift",
+      "electrical-manual-stacker",
+      "jack-crocodile-jack",
+      "hydraulic-press",
+    ],
+    discipline: "hydraulics",
     icon: "forklift",
     featured: true,
   },
@@ -55,6 +70,8 @@ export const services: Service[] = [
       "Transport refrigeration — refrigerated vans and reefer units",
       "Vehicle air-conditioning units",
     ],
+    relatedEquipment: ["hvac-refrigeration-chiller"],
+    discipline: "cooling",
     icon: "snowflake",
     featured: true,
   },
@@ -70,6 +87,13 @@ export const services: Service[] = [
       "Quarterly and scheduled preventive maintenance",
       "Dock leveller and roll-up door maintenance",
     ],
+    relatedEquipment: [
+      "hvac-refrigeration-chiller",
+      "electric-forklift",
+      "industrial-battery",
+      "grinding-machine",
+    ],
+    discipline: "cooling",
     icon: "clock",
     featured: true,
   },
@@ -85,6 +109,8 @@ export const services: Service[] = [
       "Induction and DC motors",
       "Submersible pump and compressor motors",
     ],
+    relatedEquipment: ["grinding-machine", "hvac-refrigeration-chiller"],
+    discipline: "motors",
     icon: "gear",
     featured: true,
   },
@@ -100,6 +126,8 @@ export const services: Service[] = [
       "Removal of algae",
       "Complete cooling tower rehabilitation",
     ],
+    relatedEquipment: ["hvac-refrigeration-chiller"],
+    discipline: "cooling",
     icon: "fan",
     featured: true,
   },
@@ -115,6 +143,8 @@ export const services: Service[] = [
       "Manual roll-up doors",
       "Minor construction repairs and logo fabrication",
     ],
+    relatedEquipment: ["battery-charger", "electrical-manual-stacker", "hydraulic-press"],
+    discipline: "fabrication",
     icon: "door",
     featured: true,
   },
@@ -130,6 +160,13 @@ export const services: Service[] = [
       "Polyurethane wheel supply and rebounding",
       "Industrial batteries and battery chargers",
     ],
+    relatedEquipment: [
+      "polyurethane-wheel",
+      "industrial-battery",
+      "battery-charger",
+      "hand-pallet-truck",
+    ],
+    discipline: "hydraulics",
     icon: "layers",
   },
 ];
@@ -139,6 +176,17 @@ export const featuredServices = services.filter((service) => service.featured);
 
 export function getService(id: string): Service | undefined {
   return services.find((service) => service.id === id);
+}
+
+/** Other services sharing a discipline, for the detail page footer. */
+export function relatedServices(service: Service, limit = 3): Service[] {
+  const sameDiscipline = services.filter(
+    (other) => other.id !== service.id && other.discipline === service.discipline,
+  );
+  const rest = services.filter(
+    (other) => other.id !== service.id && other.discipline !== service.discipline,
+  );
+  return [...sameDiscipline, ...rest].slice(0, limit);
 }
 
 /**

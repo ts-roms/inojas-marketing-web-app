@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
@@ -7,8 +6,10 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { ServiceCard } from "@/components/services/ServiceCard";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -26,6 +27,27 @@ export const metadata: Metadata = {
     url: "/services",
   },
 };
+
+const workingApproach = [
+  {
+    icon: "compass" as const,
+    title: "Assessed before it is quoted",
+    description:
+      "A check-up confirms the actual fault first, so the quotation covers what the unit needs rather than a standard package.",
+  },
+  {
+    icon: "people" as const,
+    title: "On your site or in our shop",
+    description:
+      "Whichever costs you less downtime. Equipment that cannot be moved is worked on where it stands.",
+  },
+  {
+    icon: "spark" as const,
+    title: "Repair before replacement",
+    description:
+      "Rewinding, resealing and rebounding keep serviceable equipment out of the scrap bin — and off your capital budget.",
+  },
+];
 
 export default function ServicesPage() {
   return (
@@ -47,104 +69,56 @@ export default function ServicesPage() {
       />
 
       {/* ---------------------------------------------------------------- */}
-      {/* Jump list                                                        */}
+      {/* Service lines                                                    */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="canvas" spacing="sm" ariaLabelledby="service-index-heading">
+      <Section tone="white" ariaLabelledby="service-list-heading">
         <Container>
-          <h2 id="service-index-heading" className="sr-only">
-            Service index
-          </h2>
-          <nav aria-label="Services on this page">
-            <ul className="flex flex-wrap gap-2.5">
-              {services.map((service) => (
-                <li key={service.id}>
-                  <Link
-                    href={`#${service.id}`}
-                    className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-medium text-brand-700 ring-1 ring-inset ring-brand-200 transition-colors hover:bg-brand-50 hover:text-brand-900"
-                  >
-                    <Icon name={service.icon} className="size-4 text-accent-600" />
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <SectionHeading
+            id="service-list-heading"
+            eyebrow="What we do"
+            title={`${services.length} service lines, one accountable team`}
+            description="Open any service for what it covers, the equipment it applies to, and the clients we have delivered it for."
+          />
+
+          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <li key={service.id} className="h-full">
+                <Reveal delay={index * 60} className="h-full">
+                  <ServiceCard service={service} variant="full" />
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </Container>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Service detail                                                   */}
+      {/* How we work                                                      */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="white" ariaLabelledby="service-detail-heading">
+      <Section tone="canvas" ariaLabelledby="approach-heading">
         <Container>
-          <h2 id="service-detail-heading" className="sr-only">
-            Our services in detail
-          </h2>
+          <SectionHeading
+            id="approach-heading"
+            align="center"
+            eyebrow="How we work"
+            title="The same approach on every job"
+          />
 
-          <div className="divide-y divide-hairline">
-            {services.map((service, index) => (
-              <article
-                key={service.id}
-                id={service.id}
-                className="scroll-mt-28 py-12 first:pt-0 last:pb-0 lg:py-16"
-              >
-                <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-                  <div className="lg:col-span-5">
-                    <Reveal>
-                      <div className="flex items-center gap-4">
-                        <span className="inline-flex size-12 items-center justify-center rounded-lg bg-brand-900 text-accent-300">
-                          <Icon name={service.icon} className="size-6" />
-                        </span>
-                        <span className="font-display text-sm font-bold tracking-[0.16em] text-brand-500">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-6 text-h2 text-brand-900">{service.title}</h3>
-                      <p className="mt-4 text-lead text-brand-600">{service.summary}</p>
-
-                      <div className="mt-7">
-                        <Button
-                          href={`/contact?subject=${encodeURIComponent(`Service enquiry: ${service.title}`)}`}
-                          variant="secondary"
-                          size="sm"
-                          icon="arrowRight"
-                        >
-                          Request a quotation
-                        </Button>
-                      </div>
-                    </Reveal>
-                  </div>
-
-                  <div className="lg:col-span-7">
-                    <Reveal delay={80}>
-                      <Card tone="muted" padding="lg" className="h-full">
-                        <p className="leading-relaxed text-brand-700">{service.description}</p>
-
-                        <h4 className="mt-8 font-display text-sm font-bold uppercase tracking-[0.14em] text-brand-500">
-                          What you get
-                        </h4>
-                        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                          {service.benefits.map((benefit) => (
-                            <li
-                              key={benefit}
-                              className="flex items-start gap-3 text-[0.9375rem] text-brand-700"
-                            >
-                              <Icon
-                                name="checkCircle"
-                                className="mt-0.5 size-4 shrink-0 text-accent-600"
-                              />
-                              <span>{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </Card>
-                    </Reveal>
-                  </div>
-                </div>
-              </article>
+          <ul className="mt-14 grid gap-6 lg:grid-cols-3">
+            {workingApproach.map((item, index) => (
+              <li key={item.title} className="h-full">
+                <Reveal delay={index * 70} className="h-full">
+                  <Card className="h-full" padding="lg">
+                    <span className="inline-flex size-11 items-center justify-center rounded-lg bg-accent-50 text-accent-700 ring-1 ring-inset ring-accent-100">
+                      <Icon name={item.icon} className="size-5" />
+                    </span>
+                    <h3 className="mt-6 text-h3 text-brand-900">{item.title}</h3>
+                    <p className="mt-3 leading-relaxed text-brand-600">{item.description}</p>
+                  </Card>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
 
@@ -153,7 +127,7 @@ export default function ServicesPage() {
       <CtaBanner
         eyebrow="Start here"
         title="Describe the fault — we will tell you what it needs"
-        description="Send the equipment, the symptom and the site. If we need to inspect it before quoting, we will arrange a check-up first rather than guess at a price."
+        description="Send the equipment, the symptom and the site. If we need to inspect it before quoting, we will arrange a check-up rather than guess at a price."
         primary={{ label: "Request a quotation", href: "/contact" }}
         secondary={{ label: "Browse equipment", href: "/equipment" }}
       />

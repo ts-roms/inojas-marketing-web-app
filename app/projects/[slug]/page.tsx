@@ -169,7 +169,7 @@ export default async function ProjectDetailPage({ params }: Params) {
                     {services.map((service) => (
                       <li key={service.id} className="h-full">
                         <Link
-                          href={`/services#${service.id}`}
+                          href={`/services/${service.id}`}
                           className="group flex h-full items-start gap-3 rounded-xl bg-canvas p-4 ring-1 ring-inset ring-transparent transition-all hover:bg-white hover:shadow-card hover:ring-brand-200"
                         >
                           <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white text-brand-700 ring-1 ring-inset ring-brand-100 group-hover:text-accent-700">

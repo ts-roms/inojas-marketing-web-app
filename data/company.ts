@@ -375,6 +375,13 @@ export function getVendorProject(id: string): VendorProject | undefined {
   return vendorProjects.find((project) => project.id === id);
 }
 
+/** Projects from the company profile where this service was part of the scope. */
+export function vendorProjectsForService(serviceId: string, limit = 4): VendorProject[] {
+  return vendorProjects
+    .filter((project) => project.services.includes(serviceId))
+    .slice(0, limit);
+}
+
 /** Other projects sharing a discipline, for the detail page footer. */
 export function relatedVendorProjects(project: VendorProject, limit = 3): VendorProject[] {
   return vendorProjects
