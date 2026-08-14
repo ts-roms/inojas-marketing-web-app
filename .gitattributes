@@ -1,0 +1,38 @@
+# Line endings
+# -----------------------------------------------------------------------------
+# Normalise text files to LF in the repository *and* in the working tree on
+# every platform. Without this, Windows checkouts convert to CRLF and any file
+# touched on another machine shows up as a whole-file diff.
+* text=auto eol=lf
+
+# Batch scripts are the exception — Windows requires CRLF to run them.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets
+# -----------------------------------------------------------------------------
+# Never line-ending converted, never diffed as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.mp4 binary
+*.webm binary
+
+# SVG is text: keep it diffable, just pin the line endings.
+*.svg text eol=lf
+
+# GitHub display
+# -----------------------------------------------------------------------------
+# Collapse the lockfile in pull request diffs and keep it out of the repository
+# language statistics. It stays diffable when you do want to inspect it.
+package-lock.json linguist-generated=true
