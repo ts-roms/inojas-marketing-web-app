@@ -123,48 +123,48 @@ menu), the equipment filter, the project gallery filter and the contact form.
 
 Content is data-driven, so copy changes rarely require touching a layout.
 
-**All website copy lives in `public/locale/en.json`.** Edit that file and the
-site changes — no code edits. `data/*.ts` holds only structure (ids, icons,
-image paths, links, phone numbers): things that would not change if the site
-were translated.
+**Everything the site says, and every record it is built from, lives in one
+file: `public/locale/en.json`.** Copy, contact details, opening hours,
+navigation, services, equipment, projects, photo captions and client logos are
+all there. Edit that file and the site changes — no code edits.
 
-To add a language: copy `public/locale/en.json` to e.g. `fil.json`, translate
-the values (keys stay in English), and register it in `lib/i18n.ts`. TypeScript
-flags any key you miss, and at runtime missing keys fall back to English, so a
-partial translation is safe to ship. The site currently renders one locale, so
+`data/*.ts` no longer holds content. Each module is now a thin typed reader over
+the locale file: it declares the TypeScript types, resolves image paths, and
+provides the lookups pages use (`getService`, `relatedEquipment`,
+`vendorProjectsForService`, and so on).
+
+Records are keyed by id and render **in the order they appear in the file**, so
+moving a block reorders that part of the site.
+
+| What                                                        | Where                              |
+| ----------------------------------------------------------- | ---------------------------------- |
+| **Everything: copy, contact details, services, equipment, projects, clients** | `public/locale/en.json` |
+| Brand colours, type scale, shadows, motion                   | `app/globals.css` (`@theme` block) |
+| Logo artwork and photography                                 | `public/images/`, `app/icon.png`   |
+| Types, lookups and image-path resolution                     | `data/*.ts`                        |
+
+### Adding a language
+
+Copy `public/locale/en.json` to e.g. `fil.json`, translate the text values
+(keys stay in English) and register it in `lib/i18n.ts`. Structural fields —
+`icon`, `photo`, `category`, `href`, `relatedServices` — do not need repeating:
+missing keys deep-merge from English, so a translation only carries the words.
+TypeScript flags any key you miss. The site currently renders one locale, so
 there is no URL prefix and no switcher.
-
-| What                                                       | Where                |
-| ---------------------------------------------------------- | -------------------- |
-| **Every sentence, label, button and error message**         | `public/locale/en.json` |
-| Phone numbers, emails, address, links, founding year        | `data/site.ts`       |
-| Navigation and footer links                                 | `data/navigation.ts` |
-| Service ids, icons, relationships                           | `data/services.ts`   |
-| Equipment ids, categories, photo paths, relationships       | `data/products.ts`   |
-| Value/value-prop ids, client logos, project relationships    | `data/company.ts`    |
-| Brand colours, type scale, shadows, motion                  | `app/globals.css` (`@theme` block) |
-| Logo artwork                                                | `public/images/brand/`, `app/icon.png` |
 
 ### Adding an equipment line
 
-Two steps: structure in `data/products.ts`, words in `public/locale/en.json`.
-
-```ts
-// data/products.ts — structure only
-{
-  id: "new-line",                 // also the detail page route: /equipment/new-line
-  category: "material-handling",  // must match a productCategories entry
-  relatedServices: ["hydraulic-equipment-repair"],  // ids from data/services.ts
-  icon: "forklift",
-  image: "/images/projects/photo.webp",  // optional — an icon tile is used if omitted
-  galleryKeys: ["another-photo"],        // optional, keys from projects.photos
-  featured: true,                 // optional: promote to the home page
-}
-```
+One step: add a block under `equipment.items` in `public/locale/en.json`. The
+key is the id, and also the detail page route.
 
 ```jsonc
-// public/locale/en.json — equipment.items."new-line"
-{
+"new-line": {
+  "category": "material-handling",   // must match an equipment.categories key
+  "icon": "forklift",                // see components/ui/icons.tsx
+  "photo": "forklift-service-yard",  // a projects.photos key, or null for an icon tile
+  "gallery": [],                     // more projects.photos keys
+  "relatedServices": ["hydraulic-equipment-repair"],
+  "featured": true,                  // promote to the home page
   "name": "Equipment name",
   "description": "What we do with it.",
   "detail": "Opening paragraph for the detail page.",
@@ -174,12 +174,17 @@ Two steps: structure in `data/products.ts`, words in `public/locale/en.json`.
 }
 ```
 
+The listing, the filter, the detail page at `/equipment/new-line`, the footer
+and the sitemap all pick it up. Services and projects work the same way, under
+`services.items` and `projects.items`.
+
 ### Adding a project photo
 
-Drop the file in `public/images/projects/` and append an entry to
-`projectPhotos` in `data/company.ts` with an `alt`, a `caption` and a
-`discipline` (`hydraulics`, `cooling`, `motors` or `fabrication`). The gallery,
-its filter and the home-page preview pick it up automatically.
+Drop a `.webp` in `public/images/projects/` and add an entry under
+`projects.photos` in the locale file, keyed by the filename without its
+extension, with a `discipline` (`hydraulics`, `cooling`, `motors` or
+`fabrication`), an `alt` and a `caption`. The gallery, its filter, the
+home-page preview and any equipment referencing that key pick it up.
 
 ---
 

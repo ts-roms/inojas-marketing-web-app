@@ -1,143 +1,64 @@
 import type { IconName } from "@/components/ui/icons";
 import { fill, t } from "@/lib/i18n";
+import { photoSrc } from "@/data/products";
 import { textVars } from "@/data/site";
 
 /**
  * ---------------------------------------------------------------------------
- * COMPANY NARRATIVE — structure only
+ * COMPANY NARRATIVE
  * ---------------------------------------------------------------------------
- * Icons, ids, image paths, orderings and relationships live here. Every word —
- * philosophy, mission, vision, values, milestones, figures, project scopes and
- * photo captions — lives in `public/locale/en.json`.
+ * Philosophy, mission, vision, values, permits, figures, clients, vendor
+ * projects and project photographs all live in `public/locale/en.json`. This
+ * module types those records and provides the cross-lookups the pages use.
  *
- * Sourced from the Inojas Hydraulic Repair Shop company profile (Nov 2024).
- * No claims, certifications or figures have been added beyond that document.
+ * Sourced from the Inojas Hydraulic Repair Shop company profile (Nov 2024). No
+ * claims, certifications or figures have been added beyond that document.
  */
 
-/* -------------------------------------------------------------------------- */
-/* Why choose us                                                              */
-/* -------------------------------------------------------------------------- */
+type IconRecord = { icon: string; title: string; description: string };
 
-export type ValueProp = {
-  id: string;
-  title: string;
-  description: string;
-  icon: IconName;
-};
+function withIcon(records: Record<string, IconRecord>, interpolate = false) {
+  return Object.entries(records).map(([id, record]) => ({
+    id,
+    icon: record.icon as IconName,
+    title: record.title,
+    description: interpolate ? fill(record.description, textVars) : record.description,
+  }));
+}
 
-const valuePropStructure: { id: string; icon: IconName }[] = [
-  { id: "skilled-technicians", icon: "people" },
-  { id: "environmentally-friendly", icon: "spark" },
-  { id: "one-shop", icon: "layers" },
-  { id: "on-site-or-shop", icon: "compass" },
-];
+/* ---------------------------------------------------------------- values -- */
 
-const valuePropCopy = t.valueProps as unknown as Record<
-  string,
-  { title: string; description: string }
->;
+export type ValueProp = { id: string; title: string; description: string; icon: IconName };
 
-export const valueProps: ValueProp[] = valuePropStructure.map((item) => ({
-  ...item,
-  title: valuePropCopy[item.id]?.title ?? item.id,
-  description: fill(valuePropCopy[item.id]?.description ?? "", textVars),
-}));
+export const valueProps: ValueProp[] = withIcon(
+  t.valueProps as unknown as Record<string, IconRecord>,
+  true,
+);
 
-/* -------------------------------------------------------------------------- */
-/* Registrations held                                                         */
-/* -------------------------------------------------------------------------- */
+export type CoreValue = ValueProp;
 
-export type LegalDocument = { id: string; title: string; description: string; icon: IconName };
+export const coreValues: CoreValue[] = withIcon(
+  t.company.coreValues as unknown as Record<string, IconRecord>,
+);
 
-const legalDocumentStructure: { id: keyof typeof t.trust.documents; icon: IconName }[] = [
-  { id: "dti", icon: "document" },
-  { id: "mayors", icon: "shield" },
-  { id: "dole", icon: "people" },
-  { id: "registration", icon: "checkCircle" },
-];
+export type LegalDocument = ValueProp;
 
-export const legalDocuments: LegalDocument[] = legalDocumentStructure.map((item) => ({
-  id: item.id,
-  icon: item.icon,
-  title: t.trust.documents[item.id].title,
-  description: t.trust.documents[item.id].description,
-}));
+/** Registrations held, from the Legal Documents pages of the profile. */
+export const legalDocuments: LegalDocument[] = withIcon(
+  t.trust.documents as unknown as Record<string, IconRecord>,
+);
 
-/* -------------------------------------------------------------------------- */
-/* Narrative                                                                  */
-/* -------------------------------------------------------------------------- */
+/* ------------------------------------------------------------- narrative -- */
 
 export const philosophy = t.company.philosophy;
 export const mission = t.company.mission;
 export const vision = t.company.vision;
 export const statsSource = t.company.statsSource;
 export const sectors: string[] = t.company.sectors;
+export const milestones = Object.values(t.company.milestones);
+export const stats = Object.values(t.company.stats);
 
-export type CoreValue = { id: string; title: string; description: string; icon: IconName };
-
-const coreValueStructure: { id: keyof typeof t.company.coreValues; icon: IconName }[] = [
-  { id: "customer-satisfaction", icon: "checkCircle" },
-  { id: "teamwork", icon: "people" },
-  { id: "resilient-organisation", icon: "shield" },
-  { id: "global-competitiveness", icon: "compass" },
-  { id: "new-challenges", icon: "spark" },
-  { id: "care", icon: "gauge" },
-];
-
-export const coreValues: CoreValue[] = coreValueStructure.map((item) => ({
-  id: item.id,
-  icon: item.icon,
-  title: t.company.coreValues[item.id].title,
-  description: t.company.coreValues[item.id].description,
-}));
-
-const milestoneOrder = ["founded", "hydraulics", "cooling", "today"] as const;
-
-export const milestones = milestoneOrder.map((key) => t.company.milestones[key]);
-
-const statOrder = ["established", "clients", "equipmentLines", "registrations"] as const;
-
-export const stats = statOrder.map((key) => t.company.stats[key]);
-
-/* -------------------------------------------------------------------------- */
-/* Clients                                                                    */
-/* -------------------------------------------------------------------------- */
-
-/**
- * NOTE FOR THE CLIENT: these are third-party trade marks, shown because they
- * appear in your printed company profile. Confirm you are comfortable
- * publishing them on a public website before launch.
- *
- * Names come from `projects.items.<id>.client` where a project exists, so a
- * client is named identically everywhere.
- */
-export type Client = { name: string; logo?: string };
-
-const clientStructure: { projectId?: string; name?: string; logo?: string }[] = [
-  { projectId: "canlubang-golf-and-country-club", logo: "/images/clients/canlubang-golf-and-country-club.webp" },
-  { projectId: "atkins-import-export", logo: "/images/clients/atkins.webp" },
-  { projectId: "varex-imaging", logo: "/images/clients/varex-imaging.webp" },
-  { projectId: "acbel-philippines", logo: "/images/clients/acbel.webp" },
-  { projectId: "universal-robina", logo: "/images/clients/universal-robina.webp" },
-  { projectId: "ninja-van-philippines", logo: "/images/clients/ninjavan.webp" },
-  { projectId: "san-miguel-corporation", logo: "/images/clients/san-miguel-corporation.webp" },
-  { projectId: "interphil-laboratories", logo: "/images/clients/interphil-laboratories.webp" },
-  { projectId: "blue-macay-food-corporation", logo: "/images/clients/blue-macay.webp" },
-  { projectId: "crestec-philippines", logo: "/images/clients/crestec.webp" },
-  { projectId: "samsof-technologies", logo: "/images/clients/samsof-technologies.webp" },
-  { projectId: "kerry-logistikus-philippines", logo: "/images/clients/kerry-logistics.webp" },
-  { projectId: "pioneer-adhesive", logo: "/images/clients/pioneer-adhesive.webp" },
-  {
-    projectId: "san-sebastian-college-recoletos",
-    logo: "/images/clients/san-sebastian-college-recoletos.webp",
-  },
-  { projectId: "the-country-club" },
-  { projectId: "vl-dj-metal-fabrication" },
-];
-
-/* -------------------------------------------------------------------------- */
-/* Vendor projects                                                            */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------- projects -- */
 
 export type ProjectDiscipline = "hydraulics" | "cooling" | "motors" | "fabrication";
 
@@ -147,134 +68,42 @@ export type VendorProject = {
   client: string;
   scope: string;
   disciplines: ProjectDiscipline[];
-  /** Service ids from data/services.ts. */
+  /** Service ids from the locale file. */
   services: string[];
-  /** Equipment ids from data/products.ts. */
+  /** Equipment ids from the locale file. */
   equipment: string[];
+  /** Client logo file stem in public/images/clients, when we have one. */
+  logo: string | null;
 };
 
-type VendorStructure = Omit<VendorProject, "client" | "scope">;
+type ProjectRecord = {
+  disciplines: string[];
+  services: string[];
+  equipment: string[];
+  logo: string | null;
+  client: string;
+  scope: string;
+};
 
-const vendorStructure: VendorStructure[] = [
-  {
-    id: "canlubang-golf-and-country-club",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning", "installation-maintenance"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "atkins-import-export",
-    disciplines: ["hydraulics", "cooling"],
-    services: ["hydraulic-equipment-repair", "installation-maintenance"],
-    equipment: ["electric-forklift", "hand-pallet-truck", "diesel-gas-forklift"],
-  },
-  {
-    id: "varex-imaging",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning", "installation-maintenance"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "acbel-philippines",
-    disciplines: ["hydraulics", "fabrication"],
-    services: ["hydraulic-equipment-repair", "fabrication-doors"],
-    equipment: ["electric-forklift", "hand-pallet-truck"],
-  },
-  {
-    id: "universal-robina",
-    disciplines: ["cooling", "motors"],
-    services: ["refrigeration-airconditioning", "motor-rewinding"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "ninja-van-philippines",
-    disciplines: ["hydraulics", "fabrication"],
-    services: ["installation-maintenance", "fabrication-doors"],
-    equipment: [],
-  },
-  {
-    id: "san-miguel-corporation",
-    disciplines: ["hydraulics"],
-    services: ["hydraulic-equipment-repair", "installation-maintenance"],
-    equipment: ["diesel-gas-forklift", "electric-forklift", "hand-pallet-truck"],
-  },
-  {
-    id: "interphil-laboratories",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning", "installation-maintenance"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "blue-macay-food-corporation",
-    disciplines: ["hydraulics"],
-    services: ["hydraulic-equipment-repair"],
-    equipment: ["hand-pallet-truck"],
-  },
-  {
-    id: "the-country-club",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning", "installation-maintenance"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "crestec-philippines",
-    disciplines: ["fabrication", "hydraulics"],
-    services: ["fabrication-doors", "hydraulic-equipment-repair"],
-    equipment: ["hand-pallet-truck", "electric-forklift"],
-  },
-  {
-    id: "samsof-technologies",
-    disciplines: ["hydraulics"],
-    services: ["hydraulic-equipment-repair", "parts-supply"],
-    equipment: ["hand-pallet-truck", "polyurethane-wheel"],
-  },
-  {
-    id: "kerry-logistikus-philippines",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "pioneer-adhesive",
-    disciplines: ["hydraulics"],
-    services: ["hydraulic-equipment-repair", "installation-maintenance"],
-    equipment: ["hand-pallet-truck"],
-  },
-  {
-    id: "san-sebastian-college-recoletos",
-    disciplines: ["cooling"],
-    services: ["refrigeration-airconditioning", "installation-maintenance"],
-    equipment: ["hvac-refrigeration-chiller"],
-  },
-  {
-    id: "vl-dj-metal-fabrication",
-    disciplines: ["hydraulics"],
-    services: ["hydraulic-equipment-repair", "installation-maintenance"],
-    equipment: ["diesel-gas-forklift", "electric-forklift"],
-  },
-];
+const projectRecords = t.projects.items as unknown as Record<string, ProjectRecord>;
 
-const projectCopy = t.projects.items as unknown as Record<
-  string,
-  { client: string; scope: string }
->;
-
-export const vendorProjects: VendorProject[] = vendorStructure.map((structure) => ({
-  ...structure,
-  client: projectCopy[structure.id]?.client ?? structure.id,
-  scope: projectCopy[structure.id]?.scope ?? "",
-}));
-
-export const clients: Client[] = clientStructure.map((entry) => ({
-  name: entry.projectId ? (projectCopy[entry.projectId]?.client ?? entry.projectId) : (entry.name ?? ""),
-  logo: entry.logo,
-}));
+export const vendorProjects: VendorProject[] = Object.entries(projectRecords).map(
+  ([id, record]) => ({
+    id,
+    client: record.client,
+    scope: record.scope,
+    disciplines: record.disciplines as ProjectDiscipline[],
+    services: record.services,
+    equipment: record.equipment,
+    logo: record.logo,
+  }),
+);
 
 export function getVendorProject(id: string): VendorProject | undefined {
   return vendorProjects.find((project) => project.id === id);
 }
 
-/** Projects from the company profile where this service was part of the scope. */
+/** Projects where this service was part of the scope. */
 export function vendorProjectsForService(serviceId: string, limit = 4): VendorProject[] {
   return vendorProjects.filter((project) => project.services.includes(serviceId)).slice(0, limit);
 }
@@ -290,9 +119,24 @@ export function relatedVendorProjects(project: VendorProject, limit = 3): Vendor
     .slice(0, limit);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Project photographs                                                        */
-/* -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------- clients -- */
+
+/**
+ * NOTE FOR THE CLIENT: these are third-party trade marks, shown because they
+ * appear in your printed company profile. Confirm you are comfortable
+ * publishing them on a public website before launch — removing a `logo` from a
+ * project in the locale file drops it from the strip.
+ *
+ * Derived from the projects, so a client is named identically everywhere.
+ */
+export type Client = { name: string; logo?: string };
+
+export const clients: Client[] = vendorProjects.map((project) => ({
+  name: project.client,
+  logo: project.logo ? `/images/clients/${project.logo}.webp` : undefined,
+}));
+
+/* ---------------------------------------------------------------- photos -- */
 
 export type ProjectPhoto = {
   src: string;
@@ -301,35 +145,16 @@ export type ProjectPhoto = {
   discipline: ProjectDiscipline;
 };
 
-/** Photo key (also the filename) paired with its discipline. */
-const photoStructure: { key: keyof typeof t.projects.photos; discipline: ProjectDiscipline }[] = [
-  { key: "vehicle-lift-installation", discipline: "hydraulics" },
-  { key: "vehicle-lift-service", discipline: "hydraulics" },
-  { key: "dock-leveler-platform", discipline: "hydraulics" },
-  { key: "dock-leveler-cylinder", discipline: "hydraulics" },
-  { key: "dock-leveler-welding", discipline: "fabrication" },
-  { key: "hydraulic-cylinder-workshop", discipline: "hydraulics" },
-  { key: "hydraulic-cylinder-assembly", discipline: "hydraulics" },
-  { key: "hydraulic-seal-kit", discipline: "hydraulics" },
-  { key: "forklift-service-yard", discipline: "hydraulics" },
-  { key: "diesel-forklift-overhaul", discipline: "hydraulics" },
-  { key: "manual-stacker-repair", discipline: "hydraulics" },
-  { key: "pallet-stacker-rebuild", discipline: "hydraulics" },
-  { key: "condensing-unit-installation", discipline: "cooling" },
-  { key: "condenser-units-outdoor", discipline: "cooling" },
-  { key: "split-type-acu-installation", discipline: "cooling" },
-  { key: "refrigerant-charging", discipline: "cooling" },
-  { key: "refrigeration-pipework", discipline: "cooling" },
-  { key: "motor-rewinding-bench", discipline: "motors" },
-  { key: "compressor-motor-repair", discipline: "motors" },
-  { key: "roll-up-door-installation", discipline: "fabrication" },
-];
+const photoRecords = t.projects.photos as unknown as Record<
+  string,
+  { discipline: string; alt: string; caption: string }
+>;
 
-export const projectPhotos: ProjectPhoto[] = photoStructure.map((photo) => ({
-  src: `/images/projects/${photo.key}.webp`,
-  discipline: photo.discipline,
-  alt: t.projects.photos[photo.key].alt,
-  caption: t.projects.photos[photo.key].caption,
+export const projectPhotos: ProjectPhoto[] = Object.entries(photoRecords).map(([key, record]) => ({
+  src: photoSrc(key),
+  alt: record.alt,
+  caption: record.caption,
+  discipline: record.discipline as ProjectDiscipline,
 }));
 
 /** Photographs of the same kind of work — never presented as one client's job. */

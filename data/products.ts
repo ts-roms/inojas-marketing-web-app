@@ -3,19 +3,17 @@ import { t } from "@/lib/i18n";
 
 /**
  * ---------------------------------------------------------------------------
- * EQUIPMENT — structure only
+ * EQUIPMENT
  * ---------------------------------------------------------------------------
- * Ids, categories, icons, photo paths and relationships live here. Every word —
- * names, descriptions, detail paragraphs, work scopes, offerings and image alt
- * text — lives in `public/locale/en.json` under `equipment.items.<id>` and
- * `equipment.categories.<id>`.
+ * The records live in `public/locale/en.json` under `equipment.items` and
+ * `equipment.categories`, keyed by id. Each entry carries its structure
+ * (category, icon, photo, gallery, related services) alongside its copy. This
+ * module types them and derives the image paths.
  *
- * Adding an equipment line:
- *   1. Add an entry to `equipmentStructure` below.
- *   2. Add the matching `equipment.items.<id>` block to the locale file.
- *   3. Optionally drop a photo in `public/images/projects/`.
- * The listing, the detail page at /equipment/<id>, the filters, the footer and
- * the sitemap all pick it up automatically.
+ * Adding an equipment line: add a block to `equipment.items` in the locale
+ * file. `photo` and `gallery` take photo keys from `projects.photos`, which are
+ * also the filenames in `public/images/projects/`. Omit `photo` and the card
+ * falls back to an icon tile rather than borrowed stock imagery.
  */
 
 export type ProductCategoryId = "material-handling" | "cooling" | "power" | "workshop";
@@ -38,161 +36,77 @@ export type Product = {
   detail: string;
   workScope: string[];
   offerings: string[];
-  /** Service ids from data/services.ts that cover this equipment. */
+  /** Service ids that cover this equipment. */
   relatedServices: string[];
   icon: IconName;
   image?: string;
   imageAlt?: string;
-  /** Further photographs; alt text comes from `projects.photos.<key>`. */
   gallery?: ProductPhoto[];
   featured?: boolean;
 };
 
-const categoryStructure: { id: ProductCategoryId; icon: IconName }[] = [
-  { id: "material-handling", icon: "forklift" },
-  { id: "cooling", icon: "snowflake" },
-  { id: "power", icon: "battery" },
-  { id: "workshop", icon: "gear" },
-];
+/** Photo keys map 1:1 to files in public/images/projects. */
+export function photoSrc(key: string): string {
+  return `/images/projects/${key}.webp`;
+}
 
-export const productCategories: ProductCategory[] = categoryStructure.map((category) => ({
-  ...category,
-  name: t.equipment.categories[category.id].name,
-  description: t.equipment.categories[category.id].description,
-}));
+const photoRecords = t.projects.photos as unknown as Record<
+  string,
+  { discipline: string; alt: string; caption: string }
+>;
 
-type EquipmentStructure = Omit<
-  Product,
-  "name" | "description" | "detail" | "workScope" | "offerings" | "imageAlt" | "gallery"
-> & {
-  /** Photo keys from `projects.photos` in the locale file. */
-  galleryKeys?: string[];
-};
+const categoryRecords = t.equipment.categories as unknown as Record<
+  string,
+  { icon: string; name: string; description: string }
+>;
 
-const equipmentStructure: EquipmentStructure[] = [
-  {
-    id: "hvac-refrigeration-chiller",
-    category: "cooling",
-    relatedServices: [
-      "refrigeration-airconditioning",
-      "installation-maintenance",
-      "cooling-tower-servicing",
-    ],
-    icon: "snowflake",
-    image: "/images/projects/condenser-units-outdoor.webp",
-    galleryKeys: [
-      "condensing-unit-installation",
-      "split-type-acu-installation",
-      "refrigerant-charging",
-      "refrigeration-pipework",
-    ],
-    featured: true,
-  },
-  {
-    id: "hand-pallet-truck",
-    category: "material-handling",
-    relatedServices: ["hydraulic-equipment-repair", "parts-supply"],
-    icon: "cylinder",
-    image: "/images/projects/hydraulic-seal-kit.webp",
-    featured: true,
-  },
-  {
-    id: "electric-forklift",
-    category: "material-handling",
-    relatedServices: ["hydraulic-equipment-repair", "parts-supply", "installation-maintenance"],
-    icon: "forklift",
-    image: "/images/projects/forklift-service-yard.webp",
-    featured: true,
-  },
-  {
-    id: "diesel-gas-forklift",
-    category: "material-handling",
-    relatedServices: ["hydraulic-equipment-repair", "parts-supply"],
-    icon: "forklift",
-    image: "/images/projects/diesel-forklift-overhaul.webp",
-    featured: true,
-  },
-  {
-    id: "electrical-manual-stacker",
-    category: "material-handling",
-    relatedServices: ["hydraulic-equipment-repair", "fabrication-doors"],
-    icon: "layers",
-    image: "/images/projects/manual-stacker-repair.webp",
-    galleryKeys: ["pallet-stacker-rebuild"],
-    featured: true,
-  },
-  {
-    id: "jack-crocodile-jack",
-    category: "material-handling",
-    relatedServices: ["hydraulic-equipment-repair"],
-    icon: "cylinder",
-    image: "/images/projects/hydraulic-cylinder-assembly.webp",
-  },
-  {
-    id: "hydraulic-press",
-    category: "workshop",
-    relatedServices: ["hydraulic-equipment-repair", "fabrication-doors"],
-    icon: "cylinder",
-    image: "/images/projects/hydraulic-cylinder-workshop.webp",
-    featured: true,
-  },
-  {
-    id: "grinding-machine",
-    category: "workshop",
-    relatedServices: ["motor-rewinding", "installation-maintenance"],
-    icon: "gear",
-  },
-  {
-    id: "industrial-battery",
-    category: "power",
-    relatedServices: ["parts-supply", "installation-maintenance"],
-    icon: "battery",
-  },
-  {
-    id: "battery-charger",
-    category: "power",
-    relatedServices: ["parts-supply", "fabrication-doors"],
-    icon: "bolt",
-  },
-  {
-    id: "polyurethane-wheel",
-    category: "material-handling",
-    relatedServices: ["parts-supply", "hydraulic-equipment-repair"],
-    icon: "flow",
-  },
-];
+export const productCategories: ProductCategory[] = Object.entries(categoryRecords).map(
+  ([id, record]) => ({
+    id: id as ProductCategoryId,
+    name: record.name,
+    description: record.description,
+    icon: record.icon as IconName,
+  }),
+);
 
-type EquipmentCopy = {
+type EquipmentRecord = {
+  category: string;
+  icon: string;
+  photo: string | null;
+  gallery: string[];
+  relatedServices: string[];
+  featured: boolean;
   name: string;
   description: string;
   detail: string;
   workScope: string[];
   offerings: string[];
-  imageAlt: string;
+  imageAlt?: string;
 };
 
-const equipmentCopy = t.equipment.items as unknown as Record<string, EquipmentCopy>;
-const photoCopy = t.projects.photos as unknown as Record<string, { alt: string; caption: string }>;
+const records = t.equipment.items as unknown as Record<string, EquipmentRecord>;
 
-/** Structure joined with the copy from the locale file. */
-export const equipment: Product[] = equipmentStructure.map((structure) => {
-  const { galleryKeys, ...rest } = structure;
-  const copy = equipmentCopy[structure.id];
-
-  return {
-    ...rest,
-    name: copy?.name ?? structure.id,
-    description: copy?.description ?? "",
-    detail: copy?.detail ?? "",
-    workScope: copy?.workScope ?? [],
-    offerings: copy?.offerings ?? [],
-    imageAlt: copy?.imageAlt,
-    gallery: galleryKeys?.map((key) => ({
-      src: `/images/projects/${key}.webp`,
-      alt: photoCopy[key]?.alt ?? "",
-    })),
-  };
-});
+/** Order follows the locale file, so moving a block reorders the catalogue. */
+export const equipment: Product[] = Object.entries(records).map(([id, record]) => ({
+  id,
+  name: record.name,
+  category: record.category as ProductCategoryId,
+  description: record.description,
+  detail: record.detail,
+  workScope: record.workScope,
+  offerings: record.offerings,
+  relatedServices: record.relatedServices,
+  icon: record.icon as IconName,
+  image: record.photo ? photoSrc(record.photo) : undefined,
+  imageAlt: record.imageAlt,
+  gallery: record.gallery.length
+    ? record.gallery.map((key) => ({
+        src: photoSrc(key),
+        alt: photoRecords[key]?.alt ?? "",
+      }))
+    : undefined,
+  featured: record.featured,
+}));
 
 /** Backwards-compatible alias — the catalogue is equipment, not retail stock. */
 export const products = equipment;

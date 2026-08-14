@@ -4,15 +4,14 @@ import { t } from "@/lib/i18n";
  * ---------------------------------------------------------------------------
  * SITE CONFIGURATION
  * ---------------------------------------------------------------------------
- * This file holds the values that do NOT change between languages: phone
- * numbers, email addresses, the street address, links and the founding year.
+ * The values themselves live in `public/locale/en.json` under `site` — company
+ * name, contact details, address, opening hours and social links. This module
+ * only types them and derives a few conveniences.
  *
- * All wording — including the tagline, description, opening hours labels and
- * every other sentence on the website — lives in `public/locale/en.json`.
- * Change words there; change numbers and links here.
+ * To change a phone number, an email or the address: edit the locale file.
  *
- * Sourced from the Inojas Hydraulic Repair Shop company profile (Nov 2024).
- * Items still to confirm before launch are marked TO CONFIRM.
+ * TO CONFIRM before launch: the production domain, the exact registered entity
+ * name, and the opening hours (the profile does not state them).
  */
 
 export type SocialLink = {
@@ -22,6 +21,11 @@ export type SocialLink = {
   icon: "facebook" | "linkedin" | "youtube";
 };
 
+/**
+ * Absolute base URL for canonicals, Open Graph, sitemap and robots.
+ * Prefers NEXT_PUBLIC_SITE_URL, then Vercel's production domain, then a
+ * placeholder for local development.
+ */
 function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (explicit) return explicit.replace(/\/+$/, "");
@@ -34,51 +38,18 @@ function resolveSiteUrl(): string {
   return "https://www.inojashydraulic.com";
 }
 
+const config = t.site;
+
 export const site = {
-  name: "Inojas Hydraulic Repair Shop",
-  /** Short form used in the logo lockup and tight layouts. */
-  shortName: "Inojas",
-  /** TO CONFIRM: exact registered entity name. */
-  legalName: "Inojas Hydraulic Repair Shop",
-  /** Wording lives in the locale file. */
-  tagline: t.site.tagline,
-  description: t.site.description,
-  /**
-   * Absolute base URL. Prefers NEXT_PUBLIC_SITE_URL, then Vercel's production
-   * domain, then the placeholder below. TO CONFIRM: the production domain.
-   */
+  name: config.name,
+  shortName: config.shortName,
+  legalName: config.legalName,
+  tagline: config.tagline,
+  description: config.description,
+  foundedYear: config.foundedYear,
   url: resolveSiteUrl(),
-  /** Year the company was established, per the company profile. */
-  foundedYear: 2022,
-
-  contact: {
-    email: "inojas.hydraulic.repair@gmail.com",
-    managementEmail: "rodelperegrina1@gmail.com",
-    /* Number and address below are taken from the company tarpaulin, which is
-       more recent and more complete than the 2024 company profile. */
-    mobileDisplay: "0946-556-6185",
-    mobileHref: "tel:+639465566185",
-    landlineDisplay: "(049) 548 3164",
-    landlineHref: "tel:+63495483164",
-    address: {
-      line1: "#217 Purok 2, Barangay Sirang Lupa",
-      city: "Calamba City",
-      region: "Laguna",
-      postalCode: "4027",
-      country: "Philippines",
-    },
-    /** Opening hours text lives in public/locale/en.json. TO CONFIRM. */
-    hours: t.contact.hours,
-    hoursNote: t.contact.hoursNote,
-    emergencyNote: t.contact.emergencyNote,
-  },
-
-  /**
-   * TO CONFIRM: no social profiles were listed in the company profile.
-   * Add the company's real pages here and they will appear in the footer;
-   * leave the array empty and the social row is hidden automatically.
-   */
-  social: [] as SocialLink[],
+  contact: config.contact,
+  social: config.social as SocialLink[],
 } as const;
 
 /** Formats the company address as a single line. */
