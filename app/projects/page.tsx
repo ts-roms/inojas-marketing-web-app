@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
@@ -79,19 +80,31 @@ export default function ProjectsPage() {
 
           <ul className="mt-12 grid gap-4 lg:grid-cols-2">
             {vendorProjects.map((project, index) => (
-              <li key={project.client} className="h-full">
+              <li key={project.id} className="h-full">
                 <Reveal delay={Math.min(index, 8) * 40} className="h-full">
-                  <Card className="flex h-full gap-4" padding="lg">
+                  <Card interactive className="group flex h-full gap-4" padding="lg">
                     <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent-50 text-accent-700 ring-1 ring-inset ring-accent-100">
                       <Icon name="checkCircle" className="size-5" />
                     </span>
                     <div>
                       <h3 className="font-display text-base font-bold text-brand-900">
-                        {project.client}
+                        <Link
+                          href={`/projects/${project.id}`}
+                          className="transition-colors after:absolute after:inset-0 after:rounded-xl after:content-[''] group-hover:text-accent-700"
+                        >
+                          {project.client}
+                        </Link>
                       </h3>
                       <p className="mt-2 text-[0.9375rem] leading-relaxed text-brand-600">
                         {project.scope}
                       </p>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 transition-colors group-hover:text-accent-700">
+                        View project
+                        <Icon
+                          name="arrowRight"
+                          className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                        />
+                      </span>
                     </div>
                   </Card>
                 </Reveal>

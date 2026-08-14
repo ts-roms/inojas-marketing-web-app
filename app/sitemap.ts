@@ -1,8 +1,12 @@
 import type { MetadataRoute } from "next";
+import { vendorProjects } from "@/data/company";
+import { equipment } from "@/data/products";
 import { site } from "@/data/site";
 
-/** Static route map. Add new pages here when they are created. */
-const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+type Frequency = MetadataRoute.Sitemap[number]["changeFrequency"];
+
+/** Static routes. Add new top-level pages here when they are created. */
+const staticRoutes: { path: string; priority: number; changeFrequency: Frequency }[] = [
   { path: "/", priority: 1, changeFrequency: "monthly" },
   { path: "/about", priority: 0.8, changeFrequency: "yearly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
@@ -16,10 +20,28 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map((route) => ({
+  const staticEntries = staticRoutes.map((route) => ({
     url: `${site.url}${route.path}`,
     lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+
+  // Detail pages are generated from the same data as the pages themselves, so
+  // the sitemap can never fall behind the catalogue.
+  const equipmentEntries = equipment.map((item) => ({
+    url: `${site.url}/equipment/${item.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const projectEntries = vendorProjects.map((project) => ({
+    url: `${site.url}/projects/${project.id}`,
+    lastModified,
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...equipmentEntries, ...projectEntries];
 }

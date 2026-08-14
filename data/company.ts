@@ -216,63 +216,185 @@ export const clients: Client[] = [
 
 /**
  * Vendor projects completed to date, as listed in the company profile.
- * Wording follows the profile's own descriptions.
+ *
+ * `client` and `scope` follow the profile's own descriptions verbatim in
+ * substance. `services` and `equipment` are cross-references into
+ * data/services.ts and data/products.ts, derived from the scope wording — they
+ * add navigation, not new claims. `id` is the detail page route.
+ *
+ * Note: the profile does not attribute individual photographs to individual
+ * clients, so detail pages never claim a photo is from that job.
  */
-export type VendorProject = { client: string; scope: string };
+export type VendorProject = {
+  /** Stable slug — also the detail page route: /projects/<id>. */
+  id: string;
+  client: string;
+  scope: string;
+  /** Disciplines involved, used for related-work links. */
+  disciplines: ProjectPhoto["discipline"][];
+  /** Service ids from data/services.ts. */
+  services: string[];
+  /** Equipment ids from data/products.ts. */
+  equipment: string[];
+};
 
 export const vendorProjects: VendorProject[] = [
-  { client: "Canlubang Golf and Country Club", scope: "Walk-in freezer repair and installation." },
   {
+    id: "canlubang-golf-and-country-club",
+    client: "Canlubang Golf and Country Club",
+    scope: "Walk-in freezer repair and installation.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning", "installation-maintenance"],
+    equipment: ["hvac-refrigeration-chiller"],
+  },
+  {
+    id: "atkins-import-export",
     client: "ATKINS Import Export",
     scope:
       "Various hydraulic repairs for forklift, hand pallet truck and dock leveller, plus storage facility fan repair.",
+    disciplines: ["hydraulics", "cooling"],
+    services: ["hydraulic-equipment-repair", "installation-maintenance"],
+    equipment: ["electric-forklift", "hand-pallet-truck", "diesel-gas-forklift"],
   },
   {
+    id: "varex-imaging",
     client: "VAREX Imaging",
     scope: "Transfer of cooling system — condenser and compressor — as subcontractor.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning", "installation-maintenance"],
+    equipment: ["hvac-refrigeration-chiller"],
   },
   {
+    id: "acbel-philippines",
     client: "AcBel Philippines",
     scope: "Forklift and hand pallet truck repairs as subcontractor; company logo fabrication.",
+    disciplines: ["hydraulics", "fabrication"],
+    services: ["hydraulic-equipment-repair", "fabrication-doors"],
+    equipment: ["electric-forklift", "hand-pallet-truck"],
   },
   {
+    id: "universal-robina",
     client: "Universal Robina Corporation",
     scope: "Compressor conversion and technical support as subcontractor.",
+    disciplines: ["cooling", "motors"],
+    services: ["refrigeration-airconditioning", "motor-rewinding"],
+    equipment: ["hvac-refrigeration-chiller"],
   },
   {
+    id: "ninja-van-philippines",
     client: "Ninja Van Philippines",
     scope: "Quarterly preventive maintenance for dock leveller and mechanical roll-up doors.",
+    disciplines: ["hydraulics", "fabrication"],
+    services: ["installation-maintenance", "fabrication-doors"],
+    equipment: [],
   },
   {
+    id: "san-miguel-corporation",
     client: "San Miguel Corporation",
     scope: "Various repairs and maintenance for forklifts and hand pallet trucks.",
+    disciplines: ["hydraulics"],
+    services: ["hydraulic-equipment-repair", "installation-maintenance"],
+    equipment: ["diesel-gas-forklift", "electric-forklift", "hand-pallet-truck"],
   },
   {
+    id: "interphil-laboratories",
     client: "Interphil Laboratories Inc.",
     scope: "ACU installations and preventive maintenance.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning", "installation-maintenance"],
+    equipment: ["hvac-refrigeration-chiller"],
   },
-  { client: "Blue Macay Food Corporation", scope: "Hand pallet truck repairs." },
-  { client: "The Country Club", scope: "ACU maintenance and installations." },
   {
+    id: "blue-macay-food-corporation",
+    client: "Blue Macay Food Corporation",
+    scope: "Hand pallet truck repairs.",
+    disciplines: ["hydraulics"],
+    services: ["hydraulic-equipment-repair"],
+    equipment: ["hand-pallet-truck"],
+  },
+  {
+    id: "the-country-club",
+    client: "The Country Club",
+    scope: "ACU maintenance and installations.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning", "installation-maintenance"],
+    equipment: ["hvac-refrigeration-chiller"],
+  },
+  {
+    id: "crestec-philippines",
     client: "Crestec Philippines Inc.",
     scope:
       "Various fabrication and minor construction repairs, including hand pallet truck and forklift repair and maintenance.",
+    disciplines: ["fabrication", "hydraulics"],
+    services: ["fabrication-doors", "hydraulic-equipment-repair"],
+    equipment: ["hand-pallet-truck", "electric-forklift"],
   },
   {
+    id: "samsof-technologies",
     client: "Samsof Technologies Inc.",
     scope: "Overall fix and rehabilitation of mechanical parts of hand pallet trucks.",
+    disciplines: ["hydraulics"],
+    services: ["hydraulic-equipment-repair", "parts-supply"],
+    equipment: ["hand-pallet-truck", "polyurethane-wheel"],
   },
-  { client: "Kerry Logistikus Philippines", scope: "Repair of ACU and freezers." },
-  { client: "Pioneer Adhesive Incorporated", scope: "Hand pallet truck repair and maintenance." },
   {
+    id: "kerry-logistikus-philippines",
+    client: "Kerry Logistikus Philippines",
+    scope: "Repair of ACU and freezers.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning"],
+    equipment: ["hvac-refrigeration-chiller"],
+  },
+  {
+    id: "pioneer-adhesive",
+    client: "Pioneer Adhesive Incorporated",
+    scope: "Hand pallet truck repair and maintenance.",
+    disciplines: ["hydraulics"],
+    services: ["hydraulic-equipment-repair", "installation-maintenance"],
+    equipment: ["hand-pallet-truck"],
+  },
+  {
+    id: "san-sebastian-college-recoletos",
     client: "San Sebastian College – Recoletos, Canlubang",
     scope: "ACU supply and installation.",
+    disciplines: ["cooling"],
+    services: ["refrigeration-airconditioning", "installation-maintenance"],
+    equipment: ["hvac-refrigeration-chiller"],
   },
   {
+    id: "vl-dj-metal-fabrication",
     client: "VL&DJ Metal Fabrication and Construction Corporation",
     scope: "Forklift repair including maintenance.",
+    disciplines: ["hydraulics"],
+    services: ["hydraulic-equipment-repair", "installation-maintenance"],
+    equipment: ["diesel-gas-forklift", "electric-forklift"],
   },
 ];
+
+export function getVendorProject(id: string): VendorProject | undefined {
+  return vendorProjects.find((project) => project.id === id);
+}
+
+/** Other projects sharing a discipline, for the detail page footer. */
+export function relatedVendorProjects(project: VendorProject, limit = 3): VendorProject[] {
+  return vendorProjects
+    .filter(
+      (other) =>
+        other.id !== project.id &&
+        other.disciplines.some((discipline) => project.disciplines.includes(discipline)),
+    )
+    .slice(0, limit);
+}
+
+/** Photographs of the same kind of work — never presented as this client's job. */
+export function photosForDisciplines(
+  disciplines: ProjectPhoto["discipline"][],
+  limit = 3,
+): ProjectPhoto[] {
+  return projectPhotos
+    .filter((photo) => disciplines.includes(photo.discipline))
+    .slice(0, limit);
+}
 
 /**
  * Completed work photographed in the company profile. Captions describe what

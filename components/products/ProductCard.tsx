@@ -53,7 +53,16 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </p>
         ) : null}
 
-        <h3 className="mt-2.5 text-h3 text-brand-900">{product.name}</h3>
+        <h3 className="mt-2.5 text-h3 text-brand-900">
+          {/* Stretched link: the whole card is clickable, but there is still
+              exactly one focusable link per card for keyboard users. */}
+          <Link
+            href={`/equipment/${product.id}`}
+            className="transition-colors after:absolute after:inset-0 after:rounded-xl after:content-[''] group-hover:text-accent-700"
+          >
+            {product.name}
+          </Link>
+        </h3>
 
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-brand-600">
           {product.description}
@@ -75,17 +84,13 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </ul>
         </div>
 
-        <Link
-          href={`/contact?subject=${encodeURIComponent(`Enquiry: ${product.name}`)}`}
-          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-800 transition-colors hover:text-accent-700"
-        >
-          Request a quotation
+        <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand-800 transition-colors group-hover:text-accent-700">
+          View details
           <Icon
             name="arrowRight"
             className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
           />
-          <span className="sr-only">— {product.name}</span>
-        </Link>
+        </span>
       </div>
     </Card>
   );

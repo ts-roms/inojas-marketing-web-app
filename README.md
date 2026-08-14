@@ -33,15 +33,28 @@ The site runs at <http://localhost:3000>.
 
 ## Pages
 
-| Route        | Contents                                                                |
-| ------------ | ----------------------------------------------------------------------- |
-| `/`          | Hero, about, services, strengths, equipment, project photos, clients, process, permits, figures, CTA |
-| `/about`     | Company profile, philosophy, mission, vision, story, values, permits, figures |
-| `/services`  | Seven service lines in detail, with the four-step process               |
-| `/equipment` | Eleven equipment lines, filterable by family                            |
-| `/projects`  | Photo gallery filterable by discipline, plus the vendor project record  |
-| `/contact`   | Shop details, hours, enquiry form, what happens next                    |
-| `/privacy`, `/terms` | Placeholder legal pages pending review                          |
+| Route               | Contents                                                          |
+| ------------------- | ----------------------------------------------------------------- |
+| `/`                 | Hero, about, services, strengths, equipment, project photos, clients, process, permits, figures, CTA |
+| `/about`            | Company profile, philosophy, mission, vision, story, values, permits, figures |
+| `/services`         | Seven service lines in detail, with the four-step process         |
+| `/equipment`        | Eleven equipment lines, filterable by family                      |
+| `/equipment/[slug]` | Detail page per equipment line — 11 pages, statically generated   |
+| `/projects`         | Photo gallery filterable by discipline, plus the vendor project record |
+| `/projects/[slug]`  | Detail page per vendor project — 16 pages, statically generated   |
+| `/contact`          | Shop details, hours, enquiry form, what happens next              |
+| `/privacy`, `/terms` | Placeholder legal pages pending review                           |
+
+Detail pages are generated from `data/products.ts` and `data/company.ts` via
+`generateStaticParams`, so adding a record creates its page, its breadcrumb, its
+metadata and its sitemap entry with no further work. Each carries
+`BreadcrumbList` structured data, and equipment pages also carry `Service`
+schema (repair work on the customer's equipment — not a priced retail product).
+
+**Honesty note on project pages.** The company profile does not attribute
+individual photographs to individual clients, so a project page never claims a
+photo is from that job. The photo section is labelled "work of this type" and
+says so in the copy.
 
 ---
 
@@ -102,14 +115,18 @@ Content is data-driven, so copy changes rarely require touching a layout.
 ```ts
 // data/products.ts
 {
-  id: "new-line",                 // also the deep-link anchor: /equipment#new-line
+  id: "new-line",                 // also the detail page route: /equipment/new-line
   name: "Equipment name",
   category: "material-handling",  // must match a productCategories entry
-  description: "What we do with it.",
-  offerings: ["Repair services", "Brand new"],
+  description: "What we do with it.",           // card + meta description
+  detail: "Opening paragraph for the detail page.",
+  workScope: ["What the work usually involves", "…"],
+  offerings: ["Repair services", "Brand new"],  // company's own wording
+  relatedServices: ["hydraulic-equipment-repair"],  // ids from data/services.ts
   icon: "forklift",
   image: "/images/projects/photo.jpg",  // optional — an icon tile is used if omitted
   imageAlt: "Describe what the photo shows.",
+  gallery: [{ src: "/images/projects/other.jpg", alt: "…" }],  // optional
   featured: true,                 // optional: promote to the home page
 }
 ```
