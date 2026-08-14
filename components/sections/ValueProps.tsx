@@ -5,12 +5,19 @@ import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { valueProps } from "@/data/company";
 
 /** "Why choose us" — four differentiators, phrased as commitments. */
 export function ValueProps() {
   return (
-    <Section tone="canvas" ariaLabelledby="value-props-heading">
+    <Section
+      tone="canvas"
+      ariaLabelledby="value-props-heading"
+      className="isolate overflow-hidden"
+    >
+      <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
       <Container>
         <SectionHeading
           id="value-props-heading"

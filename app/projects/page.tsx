@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { vendorProjects } from "@/data/company";
 import { fill, t } from "@/lib/i18n";
 import { site, textVars } from "@/data/site";
@@ -69,7 +70,13 @@ export default function ProjectsPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Vendor project record                                            */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="canvas" ariaLabelledby="record-heading">
+      <Section
+        tone="canvas"
+        ariaLabelledby="record-heading"
+        className="isolate overflow-hidden"
+      >
+        <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
         <Container>
           <SectionHeading
             id="record-heading"

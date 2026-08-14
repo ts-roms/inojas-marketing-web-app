@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StatsBand } from "@/components/sections/StatsBand";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { fill, t } from "@/lib/i18n";
 import { mission } from "@/data/company";
 import { textVars } from "@/data/site";
@@ -12,7 +13,13 @@ import { textVars } from "@/data/site";
 /** Short "about us" block on the home page, leading into the About page. */
 export function AboutPreview() {
   return (
-    <Section tone="muted" ariaLabelledby="about-preview-heading">
+    <Section
+      tone="muted"
+      ariaLabelledby="about-preview-heading"
+      className="isolate overflow-hidden"
+    >
+      <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">

@@ -297,7 +297,13 @@ export default async function ServiceDetailPage({ params }: Params) {
       {/* Other services                                                   */}
       {/* ---------------------------------------------------------------- */}
       {others.length > 0 ? (
-        <Section tone="canvas" ariaLabelledby="others-heading">
+        <Section
+          tone="canvas"
+          ariaLabelledby="others-heading"
+          className="isolate overflow-hidden"
+        >
+        <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
           <Container>
             <SectionHeading
               id="others-heading"

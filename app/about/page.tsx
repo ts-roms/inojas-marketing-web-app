@@ -11,6 +11,7 @@ import { CtaBanner } from "@/components/sections/CtaBanner";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { ValueProps } from "@/components/sections/ValueProps";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import {
   coreValues,
   milestones,
@@ -216,7 +217,13 @@ export default function AboutPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Core values                                                      */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="canvas" ariaLabelledby="values-heading">
+      <Section
+        tone="canvas"
+        ariaLabelledby="values-heading"
+        className="isolate overflow-hidden"
+      >
+        <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
         <Container>
           <SectionHeading
             id="values-heading"

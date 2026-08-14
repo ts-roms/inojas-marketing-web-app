@@ -10,6 +10,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { services } from "@/data/services";
 import { fill, t } from "@/lib/i18n";
 import { site, textVars } from "@/data/site";
@@ -80,7 +81,13 @@ export default function ServicesPage() {
       {/* ---------------------------------------------------------------- */}
       {/* How we work                                                      */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="canvas" ariaLabelledby="approach-heading">
+      <Section
+        tone="canvas"
+        ariaLabelledby="approach-heading"
+        className="isolate overflow-hidden"
+      >
+        <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
         <Container>
           <SectionHeading
             id="approach-heading"

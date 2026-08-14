@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ProductGrid } from "@/components/products/ProductGrid";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { equipment, productCategories, type ProductCategoryId } from "@/data/products";
 import { fill, t } from "@/lib/i18n";
 import { site } from "@/data/site";
@@ -86,7 +87,13 @@ export default async function EquipmentPage({
       {/* ---------------------------------------------------------------- */}
       {/* How we supply                                                    */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="canvas" ariaLabelledby="supply-heading">
+      <Section
+        tone="canvas"
+        ariaLabelledby="supply-heading"
+        className="isolate overflow-hidden"
+      >
+        <LogoWatermark tone="light" className="size-[22rem] lg:size-[30rem]" />
+
         <Container>
           <SectionHeading
             id="supply-heading"

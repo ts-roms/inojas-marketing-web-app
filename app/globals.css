@@ -210,6 +210,20 @@
   mask-position: center;
 }
 
+/* The hexagon on its own, for light sections. The full badge carries two rings
+   of fine lettering that break into speckle at the low opacity a watermark on
+   white needs; the bare mark is clean geometry and survives it. */
+@utility logo-watermark-mark {
+  -webkit-mask-image: url("/images/brand/inojas-mark-mask.webp");
+  mask-image: url("/images/brand/inojas-mark-mask.webp");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
 /* Fine hairline grid used behind dark feature sections. */
 @utility grid-lines {
   background-image:
