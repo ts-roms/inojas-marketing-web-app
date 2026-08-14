@@ -45,6 +45,17 @@ The site runs at <http://localhost:3000>.
 | `/projects/[slug]`  | Detail page per vendor project — 16 pages, statically generated   |
 | `/contact`          | Shop details, hours, enquiry form, what happens next              |
 | `/privacy`, `/terms` | Placeholder legal pages pending review                           |
+| `/maintenance`      | Maintenance notice — also served site-wide by middleware, below   |
+
+Three status pages share one shell (`components/layout/StatusPage.tsx`), because
+each is a dead end for the visitor and all three should end with a phone number:
+
+| File                   | When it shows                                              |
+| ---------------------- | ---------------------------------------------------------- |
+| `app/not-found.tsx`    | 404 — unknown URL                                          |
+| `app/error.tsx`        | 500 — a page failed to render; keeps the header and footer, and offers a retry that re-renders without a reload |
+| `app/global-error.tsx` | The root layout itself failed; renders its own `<html>`, so it is deliberately minimal |
+| `app/maintenance/page.tsx` | Planned downtime                                       |
 
 Detail pages are generated from `data/services.ts`, `data/products.ts` and
 `data/company.ts` via `generateStaticParams`, so adding a record creates its
@@ -225,6 +236,26 @@ belong in environment variables — never in the repository.
 
 ---
 
+## Maintenance mode
+
+Set `MAINTENANCE_MODE=1` in the Vercel environment variables and every route
+serves the maintenance notice instead of the site. Set it back to `0` to
+restore. No code change and no branch.
+
+The response is **HTTP 503 with `Retry-After`**, not 200. That distinction
+matters: a maintenance page served as 200 tells search engines the page has
+*become* that notice, which is how sites lose their rankings during an outage.
+A 503 says "temporarily unavailable, come back".
+
+To keep viewing the real site while it is down for everyone else, set
+`MAINTENANCE_BYPASS_TOKEN` to a long random string and visit any URL with
+`?preview=<token>`. That sets an HTTP-only cookie good for 8 hours.
+
+The logic is in `middleware.ts`; its matcher lets Next's own assets and
+`/images`, `/locale` through, so the notice itself still renders styled.
+
+---
+
 ## Environment variables
 
 Copy `.env.example` to `.env.local` for local work, and set the same keys in the
@@ -235,6 +266,8 @@ Vercel project settings.
 | `NEXT_PUBLIC_SITE_URL`  | Yes      | Absolute base URL for canonicals, Open Graph, sitemap |
 | `CONTACT_WEBHOOK_URL`   | No       | Where validated contact submissions are forwarded     |
 | `CONTACT_WEBHOOK_TOKEN` | No       | Optional bearer token for that webhook                |
+| `MAINTENANCE_MODE`       | No       | `1` serves the maintenance notice on every route (503) |
+| `MAINTENANCE_BYPASS_TOKEN` | No     | `?preview=<token>` bypasses maintenance mode for you  |
 
 ---
 

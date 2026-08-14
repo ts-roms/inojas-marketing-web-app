@@ -1,12 +1,10 @@
 {
   "_readme": "Every piece of user-facing copy on the website lives in this file. Edit the text here and the site updates — no code changes. Structure (ids, icons, image paths, links, phone numbers) stays in data/*.ts because it does not change between languages. To add a language, copy this file to e.g. fil.json, translate the values, and register it in lib/i18n.ts. Missing keys fall back to English, so a partial translation is safe to ship.",
-
   "site": {
     "tagline": "Hydraulic repair • Fabrication • Maintenance • Supply",
     "description": "Inojas Hydraulic Repair Shop repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems across the Philippines.",
     "logoDescriptor": "Hydraulic"
   },
-
   "nav": {
     "mainLabel": "Main",
     "mobileLabel": "Mobile",
@@ -17,17 +15,40 @@
     "closeMenu": "Close menu",
     "skipToContent": "Skip to main content",
     "items": {
-      "home": { "label": "Home", "description": "What we repair and where" },
-      "about": { "label": "About Us", "description": "The shop, our philosophy and permits" },
-      "services": { "label": "Services", "description": "Hydraulics, cooling, motors, fabrication" },
-      "equipment": { "label": "Equipment", "description": "Forklifts, pallet trucks, HVAC and more" },
-      "projects": { "label": "Projects", "description": "Completed work and clients served" },
-      "contact": { "label": "Contact Us", "description": "Request a quotation" },
-      "privacy": { "label": "Privacy Policy", "description": "" },
-      "terms": { "label": "Terms of Service", "description": "" }
+      "home": {
+        "label": "Home",
+        "description": "What we repair and where"
+      },
+      "about": {
+        "label": "About Us",
+        "description": "The shop, our philosophy and permits"
+      },
+      "services": {
+        "label": "Services",
+        "description": "Hydraulics, cooling, motors, fabrication"
+      },
+      "equipment": {
+        "label": "Equipment",
+        "description": "Forklifts, pallet trucks, HVAC and more"
+      },
+      "projects": {
+        "label": "Projects",
+        "description": "Completed work and clients served"
+      },
+      "contact": {
+        "label": "Contact Us",
+        "description": "Request a quotation"
+      },
+      "privacy": {
+        "label": "Privacy Policy",
+        "description": ""
+      },
+      "terms": {
+        "label": "Terms of Service",
+        "description": ""
+      }
     }
   },
-
   "actions": {
     "requestQuotation": "Request a quotation",
     "requestSimilarWork": "Request similar work",
@@ -56,7 +77,6 @@
     "contactUs": "Contact us",
     "howAJobRuns": "How a job runs"
   },
-
   "labels": {
     "atAGlance": "At a glance",
     "whatYouGet": "What you get",
@@ -93,7 +113,6 @@
     "service": "Service",
     "vendorProject": "Vendor project"
   },
-
   "home": {
     "hero": {
       "eyebrow": "{city}, {region} · Est. {year}",
@@ -145,14 +164,12 @@
       ]
     }
   },
-
   "clients": {
     "eyebrow": "Our valued clients",
     "title": "Trusted by manufacturers, logistics hubs and facilities teams",
     "description": "A selection of the companies whose forklifts, pallet trucks, cooling systems and dock equipment we keep running.",
     "alsoServing": "Also serving {names}."
   },
-
   "process": {
     "eyebrow": "Our process",
     "title": "Four steps, from your first message to turnover",
@@ -176,22 +193,29 @@
       }
     }
   },
-
   "trust": {
     "eyebrow": "Registered and permitted",
     "title": "A properly registered shop, not a backyard operation",
     "description": "{company} holds the national and local registrations required to work on client sites. Copies of any of these documents can be provided with a quotation on request.",
     "documents": {
-      "dti": { "title": "DTI permit", "description": "Registered with the Department of Trade and Industry." },
-      "mayors": { "title": "Mayor's permit", "description": "Business permit issued by the local government unit." },
-      "dole": { "title": "DOLE permit", "description": "Registered with the Department of Labor and Employment." },
+      "dti": {
+        "title": "DTI permit",
+        "description": "Registered with the Department of Trade and Industry."
+      },
+      "mayors": {
+        "title": "Mayor's permit",
+        "description": "Business permit issued by the local government unit."
+      },
+      "dole": {
+        "title": "DOLE permit",
+        "description": "Registered with the Department of Labor and Employment."
+      },
       "registration": {
         "title": "Certificate of registration",
         "description": "Business registration certificate and registration plate on file."
       }
     }
   },
-
   "valueProps": {
     "skilled-technicians": {
       "title": "Skilled, trained technicians",
@@ -210,7 +234,6 @@
       "description": "Work is carried out wherever it costs you least downtime — at your facility, or brought into the {city} shop and returned when it is running."
     }
   },
-
   "company": {
     "philosophy": "Inojas Hydraulic Repair Shop strives to attain enduring contentment for both our clients and employees by establishing a resilient organisational framework that fosters significant global competitiveness and embraces new challenges while promoting teamwork to fulfil all expectations.",
     "mission": "Our goal is to ensure total customer satisfaction and deliver steady and enduring returns to our investors. To accomplish this mission, we consistently uphold the fundamental values that define our professional philosophy.",
@@ -295,7 +318,6 @@
       }
     }
   },
-
   "about": {
     "meta": {
       "title": "About us",
@@ -313,12 +335,30 @@
       "body2": "That breadth is the point. Warehouses and plants rarely fail in neat categories — a dock leveller that will not lift, a chiller that will not hold temperature, a forklift down on a Monday morning. Having hydraulics, cooling, electrical and fabrication skills in the same team means one call, one assessment and one team accountable for the outcome.",
       "philosophyLabel": "Our philosophy",
       "facts": {
-        "established": { "label": "Established", "value": "{year}" },
-        "foundedBy": { "label": "Founded by", "value": "Skilled and trained technicians and engineers" },
-        "basedIn": { "label": "Based in", "value": "{city}, {region}" },
-        "coverage": { "label": "Coverage", "value": "Client sites across the Philippines" },
-        "workCarriedOut": { "label": "Work carried out", "value": "On site or in the {city} workshop" },
-        "workshop": { "label": "Workshop", "value": "" }
+        "established": {
+          "label": "Established",
+          "value": "{year}"
+        },
+        "foundedBy": {
+          "label": "Founded by",
+          "value": "Skilled and trained technicians and engineers"
+        },
+        "basedIn": {
+          "label": "Based in",
+          "value": "{city}, {region}"
+        },
+        "coverage": {
+          "label": "Coverage",
+          "value": "Client sites across the Philippines"
+        },
+        "workCarriedOut": {
+          "label": "Work carried out",
+          "value": "On site or in the {city} workshop"
+        },
+        "workshop": {
+          "label": "Workshop",
+          "value": ""
+        }
       }
     },
     "missionVision": {
@@ -347,7 +387,6 @@
       "description": "We will assess it honestly and tell you whether it is worth repairing. If it is not, we will say so — and quote the replacement instead."
     }
   },
-
   "services": {
     "meta": {
       "title": "Services",
@@ -492,7 +531,6 @@
       }
     }
   },
-
   "equipment": {
     "meta": {
       "title": "Equipment",
@@ -589,7 +627,11 @@
           "Compressor and condenser repair, transfer or replacement",
           "Commissioning and handover once temperatures hold"
         ],
-        "offerings": ["Brand new", "Repair services", "Reconditioned unit"],
+        "offerings": [
+          "Brand new",
+          "Repair services",
+          "Reconditioned unit"
+        ],
         "imageAlt": "Two outdoor condensing units installed on a concrete plinth during an Inojas air-conditioning project"
       },
       "hand-pallet-truck": {
@@ -602,7 +644,11 @@
           "Load and steer wheel replacement",
           "Fork and frame straightening where the geometry allows"
         ],
-        "offerings": ["Brand new", "Repair services", "Reconditioned unit"],
+        "offerings": [
+          "Brand new",
+          "Repair services",
+          "Reconditioned unit"
+        ],
         "imageAlt": "Hydraulic seal kit and components laid out on a workbench during a pallet truck rebuild"
       },
       "electric-forklift": {
@@ -615,7 +661,11 @@
           "Traction and control fault diagnosis",
           "Battery and charging system checks"
         ],
-        "offerings": ["Repair services", "Parts", "General rehabilitation"],
+        "offerings": [
+          "Repair services",
+          "Parts",
+          "General rehabilitation"
+        ],
         "imageAlt": "Forklift with its mast raised undergoing repair in the service yard"
       },
       "diesel-gas-forklift": {
@@ -628,7 +678,11 @@
           "Transmission and running gear repair",
           "General rehabilitation with parts supplied"
         ],
-        "offerings": ["Repair services", "Parts", "General rehabilitation"],
+        "offerings": [
+          "Repair services",
+          "Parts",
+          "General rehabilitation"
+        ],
         "imageAlt": "Yellow diesel forklift undergoing general rehabilitation outdoors"
       },
       "electrical-manual-stacker": {
@@ -641,7 +695,10 @@
           "General re-plating of frame and mast",
           "Wheel and castor replacement"
         ],
-        "offerings": ["Brand new", "General re-plating"],
+        "offerings": [
+          "Brand new",
+          "General re-plating"
+        ],
         "imageAlt": "Manual stacker with a red mast being repaired inside a client's facility"
       },
       "jack-crocodile-jack": {
@@ -654,7 +711,10 @@
           "Pump and release valve repair",
           "Load test before release"
         ],
-        "offerings": ["Repair services", "Brand new"],
+        "offerings": [
+          "Repair services",
+          "Brand new"
+        ],
         "imageAlt": "Hydraulic cylinder assembly removed for reseal and inspection"
       },
       "hydraulic-press": {
@@ -667,7 +727,10 @@
           "Fabrication of obsolete components",
           "Hose and fitting replacement"
         ],
-        "offerings": ["Repair services", "Fabrication"],
+        "offerings": [
+          "Repair services",
+          "Fabrication"
+        ],
         "imageAlt": "Large hydraulic cylinder on the workshop floor awaiting repair"
       },
       "grinding-machine": {
@@ -680,7 +743,10 @@
           "Calibration after repair",
           "Guard and safety fitting checks"
         ],
-        "offerings": ["Repair services", "Calibration"],
+        "offerings": [
+          "Repair services",
+          "Calibration"
+        ],
         "imageAlt": ""
       },
       "industrial-battery": {
@@ -693,7 +759,10 @@
           "Terminal and cable replacement",
           "Supply of new traction batteries"
         ],
-        "offerings": ["Brand new", "Repair services"],
+        "offerings": [
+          "Brand new",
+          "Repair services"
+        ],
         "imageAlt": ""
       },
       "battery-charger": {
@@ -706,7 +775,10 @@
           "Enclosure and mount fabrication",
           "Cable and connector replacement"
         ],
-        "offerings": ["Repair services", "Fabrication"],
+        "offerings": [
+          "Repair services",
+          "Fabrication"
+        ],
         "imageAlt": ""
       },
       "polyurethane-wheel": {
@@ -719,12 +791,14 @@
           "Bearing replacement",
           "Supply of new wheels where the hub is beyond use"
         ],
-        "offerings": ["Brand new", "Rebounding"],
+        "offerings": [
+          "Brand new",
+          "Rebounding"
+        ],
         "imageAlt": ""
       }
     }
   },
-
   "projects": {
     "meta": {
       "title": "Projects",
@@ -930,7 +1004,6 @@
       }
     }
   },
-
   "contact": {
     "meta": {
       "title": "Contact us",
@@ -942,9 +1015,18 @@
     },
     "sectionLabel": "Contact details and enquiry form",
     "hours": [
-      { "days": "Monday – Friday", "time": "8:00 AM – 5:00 PM" },
-      { "days": "Saturday", "time": "8:00 AM – 12:00 NN" },
-      { "days": "Sunday", "time": "Closed" }
+      {
+        "days": "Monday – Friday",
+        "time": "8:00 AM – 5:00 PM"
+      },
+      {
+        "days": "Saturday",
+        "time": "8:00 AM – 12:00 NN"
+      },
+      {
+        "days": "Sunday",
+        "time": "Closed"
+      }
     ],
     "hoursNote": "Opening hours to be confirmed by the client before launch.",
     "emergencyNote": "For urgent breakdowns, call or message the mobile number and our team will advise the soonest available schedule.",
@@ -961,17 +1043,27 @@
       "body": "Everything else on this page comes from your company profile — update any of it in data/site.ts, and all wording in public/locale/en.json."
     }
   },
-
   "form": {
     "requiredNote": "Fields marked * are required.",
     "requiredSuffix": "(required)",
     "asteriskNote": "with an asterisk",
     "optional": "Optional",
     "fields": {
-      "name": { "label": "Full name", "placeholder": "Juan dela Cruz" },
-      "email": { "label": "Email address", "placeholder": "juan@company.com.ph" },
-      "phone": { "label": "Phone number" },
-      "subject": { "label": "Subject", "placeholder": "Forklift hydraulic leak — Calamba warehouse" },
+      "name": {
+        "label": "Full name",
+        "placeholder": "Juan dela Cruz"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "juan@company.com.ph"
+      },
+      "phone": {
+        "label": "Phone number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Forklift hydraulic leak — Calamba warehouse"
+      },
       "message": {
         "label": "Message",
         "placeholder": "Tell us the equipment and brand, what it is doing (or not doing), and where it is located."
@@ -1007,7 +1099,6 @@
       "fallback": "Please email {email} or call {phone} instead."
     }
   },
-
   "footer": {
     "companyHeading": "Company",
     "servicesHeading": "Services",
@@ -1018,7 +1109,6 @@
     "copyright": "© {from}–{to} {legalName}. All rights reserved.",
     "socialLabel": "{company} on {network}"
   },
-
   "legal": {
     "notice": {
       "label": "Placeholder document.",
@@ -1105,7 +1195,6 @@
       ]
     }
   },
-
   "notFound": {
     "metaTitle": "Page not found",
     "metaDescription": "The page you were looking for does not exist or has moved.",
@@ -1115,10 +1204,31 @@
     "sectionsLabel": "Site sections",
     "tryThese": "Or try one of these"
   },
-
   "cta": {
     "eyebrow": "Next step",
     "title": "Tell us what has stopped working",
     "description": "Send the unit, the fault and the site. We will come back with a quotation — and if an inspection is needed first, we will say so before quoting."
+  },
+  "error": {
+    "metaTitle": "Something went wrong",
+    "eyebrow": "Error 500",
+    "title": "Something went wrong at our end",
+    "description": "This page failed to load. It is a fault on our side, not yours. Try again — and if it keeps happening, call or email us and we will sort it out.",
+    "retry": "Try again",
+    "reference": "Reference:",
+    "contactNote": "Need something urgently? Call {phone} or email {email}."
+  },
+  "globalError": {
+    "title": "Something went wrong",
+    "description": "The site failed to load. Please try again, or contact us directly at {phone}.",
+    "retry": "Try again"
+  },
+  "maintenance": {
+    "metaTitle": "Down for maintenance",
+    "eyebrow": "Scheduled maintenance",
+    "title": "We are working on the website",
+    "description": "The site is briefly offline while we make some updates. The workshop is open as usual — call or message us and we will help you straight away.",
+    "backSoon": "Please check back shortly.",
+    "contactHeading": "Reach us in the meantime"
   }
 }
