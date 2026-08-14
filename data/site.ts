@@ -16,6 +16,29 @@ export type SocialLink = {
   icon: "facebook" | "linkedin" | "youtube";
 };
 
+/**
+ * Resolves the absolute base URL used for canonical tags, Open Graph URLs,
+ * sitemap.xml and robots.txt.
+ *
+ * Order of preference:
+ *   1. NEXT_PUBLIC_SITE_URL — set this once a custom domain is live.
+ *   2. VERCEL_PROJECT_PRODUCTION_URL — supplied automatically by Vercel and
+ *      set to the project's production domain, so a deployment is never
+ *      advertising a domain that does not exist.
+ *   3. The placeholder below, used only for local development.
+ */
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/+$/, "");
+
+  const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercelDomain) {
+    return `https://${vercelDomain.replace(/^https?:\/\//, "").replace(/\/+$/, "")}`;
+  }
+
+  return "https://www.inojashydraulic.com";
+}
+
 export const site = {
   name: "Inojas Hydraulic Repair Shop",
   /** Short form used in the logo lockup and tight layouts. */
@@ -27,12 +50,8 @@ export const site = {
   /** Default meta description; ~155 characters. */
   description:
     "Inojas Hydraulic Repair Shop repairs, supplies and installs forklifts, hand pallet trucks, hydraulic equipment, refrigeration and air-conditioning systems across the Philippines.",
-  /**
-   * Absolute base URL. Set NEXT_PUBLIC_SITE_URL in Vercel so canonical URLs,
-   * Open Graph tags, robots.txt and sitemap.xml resolve correctly.
-   * TO CONFIRM: the production domain.
-   */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.inojashydraulic.com",
+  /** Absolute base URL — see resolveSiteUrl() above. */
+  url: resolveSiteUrl(),
   /** Year the company was established, per the company profile. */
   foundedYear: 2022,
 
