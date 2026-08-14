@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { fill, t } from "@/lib/i18n";
 import { Icon, SocialIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/navigation/Logo";
+import { LogoWatermark } from "@/components/visuals/LogoWatermark";
 import { legalNav, mainNav } from "@/data/navigation";
 import { productCategories } from "@/data/products";
 import { services } from "@/data/services";
@@ -13,7 +14,9 @@ const currentYear = new Date().getFullYear();
 /** Site-wide footer: company summary, three link columns, contact block. */
 export function Footer() {
   return (
-    <footer className="on-dark bg-brand-950 text-brand-200">
+    <footer className="on-dark relative isolate overflow-hidden bg-brand-950 text-brand-200">
+      <LogoWatermark className="-z-10 size-[26rem] lg:size-[34rem]" />
+
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Company summary */}

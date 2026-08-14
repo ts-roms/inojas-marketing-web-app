@@ -20,7 +20,7 @@ export function TrustSection() {
   return (
     <Section tone="brand" ariaLabelledby="trust-heading" className="overflow-hidden">
       <div aria-hidden="true" className="grid-lines absolute inset-0 opacity-30" />
-      <LogoWatermark className="-left-24 top-1/2 size-[30rem] -translate-y-1/2" />
+      <LogoWatermark className="size-[30rem] lg:size-[38rem]" />
 
       <Container className="relative">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">

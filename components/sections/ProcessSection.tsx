@@ -12,7 +12,7 @@ export function ProcessSection() {
   return (
     <Section tone="dark" ariaLabelledby="process-heading" className="overflow-hidden">
       <div aria-hidden="true" className="grid-lines absolute inset-0 opacity-25" />
-      <LogoWatermark className="-right-24 top-1/2 size-[28rem] -translate-y-1/2" />
+      <LogoWatermark className="size-[28rem] lg:size-[36rem]" />
       <Container className="relative">
         <SectionHeading
           id="process-heading"

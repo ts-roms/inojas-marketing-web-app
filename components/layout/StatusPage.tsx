@@ -30,7 +30,7 @@ export function StatusPage({ eyebrow, title, description, actions, children }: S
         className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_80%_0%,rgba(15,95,209,0.18),transparent_65%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
-      <LogoWatermark className="-z-10 -right-24 -top-16 size-[28rem] lg:right-[-4rem] lg:size-[36rem]" />
+      <LogoWatermark className="-z-10 size-[26rem] lg:size-[34rem]" />
 
       <Container className="py-20 lg:py-28">
         <div className="max-w-2xl">

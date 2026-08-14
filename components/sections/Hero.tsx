@@ -21,7 +21,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,rgba(15,95,209,0.22),transparent_60%)]"
       />
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-40" />
-      <LogoWatermark className="-z-10 -right-24 -top-16 size-136 sm:-right-16 lg:right-24 lg:size-168" />
+      <LogoWatermark className="-z-10 size-[34rem] sm:size-[42rem] lg:size-[52rem]" />
 
       <Container className="py-20 sm:py-24 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">

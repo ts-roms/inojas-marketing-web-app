@@ -86,7 +86,7 @@ export default async function ServiceDetailPage({ params }: Params) {
           className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_28rem_at_85%_0%,rgba(15,95,209,0.18),transparent_65%)]"
         />
         <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-30" />
-        <LogoWatermark className="-z-10 -right-20 -top-12 size-[26rem] lg:right-[-4rem] lg:size-[32rem]" />
+        <LogoWatermark className="-z-10 size-[26rem] lg:size-[34rem]" />
 
         <Container className="py-10 sm:py-12 lg:py-16">
           <Breadcrumbs

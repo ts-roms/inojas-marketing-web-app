@@ -34,7 +34,7 @@ export function CtaBanner({
             className="absolute inset-0 -z-10 bg-[radial-gradient(40rem_24rem_at_88%_10%,rgba(15,95,209,0.24),transparent_60%)]"
           />
           <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10 opacity-25" />
-          <LogoWatermark className="-z-10 -right-16 -top-20 size-[24rem] sm:size-[30rem]" />
+          <LogoWatermark className="-z-10 size-[22rem] sm:size-[30rem]" />
 
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">

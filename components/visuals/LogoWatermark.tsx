@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 type LogoWatermarkProps = {
   /** `dark` tints the mark white for navy sections; `light` tints it navy. */
   tone?: "dark" | "light";
-  /** Extra positioning/sizing classes. */
+  /** Sizing classes. Positioning is handled here — the mark is always centred. */
   className?: string;
 };
 
@@ -21,7 +21,11 @@ export function LogoWatermark({ tone = "dark", className }: LogoWatermarkProps) 
     <div
       aria-hidden="true"
       className={cn(
-        "logo-watermark pointer-events-none absolute select-none",
+        // Anchored to the right edge and vertically centred in its section, at
+        // every width. Previously it was pushed past the edge with negative
+        // offsets, so on wide screens the mark was cut in half.
+        "logo-watermark pointer-events-none absolute right-0 top-1/2 select-none",
+        "-translate-y-1/2",
         tone === "dark" ? "bg-white/4.5" : "bg-brand-900/[0.035]",
         className,
       )}
